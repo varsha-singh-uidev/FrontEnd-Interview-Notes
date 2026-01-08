@@ -99,3 +99,66 @@ Ans = <script>
       Behavior: Scripts load in the background but waits untill the Html is fully parsed.
       Effect: Script runs after the page is ready.
 
+10. Difference between <link> and @import for CSS?
+Ans = (Link)
+      where is used: It is used inside the Html.
+      Deffination: It is an Html tag that is used to include the external CSS file.
+      Behaviour: It loads CSS file while the page loads(faster).
+      Support: It is widely supported.
+      Best for: Modern Website.
+
+      (@import)
+      where is used: It is used inside the CSS file.
+      Deffination: A CSS rule used inside the stylesheet to import another CSS file.
+      Behavior: CSS loads after the page loads(slower).
+      Support: It is less Supported.
+      Best for: Rarely used today.
+
+11. What are meta tags in HTML?
+Ans = Meta tag in the html gave the metadata about the page. They describe the character encoding, 
+      viewport setting, page description and author of the page. Always placed in the <head> element.
+      Not visible to user, but important for the SEO, accessiblity, and browser behaviour.
+
+12. Difference between <canvas> and <svg>?
+Ans = (Canvas):
+      i) Canvas is pixels based. zooming can make it blurry.
+      ii) Shapes are not stored as an element.
+      iii) Better for the things that change a lot like gaming or animation.
+      iv) Not scalable
+
+      (svg):
+      i) Svg is vector-based. zooming keeps it sharp.
+      ii) Each Shape is an  element in the DOM.
+      iii)Better for the static graphics like icons, diagram etc.
+      iv) Scalable - Show good at any size.
+
+13. Difference between localStorage, sessionStorage, and cookies?
+Ans = localStorage
+      Definition: Stores data in the browser permanently (until manually cleared).
+      Lifetime: Data stays even after closing the browser or restarting the computer.
+      Size limit: Around 5–10 MB (much larger than cookies).
+      Use case: Saving user preferences, themes, or app state.
+
+      sessionStorage
+      Definition: Stores data only for the current browser tab/session.
+      Lifetime: Data is lost when the tab or browser is closed.
+      Size limit: Similar to localStorage (~5 MB).
+      Use case: Temporary data like form inputs or session‑specific state.
+
+      Cookies
+      Definition: Small pieces of data stored in the browser and sent to the server with every request.
+      Lifetime: Can be temporary (session cookies) or persistent (with an expiry date).
+      Size limit: Much smaller (~4 KB).
+      Use case: Authentication, tracking, server communication.
+
+14. What are accessibility (ARIA) attributes? Why important?
+Ans = ARIA(Accessible Rich Internet Application) attribute are the extra html attribute that make the   
+      website usable for the peaple with disablity. They provide the information to the technologies 
+      like (screen readers) about the roles, states and relationships of elements.
+      Example = <button aria-label="Button">Click</button>
+
+15. Difference between <section>, <article>, <aside>, and <main>?
+Ans = <main>: The main content of the page, Only one <main> per page. 
+      <section>: A part of the page that groups the related content.
+      <article>: A block of content that can stand alone.
+      <aside>: Extra content on the side.
