@@ -1,0 +1,101 @@
+## Most Frequently Asked Frontend Interview Question ##
+
+## HTML ##
+1. What are semantic HTML elements? Give examples.
+Ans = Semantic elements clearly describe their meaning and purpose to both the browser and developers(<header>, <footer> etc).
+      They improve: Accessibility, SEO, Code readability.
+
+2. Difference between block, inline, and inline-block elements?
+Ans = Block: Takes full width, starts on a new line. Example: <div>, <p>.
+      Inline: Fits only the content, doesn’t start a new line. Example: <span>, <a>.
+      Inline-block: Behaves like inline but allows setting width/height. Example: <img>.
+
+3. What is the difference between <div> and <span>?
+Ans = <div>: Block-level, starts from the new line, used to group larger sections of content.
+      <span>: Inline-level, doesn't start from the new line, used to style or mark small parts of text.
+
+4. What are HTML5 new features?
+Ans = Key additions:
+      Semantic elements: <header>, <footer>, <article>
+      Multimedia: <audio>, <video>
+      Graphics: <canvas>, <svg>
+      APIs: Geolocation, Drag & Drop, Web Storage
+      Form enhancements: email, date, required, placeholder.
+
+5. Difference between HTML and XHTML?
+Ans = HTML (HyperText Markup Language)
+      Introduced: 1991 by Tim Berners‑Lee.
+      Flexible rules: Browsers forgive small mistakes (like unclosed tags).
+      Case-insensitive: Tags can be uppercase or lowercase.
+      Attributes: Quotes around attribute values are optional.
+      Goal: Easy to write, more forgiving for developers.
+
+<!-- Valid in HTML -->
+<p>Hello World
+<br>
+
+    XHTML (Extensible HyperText Markup Language)
+    Introduced: January 26, 2000 (XHTML 1.0 by W3C).
+    Strict rules: Must follow XML syntax.
+    Case-sensitive: Tags must be lowercase.
+    Well-formed: Every tag must be properly closed (<br /> instead of <br>).
+    Attributes: Values must always be quoted.
+    Goal: Cleaner, consistent code and well‑formed documents.
+
+<!-- Required in XHTML -->
+<p>Hello World</p>
+<br />
+
+6. Difference between id and class?
+Ans = (id)
+      Unique identifier for a single element.
+      Can’t be reused on multiple elements in the same page.
+      Used when you want to target one specific element.
+      Higher CSS priority.
+      Example: <h1 id="main-title">Welcome</h1>
+
+      (class)
+      Can be applied to multiple elements.
+      Useful for grouping and styling many elements together.
+      Often used with CSS and JavaScript for shared behavior.
+      Lower CSS priority.
+      Example: <p class="highlight">First paragraph</p>
+
+7. Difference between relative, absolute, and fixed URLs?
+Ans = Relative URL
+      Definition: Points to a file relative to the current page’s location.
+      Use: Shorter, depends on where the file is stored.
+      Example: If your page is in a folder, and the image is in the same folder, you just say: <img src="logo.png">
+
+      Absolute URL
+      Definition: Full path including domain name.
+      Use: Always points to the same resource, no matter where the page is.
+      Example: This is the full address of something on the internet. <img src="https://example.com/images/logo.png">
+
+      Fixed URL
+      Definition: A fixed URL is a link that always points to the same place on a website, no matter where the page is.
+      Use: Tied to a specific location, less flexible.
+      Example: Starts from the root (home) of the website. <img src="/images/logo.png">
+
+8. What are data-* attributes used for?
+Ans = Definition: data-* attributes are custom attributes in HTML used to store extra information about an element without
+      affecting the layout and behavior.
+      Purpose: They let developers add small bits of data to HTML elements, which can later be accessed with JavaScript.
+
+      Example: <button data-user-id="123">Click</button>
+               const btn = document.querySelector("button");
+               console.log(btn.dataset.userId);
+
+9. Difference between <script>, <script async>, and <script defer>?
+Ans = <script>
+      Default behavior: Browser stops loading the page, runs the script immediately, then continues.
+      Effect: Can block page rendering if the script is large.
+
+      <script async>
+      Behavior: Script loads in the background while the page continue loading.
+      Effect: Once Script loads it runs it immediately(may interrupt page rendering).
+
+      <script defer>
+      Behavior: Scripts load in the background but waits untill the Html is fully parsed.
+      Effect: Script runs after the page is ready.
+
