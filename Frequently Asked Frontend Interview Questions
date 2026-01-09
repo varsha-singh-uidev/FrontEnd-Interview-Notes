@@ -236,3 +236,23 @@ Ans = Transform: It is used to change the shape, size, or position of an element
       (like hover, focus or state change).
       Animation: Allows continuous, complex or repeat the effect using the keyframes. Effects can run automatically or in loop.
 
+10. What are pseudo-classes and pseudo-elements? Examples?
+Ans = Pseudo-classes: define the state of an element(like hover, focus etc). They let you style the element basced on the user interaction or 
+      document structure without adding the extra classes.
+      Example: a:hover{color: red} //change the link when hover.
+
+      Pseudo-elements: allow you to style the specific part of an element(like the first letter, first line, or content before/after).
+      they use the (::) double colon in modern css.
+      Example: p::first-line{ color: green; }//style the first line of a paragraph.
+
+11. What are media queries and how do they work?
+Ans = Media queries are a css feature that allow the developer to apply the style based on the specific conditions
+      (like viewport width, height, orientation or device type). They are the backbone of responsive design, ensuring the website adapt to 
+      desktop, tablets and mobile devices seamlessly.
+      Syntax Exmaple: @media(condition) { /* CSS rules here */ }
+
+12. Difference between min-width and max-width in responsive design?
+Ans = min-width: Styles apply when the screen width is greater than or equal to the specified value. Often used in (Mobile-first design).
+      max-width: Styles apply when the screen width is less than or equal to the specified value. Often used in (Desktop-first design).
+
+
