@@ -196,3 +196,43 @@ Ans = Relative Units: It is responsive units means, they scale with the context(
       Example = div { width: 50vw; } /* 50% of viewport width */
    e) vh: Relative to the height of the browser window.
       Example = div { width: 100vh; } /* Full viewport height */
+
+      Absolut Units: Fixed units, that do not change with the context.
+      Example of units are:
+   a) px(pixels): Smallest unit of measurement on a digital screen they do not scale with the context.
+      Example = p { font-size: 16px; } /* Always 16 pixels */
+
+4. What is the difference between Flexbox and CSS Grid? When to use which?
+Ans = Flexbox: A one dimensional layout system(works in a row OR column). It was best for aligning the item along a single axis.
+      It was used in the Navigation bars, Centering the elements, distributing the even space between the items.
+
+      Grid: A two dimensional layout system(works in rows AND columns). It was best for the complex page layout.
+      It was used in the Dashboard, Full web page structure.
+
+5. Difference between inline vs block elements in terms of CSS?
+Ans = Inline Elements: Does not start from the new line. Take as much width that are needed for there content. we can not set
+      width/height directly. we can set the padding/margin in inline element but only in the left and right side not in the top/bottom.
+      Multiple iinline element can sit together side by side. Example are <span>, <a>, <strong>.
+
+      Block Element: Starts fromt the new line. Takes the full width available. we can set the width, height, padding and margin.
+      Each bloack element stacks vertically. Example are <div>, <p>, <section>.
+
+6. What is z-index and how does it work?
+Ans = z-index: It controls the stacking order of element on a webpage. It only works with the element that have a 
+      position(relative, absolute, fixed or sticky). The element that has the higher z-index appears on the top of the element has lower z-index.
+
+7. Explain the concept of CSS Specificity.
+Ans = CSS specificity is the set of rules that determines which CSS rule takes priority when multiple style target the same element.
+      Specificity is calculated basced on the type of selector:
+      Inline > ID > Class, pseudo-classes > Elements and pseduo-elements.
+
+8. Difference between visibility: hidden and display: none?
+Ans = (visibility: hidden): Hides the element but still keeps its space in the layout.
+      (display: none): Completely removes the element from the layout, and also its space is gone other element is shift to fill the gap.
+
+9. What is the difference between transform, transition, and animation in CSS?
+Ans = Transform: It is used to change the shape, size, or position of an element. It show the changes instantly no smooth effect by itself.
+      Transition: Create the smooth effect when a property changes from one value to another. It show the changes when the element triggered 
+      (like hover, focus or state change).
+      Animation: Allows continuous, complex or repeat the effect using the keyframes. Effects can run automatically or in loop.
+
