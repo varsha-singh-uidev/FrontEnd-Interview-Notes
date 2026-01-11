@@ -366,3 +366,66 @@ Ans = Event Bubbling:
       Example:
       div.addEventListener("click", () => alert("DIV clicked"), true);
       button.addEventListener("click", () => alert("Button clicked"), true);     
+
+7. What is the difference between call, apply, and bind methods?
+Ans = call(): Invoked the function immediately, with a specified (this) value and arguments provide individually.
+      Example: const user = {
+                 name : "bob",
+                 greet(){ console.log(`Hello ${this.name}`); }
+               }
+      const sayhello = user.greet;
+      sayhello.call(user);
+
+      apply(): Similar to the (call()). Function invoked immediately but the argument are passed as an array.
+      Exmaple: function greet(city1, city2){
+                      console.log(`Hello, ${this.name} are you from ${city1} or ${city2}?`);
+                }
+               const user = {name : "bob"}
+               greet.apply(user, ["america", "new york"]);
+
+      bind(): It is used when you want to fix the (this) context and want to reuse the function later this thing was commonly used in (event handlers).
+      Exmaple: function greet(city1){
+                  console.log(`Hello, ${this.name} are you from ${city1}?`);
+                }
+      const user = {name : "bob"};
+      const bound = greet.bind(user, "america");
+      bound();
+
+8. Difference between shallow copy and deep copy in JS?
+Ans = Shallow Copy
+      Definition: A shallow copy duplicates only the top‑level properties of an object.
+      Nested objects/arrays: They are not cloned — instead, the copy still points to the same reference in memory.
+      Effect: If you change something inside a nested object/array in the copy, the original will also change (because they share the same reference).
+
+      Example: // shallow copy
+      const obj = {
+          name : "bob",
+          add : {
+              city : "UP"
+          }
+      }
+      const obj1 = Object.assign({}, obj);
+      obj1.add.city = "Uttar Pradesh";
+      console.log(obj); 
+      console.log(obj1);
+      //Changes are refleced on both of the object 
+
+      Deep Copy
+      Definition: A deep copy duplicates all levels of properties, including nested objects and arrays.
+      Nested objects/arrays: They are cloned into new memory locations, not shared with the original.      
+      Effect: Changes in the copy do not affect the original, because they no longer share references.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
