@@ -415,12 +415,84 @@ Ans = Shallow Copy
       Nested objects/arrays: They are cloned into new memory locations, not shared with the original.      
       Effect: Changes in the copy do not affect the original, because they no longer share references.
 
+      Example: 
+      const obj1 = {
+            name : "bob",
+            add : { city : "UP" }
+      }
+      function deepCopy(obj){
+    
+          if(typeof(obj) !== "object" || obj === null){
+              return obj;
+          }
+    
+          let result = Array.isArray(obj)? [] : {};
+          let key = Object.keys(obj);
+    
+          for(let i = 0; i < key.length; i++){ result[key[i]] = deepCopy(obj[key[i]]); }
+    
+          return result;
+      }
+      const obj2 = deepCopy(obj1);
+      console.log(obj2);
 
+9. What are promises in JavaScript?
+Ans = A Promise in JavaScript is an Object that represent the eventual completion and failure of an asynchronous operation
+      
+      States of a Promise:
+      Pending: Initial state, operation not yet completed.
+      Fulfilled: Operation completed successfully, returns a value.
+      Rejected: Operation failed, returns an error reason.
 
+      Promise Methods:
+      .then() → handle success.
+      .catch() → handle errors.
+      .finally() → run code regardless of success or failure.
+      Promise.all() → run multiple promises in parallel, wait for all to finish.
+      Promise.race() → returns the result of the first promise that settles.
 
+10. Difference between promise chaining and async/await?
+Ans = Promise Chaining: It uses the .then() and .catch() to handle multiple asynchronous operation sequentially. Can became hard to read and manage when 
+      many .then() blocks are chained. A single .catch() at the end to handle the error.
 
+      async/await = It is syntactic sugar built on the top of promise that make the asynchronous code look synchronous. Uses the try...catch for error
+      handling. Easier to read, write and debug compared to long chain of .then(). 
 
+11.What is the difference between localStorage and sessionStorage?
+Ans = LocalStorage vs SessionStorage in JavaScript
+      1. Definition
+      localStorage: Stores data in the browser with no expiration date. Data persists across tabs, and browser restarts until explicitly cleared.
+      sessionStorage: Stores data for the current browser tab session only. Data is lost once the tab or browser is closed.
 
+      2. Scope
+      localStorage: Shared across all tabs and windows of the same origin (domain + protocol + port).
+      sessionStorage: Unique to each tab/window. Opening the same site in a new tab creates a fresh sessionStorage.
+
+      3. Capacity
+      localStorage: Its capacity is ~10MB.
+      sessionStorage: Its capacity is around ~5MB.
+
+      4. Use Cases
+      localStorage: Saving user preferences (theme, language), Caching data for offline use and
+      Persisting login tokens (though not recommended for sensitive data).
+      sessionStorage: Temporary form data, Shopping cart data for a single session and State that should reset when the tab closes.
+
+12. Difference between setTimeout and setInterval?
+Ans = setTimeout = Runs once after a specified delay, We can clear the timeout using the clearTimeout(id) method.
+      setInterval = Runs a function repeatedly at a specified interval, we can clear the interval using the clearInteval(id) method.
+
+13. What is the difference between arrow functions and normal functions?
+Ans = Arrow Function: It was introduced in ES6. It was the shorter syntax to write the function. 
+      Arrow function do not have their own this. They inherit the this from the lexical scope.
+      Cannot be used as a constructor(new keyword won't work).
+      Do not have their own arguments object.
+
+      Normal Function: Have their own this(depend how the function is called).
+      Can be used as a constructor with new.
+      Have their own argument object.
+
+14.Difference between for...in and for...of loops?
+Ans = 
 
 
 
