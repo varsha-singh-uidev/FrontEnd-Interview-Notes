@@ -668,9 +668,37 @@ Ans = require:
 27. Difference between debouncing and throttling in JavaScript?
 Ans = Debouncing:
       Run after user stop triggering the event.
+      Debouncing is useful when you only want the action to happen once after a pause, like waiting until typing stops in a search box.
+      Debouncing resets the timer every time the event is fired, so the function only runs after event stop fire.
+      Best for input fields, resize events.
 
       Throttling:
       Runs at fixed intervals while event keep firing.
+      Throttling is useful when you want the action to happen regularly, like updating scroll position while the user scrolls.
+      Throttling ignores extra events during the delay period and only allows the function to run once per set interval.
+      Best for Scroll, mouse move, or repeated clicks.
+
+28. What is the difference between REST API and GraphQL in frontend usage?
+Ans = REST API:
+      It stands for Representation State Transfer. It is a way for frontend and backend to talk to each other using HTTP requests.
+      REST API uses many endpoints for different resources.
+      REST API decides what data to send back.
+      REST API may require multiple requests to get related data.
+      REST API uses HTTP methods like GET, POST, PUT, DELETE.
+      REST API is easier to cache because endpoints are fixed.
+      REST API can return extra or missing data.
+      REST API is older and widely supported.
+
+      GraphQL:
+      It is a query language for API's created by facebook. It gives the frontend more control over what data it wants.
+      GraphQL uses a single endpoint for all requests.
+      GraphQL lets the client choose exactly what data it wants.
+      GraphQL can fetch everything in one request.
+      GraphQL uses queries and mutations.      
+      GraphQL caching is more complex.
+      GraphQL returning only the requested fields.
+      GraphQL is newer and popular in modern frontend frameworks like React.
+
 
 
       
