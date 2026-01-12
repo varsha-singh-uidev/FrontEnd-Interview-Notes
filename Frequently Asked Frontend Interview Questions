@@ -576,6 +576,101 @@ Ans = Mutable Data: Data that can be changed/modified after it is created.
       Examples: Primitive types → string, number, boolean, null, undefined, symbol, bigint
       Behavior: If you try to change them, a new value is created instead of modifying the original.
 
+22. Difference between map(), forEach(), filter(), and reduce()?
+Ans = forEach(): Loops through each element of array and execute the callback.
+      Return: Nothing(undefined)
+      Example: const arr = [1, 2, 3];
+      arr.forEach(num => console.log(num * 2)); // Output: 2, 4, 6
+
+      map(): Creates a new array by transforming each element.
+      Return: A new array of same length.
+      Example: const arr = [1, 2, 3];
+      const doubled = arr.map(num => num * 2);
+      console.log(doubled); // [2, 4, 6]
+
+      filter(): Creates a new array with only elements that pass a condition.
+      Return: A new array.
+      Example: const arr = [1, 2, 3, 4];
+      const evens = arr.filter(num => num % 2 === 0);
+      console.log(evens); // [2, 4]
+
+      Reduce(): Reduce an array to a single value by applying the function.
+      Return: A single value.
+      Example: const arr = [1, 2, 3, 4];
+      const sum = arr.reduce((acc, num) => acc + num, 0);
+      console.log(sum); // 10
+
+23. What is the difference between functional programming and OOP in JS?
+Ans = Object‑Oriented Programming (OOP)
+      Organizes code around objects and classes (data + behavior together).
+      Uses classes and instances.
+      Focuses on encapsulation, inheritance, and polymorphism.
+      Data is often mutable (object properties can be changed).
+      Reusability comes from class hierarchies and inheritance.
+      Best for modeling real‑world entities (e.g., User, Car, Order).
+
+      Functional Programming (FP)
+      Organizes code around functions and data transformations.
+      Uses pure functions (no side effects, same input → same output).
+      Focuses on immutability and function composition.
+      Data is usually immutable (new copies created instead of modifying).
+      Reusability comes from higher‑order functions and composition.
+      Best for data processing pipelines (map, filter, reduce).
+
+24. Difference between prototype and __proto__?
+Ans = prototype:
+      exists on constructor function.
+      Used to defines what property/method that should be inherited by all instances created with new.
+      used when creating reusable methods for all instances.
+      an object property of functions.
+
+      __proto__:
+      exists on all objects.
+      It is a hidden property that points to the object's prototype.
+      used internally to connect objects in the prototype chain.
+      a reference (pointer) to another object.
+      used internally to connect objects in the prototype chain.
+
+25. What is the difference between class and constructor function in JS?
+Ans = class: 
+      Classes are syntactic sugar over constructor functions.
+      More readable and structured.
+      Not hoisted.
+      Both require new to create instances. but class throw error if new is missing.
+      Methods automatically go to prototype.
+      Introduce inheritance using the extends and super.
+      Always runs in strict mode. Safer by default.
+
+      constructor:
+      Function-based, used to create objects.
+      Harder to read in large codebases.
+      Hoisted.
+      Both require new to create instances.
+      Methods added via prototype manually.
+      Introducing inheritance is error-prone.
+      Not strict by default.
+
+26. Difference between import and require?
+Ans = require: 
+      It is a older way of importing the modules in JavaScript.
+      It loads the modules synchronously(one after another, bloacking).
+      Uses (module.exports).
+      can be called anywhere in the code.
+      Not hoisted, runs when called.
+
+      import:
+      It is a modern way.
+      It loads the modules asynchronously(non-bloacking).
+      Uses (export and export default).
+      must be at the top, but support dynamic import() too.
+      hoisted to the top automatically.
+
+27. Difference between debouncing and throttling in JavaScript?
+Ans = Debouncing:
+      Run after user stop triggering the event.
+
+      Throttling:
+      Runs at fixed intervals while event keep firing.
 
 
-
+      
