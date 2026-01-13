@@ -106,3 +106,42 @@ reverse(str);
 // **Time Complexity:** O(n) — loop runs once per character (worst case O(n²) due to concatenation).  
 // **Space Complexity:** O(n) — new string stores the reversed result.
 
+
+
+//Q5.  Check if a string is a palindrome
+function pallindrome(str){
+    let newStr = "";
+    for(let i = str.length-1; i >= 0; i--){
+        newStr += str[i];
+    }
+    if(str === newStr){
+        console.log("String is pallindrome");
+    }else{
+        console.log("String are not pallindrome");
+    }
+}
+pallindrome("madam");
+pallindrome("bobd");
+
+// **Algorithum:**
+// - Reverse the string and compare with the original.  
+// **Time Complexity:** O(n) (worst case O(n²) due to concatenation). 
+// **Space Complexity:** O(n).
+
+
+
+//Q6. Count character frequency
+function countFreq(str){
+    let obj = {};
+    for(let i = 0; i < str.length; i++){
+        obj[str[i]] = (obj[str[i]] || 0) + 1;
+    }
+    console.log(obj);
+}
+countFreq("hello");
+
+// **Algorithum:**
+// - Count occurrencesw of each character using an object.
+// **Time Complexity:** O(n).
+// **Space Complexity:** O(k), where k = unique character.
+
