@@ -699,6 +699,104 @@ Ans = REST API:
       GraphQL returning only the requested fields.
       GraphQL is newer and popular in modern frontend frameworks like React.
 
+## React ##
+
+1. What is the difference between functional and class components?
+Ans = Functional Component:
+      A plain JavaScript function that returns JSX.
+      Use hooks like useState, useEffect for managing the state and side effect.
+      Lightweight, faster and easier to test.
+      Hooks allow easy reuse of logic across different components.
+      easier to test since they are pure functions.
+      widely used and recommended in modern React apps.
+
+      Class Component:
+      class that extends React.Component and has a render() method.
+      Manage the state use this.state and update the state with the this.setState().
+      Slightly heavier due to this binding and class overhead.
+      reuse is harder, often requires higher-order components or render props.
+      more complex due to (this) context.
+      legacy approach, still supported but less common in new projects.
+
+2. What are React hooks? Common hooks?
+Ans = React Hooks are special functions in React that let you use state and other React features inside functional components 
+      without writing class components.
+      Commonly Used React Hooks are:
+      1. useState: use to manage the state.
+      2. useEffect: handles side effects.
+      3. useMemo: Memoizes expensive calculations.
+      4. useCallback: Memoizes functions to prevent unnecessary re-renders.
+      5. useLayoutEffect: Similar to useEffect but runs synchronously after DOM mutations.
+
+
+3. Difference between useEffect and useLayoutEffect?
+Ans = Difference Between useEffect and useLayoutEffect are:
+
+      Execution Timing
+      useEffect: Runs after the browser has painted the UI.
+      useLayoutEffect: Runs before the browser paints the UI.
+
+      Blocking vs Non‑Blocking
+      useEffect: Non‑blocking → the user sees the updated screen immediately, then the effect runs.
+      useLayoutEffect: Blocking → delays the paint until the effect finishes.
+
+      Use Cases
+      useEffect: Best for side effects like API calls, logging, subscriptions, timers.
+      useLayoutEffect: Best for DOM measurements, synchronizing layout, or animations that depend on exact element sizes/positions.
+
+      Performance
+      useEffect: More efficient, doesn’t slow down rendering.
+      useLayoutEffect: Can hurt performance if heavy work is done, because it blocks paint.
+
+4. What is the difference between controlled and uncontrolled components?
+Ans = Difference Between Controlled and Uncontrolled Components in React are:
+
+      Definition
+      Controlled Component: The form data is handled by React state.
+      Uncontrolled Component: The form data is handled by the DOM itself.
+
+      Data Source
+      Controlled: Value of input comes from React state (value={state}).
+      Uncontrolled: Value of input comes directly from the DOM (defaultValue or ref).
+
+      State Management
+      Controlled: You must use useState (or this.state in class components) to manage input values.
+      Uncontrolled: You access values using refs (e.g., inputRef.current.value).
+
+      Updates
+      Controlled: Every keystroke updates React state, and React re-renders the component.
+      Uncontrolled: The DOM updates the value internally; React doesn’t track every change.
+
+      Code Complexity
+      Controlled: More code, but predictable and easier to debug.
+      Uncontrolled: Less code, but less predictable and harder to maintain.
+
+      Use Cases
+      Controlled: Preferred for most forms where validation, dynamic updates, or controlled behavior is needed.
+      Uncontrolled: Useful for quick forms, simple inputs, or when you don’t need React to manage the state.
+
+5. Difference between state and props in React?
+Ans = Difference Between State and Props in React are:
+
+      Definition
+      State: A built‑in object that stores data inside a component.
+      Props: Short for “properties,” they are inputs passed from parent to child components.
+
+      Mutability
+      State: Mutable — can be changed using setState (class) or useState (functional).
+      Props: Immutable — cannot be modified by the child component; read‑only.
+
+      Ownership
+      State: Owned and managed by the component itself.
+      Props: Owned by the parent and passed down to child components.
+      
+      Usage
+      State: Used for data that changes over time (user input, toggles, counters).
+      Props: Used to pass data and functions between components.
+
+      Updates
+      State: Updates trigger re‑render of the component.
+      Props: Changes in props (from parent) also trigger re‑render of the child.
 
 
       
