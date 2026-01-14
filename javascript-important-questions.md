@@ -193,8 +193,8 @@ Example: class BankAccount {
 
 const account = new BankAccount();
 account.deposit(100);
-console.log(account.getBalance()); // ✅ 100
-console.log(account.#balance);     // ❌ Error: private field not accessible
+console.log(account.getBalance()); //  100
+console.log(account.#balance);     //  Error: private field not accessible
 
 Q: What is a mixin? 
 A: A mixin is a reusable object that contain methods or features. We can share those methods across multiple objects and classes. Instead of using the inheritance which can bring in the unwanted properties. We can use the mixin to copy only the behaviour we need.
@@ -556,27 +556,121 @@ console.log(fun(2,1));
 
 Why We Don’t Commonly Use the Function Constructor: 
 
-Global Scope Only: 
+1.Global Scope Only: 
 Functions created with new Function() don’t close over local variables.
 They always run in the global scope, which breaks encapsulation and makes code harder to reason about.
 
-Security Risks:
+2.Security Risks:
 Since the function body is passed as a string, it’s similar to eval().
 If the string comes from user input, it can lead to code injection attacks.
 
-Performance Issues:
+3.Performance Issues:
 The JavaScript engine has to parse the string at runtime to create the function.
 This is slower and less optimized compared to normal function declarations or expressions.
 
-Readability & Maintainability:
+4.Readability & Maintainability:
 Writing function bodies as strings makes code harder to read, debug, and maintain.
 IDEs and linters can’t easily catch errors inside string‑based code.
 
+## Array Related Question ##
 
+Q: Expalin the array method unshift, shift, push and pop?
+A: push(): Adds one or more elements to the end of an array.
+   Returns: The new length of the array.
 
+   pop(): Remove the last element from an array.
+   Returns: The removed elements.
 
+   ushift(): Add one or more elements to the beginning of an Array.
+   Returns: The new length of the array.
 
+   shift(): Removes the first element from an array.
+   Returns: the removed elements.
 
+Q: What does arr.includes(value) do? 
+A: Returns true if the array contains the value. 
+
+Q: What is indexOf() used for? 
+A: Returns the first index of a value, or -1 if not found. 
+
+Q: What is lastIndexOf()? 
+A: Returns the last index of a value. 
+
+Q: How to join array elements into a string? 
+A: arr.join(", ") 
+
+Q: What does arr.toString() do? 
+A: Converts the array to a comma-separated string. 
+
+Q: How to sort an array? 
+A: Using the array arr.sort() method. Changes reflected in the orignal array. By default It sorts alphabetically unless a compare function is used. for sorting numberic we have to use => arr.sort((a, b) => a - b); 
+
+Q: What does splice() do? 
+A: Adds/removes items at a specific index. 
+
+Q: What does slice() do? 
+A: Returns a shallow copy of a portion of an array. 
+
+Q: What is the difference between slice() and splice()? 
+A: slice() doesn't modify the original array; splice() does.
+
+Q: Can forEach() break the loop?
+A: No, The forEach() method in JavaScript cannot be broken or stopped early using break, continue, or return. Once started, forEach() will always iterate through the entire array.
+
+Q: What is find()? 
+A: Returns the first element that matches a condition. 
+Example: const numbers = [10, 20, 30, 40];
+const result = numbers.find(num => num > 25);
+console.log(result); // 30
+
+Q: What is findIndex()? 
+A: Returns the index of the first matching element. 
+const numbers = [10, 20, 30, 40];
+const index = numbers.findIndex(num => num > 25);
+console.log(index); // 2
+
+Q: What is every()? 
+A: Returns true if all elements match a condition. 
+
+Q: What is some()? 
+A: Returns true if at least one element matches a condition. 
+
+Q: What is Array.of()? 
+A: Creates an array from given arguments. 
+Exmaple: const arr2 = Array.of(1, 2, 3); console.log(arr2); // [1, 2, 3]
+
+Q: What is fill()? 
+A: Fills all or part of the array with a static value. Syntax: fill(value, start, end)
+Example: const arr = [1, 2, 3, 4];
+arr.fill(0, 1, 3); 
+console.log(arr); // [1, 0, 0, 4]
+
+Q: What is copyWithin()? 
+A: Copies part of the array to another location in the same array. in the same array, overwriting existing values. Syntax: copyWithin(target, start, end)
+Example: const arr = [1, 2, 3, 4, 5];
+let a = arr.copyWithin(0, 3); 
+console.log(a); //[4, 5, 3, 4, 5]
+
+Q: What is a sparse array? 
+A: Some indices are missing values, so the array has gaps.
+
+Q: Can you skip values during destructuring? 
+A: Yes: let [,,c] = [1, 2, 3];
+
+Q: How to create an array with N elements?
+A: Using Array() constructor
+Example: let arr = Array(5);
+console.log(arr); //[<5 empty items>]
+let arr1 = Array(5).fill(0);
+console.log(arr1); //[0, 0, 0, 0, 0]
+
+Q: What is the use of Array.prototype? 
+A: By adding the method to (Array.prototype) we can make those methods available to all arrays in your program.
+Example: Array.prototype.last = function() {
+  return this[this.length - 1]; };
+
+const nums = [10, 20, 30];
+console.log(nums.last()); // 30
 
 
 
