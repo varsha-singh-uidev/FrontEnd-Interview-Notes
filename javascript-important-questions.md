@@ -672,6 +672,99 @@ Example: Array.prototype.last = function() {
 const nums = [10, 20, 30];
 console.log(nums.last()); // 30
 
+Q: What is Array.prototype.every.call()?
+A: Array.prototype.every is the built‑in method that checks if all elements of an array satisfy a condition.
+.call() is a way to invoke a function with a specific "this value".
+So, Array.prototype.every.call() lets you use the every method on array‑like objects (objects that aren’t true arrays, like arguments or NodeList).
 
+Example:
+function checkAllEven() {
+  // 'arguments' is array-like, not a real array
+  return Array.prototype.every.call(arguments, num => num % 2 === 0);
+}
 
-   
+console.log(checkAllEven(2, 4, 6)); // true
+console.log(checkAllEven(2, 3, 6)); // false
+
+Q: What is an array-like object?
+A: An object with Indexed properties. They have a length property that indicates the number of elements. They not inherit from Array.prototype so built in array methods aren't avaliable. ex arguments objects inside functions.
+Example: 
+function demo(a, b, c){
+    console.log(arguments[0]); //1
+    console.log(arguments.length); //3
+    console.log(arguments.push("4")); //Error arguments is not real array so we can't use array methods with it.
+}
+demo("1", "2", "3");
+
+Q: How to convert arguments to array?
+A: 1. using Array.from()
+   Example: let args = Array.from(arguments);
+   2. Using spread operator [...]
+   Exmaple: let args = [...arguments];
+
+Q: What’s the output of [1,2] + [3,4]?
+A: "1,23,4" because arrays are converted to strings, then concatenated.  
+   In JavaScript, the + operator is not array concatenation.For arrays, it first converts them to strings using .toString().
+[1,2].toString() → "1,2"
+[3,4].toString() → "3,4"
+
+Q: What is the output of [,,,]? 
+A: A sparse array with 3 empty slots. 
+
+Q: Can an array have undefined values? 
+A: Yes. 
+
+Q: What happens if you delete an element using delete 
+arr[1]? 
+A: Leaves a hole (sparse array), doesn’t reduce length. 
+
+Q: Best way to remove an element by index? 
+A: arr.splice(index, 1)
+
+Q: How to fill array with sequential numbers? 
+A: let arr = Array.from({length: 5}, (_, i) => i+1);
+console.log(arr);
+
+Q: What does arr.at(-1) do?
+A: The .at() method returns the element at a given index. Unlike the traditional arr[i] .at() supports negative indices. So arr.at(-1) returns the last element of the array.
+
+Q: What is the spread operator used for in arrays?
+A: Spread operator (...) expands arrays into individual elements —> perfect for copying, merging, passing arguments, or converting array‑like objects.
+
+Q: Can you use map() on an empty array?
+A: You can use map() on an empty array, but the result is still empty. On sparse arrays, holes are skipped.
+Example: 
+const arr = [1, , 3]; // hole at index 1
+const result = arr.map(x => 10);
+console.log(result); // [10, , 10]
+
+Q: Can you assign properties to an array like arr.name = "x"?
+A: Yes, arrays can have custom properties because they’re objects, However, these properties are not part of the array elements and won’t affect its length or iteration over numeric indices.
+Exmaple: 
+let arr = [1,2,3];
+arr.name = "x";
+console.log(arr); // [ 1, 2, 3, name: 'x' ]
+for(let i = 0; i < arr.length; i++){
+    console.log(arr[i]); //1,2,3
+}
+console.log(arr.length); //3
+// for in loop 
+for(let key in arr){
+    console.log(key); //0,1,2,name
+}
+// for of loop
+for(let value of arr){
+    console.log(value); //1,2,3
+}
+
+Q: Is array.length always equal to number of elements? 
+A: No, it can include empty slots. 
+Example: let arr = [1,2,,3];
+console.log(arr.length);
+
+Q: What is the time complexity of push()? 
+A: O(1) 
+
+Q: What is the time complexity of splice()? 
+A: O(n) in worst case.
+
