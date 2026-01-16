@@ -798,5 +798,79 @@ Ans = Difference Between State and Props in React are:
       State: Updates trigger re‑render of the component.
       Props: Changes in props (from parent) also trigger re‑render of the child.
 
+6. What is the difference between useMemo and useCallback?
+Ans = Difference Between useMemo and useCallback:
 
+      Purpose
+      useMemo: Memoizes a value (result of a computation).
+      useCallback: Memoizes a function (so its identity doesn’t change).
       
+      Return Type
+      useMemo: Returns the computed value.
+      useCallback: Returns the function itself.
+
+      Use Cases
+      useMemo: Optimize expensive calculations (e.g., filtering, sorting, math).
+      useCallback: Prevent unnecessary re‑creation of functions passed as props to child components.
+
+      Dependencies
+      Both accept a dependency array.
+      useMemo: Recomputes the value only when dependencies change.
+      useCallback: Recreates the function only when dependencies change.
+
+      Performance Benefit
+      useMemo: Saves CPU cycles by caching results.
+      useCallback: Saves memory/re‑renders by keeping function identity stable.
+
+7. What are React keys and why are they important?
+Ans = In react key are used when rendering lists. Keys give each element a stable identity So, React can match 
+      old and new elements during the reconciliation process. Without keys, React may reuse DOM nodes incorrectly.
+      Keys help React know which items stayed the same, which changed, and which were removed.
+      Important: Avoid using array indices as keys unless the list is static and never reordered.
+      Keys must be stable — they should not change between renders.
+
+8. Difference between React.Fragment and a div wrapper?
+Ans = Difference Between React.Fragment and a div Wrapper
+
+      Extra DOM Node
+      React.Fragment: Does not add an extra DOM node.
+      div: Adds an extra <div> element to the DOM.
+
+      Clean DOM Structure
+      React.Fragment: Keeps the DOM clean and minimal.
+      div: Can lead to unnecessary nesting and “div soup.”
+
+      Styling & Layout
+      React.Fragment: Cannot have CSS classes, IDs, or styles because it doesn’t render a real element.
+      div: Can be styled directly with classes, IDs, or inline styles.
+
+      Use Case
+      React.Fragment: Best when you just need to group multiple children without affecting layout or styling.
+      div: Best when you need a real container element for styling, layout, or semantic structure.
+
+9. What is the difference between React virtual DOM and real DOM?
+Ans = Difference Between Virtual DOM and Real DOM
+
+      Definition
+      Real DOM: The actual Document Object Model rendered and managed by the browser.
+      Virtual DOM: A lightweight, in‑memory representation of the real DOM maintained by React.
+
+      Update Speed
+      Real DOM: Updates are slow because every change triggers reflow/repaint of the entire UI.
+      Virtual DOM: Updates are fast because React calculates diffs and only applies minimal changes.
+
+      Performance
+      Real DOM: Inefficient for frequent updates; large UIs can lag.
+      Virtual DOM: Optimized for dynamic UIs; reduces direct manipulation of the real DOM.
+
+      Re-rendering
+      Real DOM: Entire UI may re-render when a change occurs.
+      Virtual DOM: Only the changed nodes are updated after React’s diffing algorithm.
+
+      Developer Interaction
+      Real DOM: Developers manipulate it directly with vanilla JS (document.getElementById, etc.).
+      Virtual DOM: Developers work with React components; React handles DOM updates internally.
+
+      Memory Usage
+      Real DOM: No extra memory overhead beyond the actual DOM tree.
+      Virtual DOM: Requires additional memory to maintain the virtual copy.
