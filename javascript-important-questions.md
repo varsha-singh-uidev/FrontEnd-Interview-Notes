@@ -824,6 +824,119 @@ A: Checks if a property exists directly on the object (not inherited).
 Exmaple: console.log(u.hasOwnProperty("age")); //true
 console.log(u.hasOwnProperty("toString")); //false (inherited fromObject prototype)
 
+Q: What is Object.create()? 
+Ans: It creates a new object and sets its prototype to the object you pass in. This means the new object inherits properties and methods from that prototype. It is often used for creating objects that share behaviour without using the constructor function.
+Exmaple: 
+let personProto = {
+    greet : function(){ console.log("it is a Prototype method"); }
+}
+let user = Object.create(personProto);
+user.name = "bob";
+console.log(user.name);
+user.greet();
+
+Q: Can you create objects with no prototype? 
+A: Yes: Object.create(null)
+
+Q: What is the prototype of an object? 
+A: The prototype is another object from which the current object inherits properties and methods. In javaScript, every object has a hidden link to its prototype, forming the prototype chain.
+
+Q: What is __proto__? 
+A: It is an internal property that directly references an object's prototype. It shows the link to the prototype object.
+
+Q: How do you get all property names of an object? 
+A: Use Object.getOwnPropertyNames(obj) it returns an array of all property names that belongs directly to the object. It does not include properties from the prototype chain.
+-> For Symbol properties use Object.getOwnPropertySymbols(obj);
+
+Q: What is a computed property name? 
+A: A property key that is dynamically determined at runtime. Instead of hardcoding the property name, you can use an expression inside square brackets [] to compute the key.  
+let key = "name"; 
+let obj = { [key]: "John" }; 
+
+Q: What is object spread syntax? 
+A: {...obj} – copies properties from one object into another. 
+
+Q: What is a property descriptor? 
+A: It is an object that describes attributes of a property. It defines how the property behaves.
+Every property in JavaScript has a descriptor with attributes:
+1. value       → the actual value of the property
+2. writable    → whether the value can be changed
+3. enumerable  → whether the property shows up in loops (like for...in)
+4. configurable→ whether the property can be deleted or redefined
+
+Important Method of Property descriptor are:
+
+1. "Object.defineProperty" = lets you define or modify a property on an object with a property descriptor. 
+
+Exmaple:  let obj = {}; 
+Object.defineProperty(obj, 'key', { 
+value: 100, 
+writable: false, // cannot be reassigned 
+enumerable: true, // shows up in loops 
+configurable: true // can be deleted or redefined }); 
+console.log(obj.key); // 100
 
 
+2. "Object.defineProperties" = It is a method in js that let you define multiple properties at once on an object. Each property can have its own descriptor. It is similar to Object.defineProperty but used for the batch defination.
 
+Example: let user = {}; 
+Object.defineProperties(user, { 
+name: 
+{ value: "Varsha", 
+writable: true, 
+enumerable: true, 
+configurable: true 
+}, 
+age: 
+{ value: 25, 
+writable: false, // read-only 
+enumerable: true, 
+configurable: true } 
+}); 
+
+
+3. "Object.getOwnPropertyDescriptor" = It returns the property descriptor object for a specific property of a given object.
+Example: 
+let user = {name : "bob"};
+let descriptor = Object.getOwnPropertyDescriptor(user, "name");
+console.log(descriptor);
+output = {value : "bob", writable : true, enumerable : true, configurable : true}
+
+Q: What is a getter in JavaScript?
+A: A getter is a special method that retrieves (gets) the value of a property.
+  - Defined using the 'get' keyword inside an object or class.
+  - Allows you to access a property like a normal value, but behind the scenes it runs a function.
+ 
+ Example:
+  let user = {
+    firstName: "bob",
+    lastName: "Donald",
+    get fullName() {
+      return this.firstName + " " + this.lastName;
+    }
+  };
+  console.log(user.fullName); // "bob Donald"
+
+ Q: What is a setter in JavaScript?
+ A: A setter is a special method that assigns (sets) the value of a property.
+ - Defined using the 'set' keyword inside an object or class.
+ - Allows you to update a property by calling it like an assignment.
+ 
+Example:
+let user = {
+    firstName: "bob",
+    lastName: "Donald",
+    set fullName(name) {
+      [this.firstName, this.lastName] = name.split(" ");
+    }
+  };
+  user.fullName = "Bob McDonald";
+  console.log(user.firstName); // "Bob"
+  console.log(user.lastName);  // "McDonald" 
+
+Q: What is toString() method of an object?
+A: The toString() method returns a string representation of an object.
+ - Every object in JavaScript inherits a toString() method from Object.prototype.
+ - By default, it returns "[object Object]" for plain objects.
+Example: let user = { name : "bob"};
+console.log(user.toString()); //"[object Object]"
