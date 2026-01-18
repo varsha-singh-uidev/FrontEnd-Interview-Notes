@@ -783,6 +783,9 @@ A: Returns an array of values.
 Q: What is Object.entries(obj)? 
 A: Returns an array of key-value pairs.
 
+Q: What is Object.fromEntries()? 
+A: Converts key-value pair arrays into an object.
+
 Q: Can object keys be numbers? 
 A: Yes, but they are stored as strings.
 
@@ -940,3 +943,86 @@ A: The toString() method returns a string representation of an object.
  - By default, it returns "[object Object]" for plain objects.
 Example: let user = { name : "bob"};
 console.log(user.toString()); //"[object Object]"
+
+Q: Can you override toString()? 
+A: Yes, You can define a custom toString() method inside your object or class to control its behaviour. 
+Example: let obj = {
+    toString : function(){ console.log("Heloo"); }
+}
+obj.toString();
+
+Q: What is valueOf() in objects?
+A: When it was used with the Primitive wrappers(Number, String etc): valueOf() returns the underlying primitive value.
+Example: new Number(42).valueOf(); // 42           new String("hello").valueOf(); // "hello"
+
+When it was used with the plain object it return the object itself not a primitive.
+Example: let obj = {a : 1};  console.log(obj.valueOf()); //{a : 1}
+
+ Q: What happens if you stringify an object with circular reference?
+ A: A Circular refernce happens when an object refers to itself directly and indirectly.
+ Exmaple: let obj = {};
+ obj.self = obj;
+
+JSON.stringify() -> tries to convert an object into JSON string. But if the object has a circular refernce, it gets stuck in an infinite loop because it keeps trying to expand the same object again and again. and in result it throws an TypeError.
+
+Q: How to get JSON from an object? 
+A: Use JSON.stringify(obj) 
+
+Q: How to parse JSON into an object? 
+A: Use JSON.parse(jsonStr)
+
+Q: What is the purpose of a factory function?
+A: A factory function is any function that creates and returns objects without using the 'new' keyword. It is usefull for the object creation patterns and avoid the complexities of constructor.
+Example: function createPerson(name, age){
+    return {
+        name,
+        age,
+        greet(){ return `Hello, my name is ${this.name}`; }
+    };
+};
+let p = createPerson("bob", 20);
+console.log(p.greet());
+
+Q: What is an object initializer? 
+A: An object initializer (also called object literal) is an expression using curly braces {} to directly create objects with properties and values. 
+Exmaple: let obj = {a : 1}; console.log(obj); //{a:1}
+
+Q: What does Object.is(a, b) do? 
+A: Object.is() checks if two values are the same. It is similar to === but handles special cases more accurately: 
+1. NaN is considered equal to NaN  
+2. +0 and -0 are considered different
+Example: console.log(Object.is(NaN, NaN)); // true
+
+Q: What is the result of JSON.stringify({a: undefined})? 
+A: '{}', JSON.stringify() only serializes values that are valid in JSON (string, number, boolean, null, object, array). Properties with values (undefined, functions, or symbols) are skipped. That's why {a: undefined} becomes '{}'. 
+
+Q: What is dictionary in JavaScript?
+A: Js doesn't have built in dictionary type, but plain objects and (or Map) are often used as dictionaries for key-value storage.
+
+Q: What is optional chaining (?.)?
+A: Optional chaining allow safe access to nested properties. If a property doesn't exist, it returns undefined instead of throwing an error.
+Example: let user = {};
+console.log(user?.profile?.name); //undefined
+
+Q: What does ?? (nullish coalescing) do?
+A: The ?? operator return the right-hand value if the left-hand value is null or undefined. 
+Example: console.log(null ?? 0); //0
+
+Q: What is the main drawback of for..in loop?
+A: It iterates over all the properties including the inherited ones. This can lead to the unexpected results if the prototype has extra properties.
+
+Q: How to exclude inherited properties while looping?
+A: Use Object.hasOwn() or Object.prototype.hasOwnProperty() to filter only the object's own properties.
+
+Q: What does Object.hasOwn() do? 
+A: Checks if an object has a property directly (not inherited). Safer than obj.hasOwnProperty() because it works even if the method is overridden. 
+Example: let obj3 = { x: 10 };   console.log(Object.hasOwn(obj3, "x")); // true
+
+Q: Can you spread objects inside arrays? 
+A: Yes. Use Object.values() or Object.entries() with spread syntax. 
+Example: let obj4 = { a: 1, b: 2 };  console.log([...Object.values(obj4)]); // [1, 2]
+
+Q: Can you nest arrays inside objects? 
+A: Yes. Arrays are valid values for object properties. 
+Example: let obj5 = { items: [1, 2, 3] };   console.log(obj5.items[0]); // 1
+
