@@ -152,3 +152,127 @@ secondLargest([1,4,2,5,3]); //4
 // - Update max and second max accordingly. 
 // * Time Complexity: O(n) → single pass. 
 // * Space Complexity: O(1) → only two variables used.
+
+
+
+//Q7. Move all zeros to the end
+function moveZeroEnd(arr){
+    let i = 0;
+    for(let j = 0; j < arr.length; j++){
+        if(arr[j] !== 0){
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+            i++;
+        }
+    }
+    console.log(arr);
+}
+moveZeroEnd([1,0,2,0,3,0,5]); //[1,2,3,5,0,0,0]
+ 
+// * Algorithum
+// - Maintain two pointers:
+//    *  1. `i` → tracks the position where the next non-zero should go.
+//    *  2. `j` → iterates through the array.
+// - Whenever a non-zero is found at `arr[j]`, swap it with `arr[i]` and increment `i`.
+// - This ensures all non-zeros are shifted forward while zeros naturally move to the end.
+// - Time Complexity: O(n) → single pass through the array.
+// - Space Complexity: O(1) → in-place, no extra array needed.
+
+
+
+//Q8. (Right) Rotate array by K positions
+function reverse(arr, start, end){
+    while(start < end){
+        let temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+    return arr;
+}
+function rotateRight(arr, k){
+    let n = arr.length;
+    if(k === n){return arr;}
+    else{
+    k = k % n;
+    reverse(arr, 0, n-k-1);
+    reverse(arr, n-k, n-1);
+    reverse(arr, 0, n-1);
+    }
+    return arr;
+}
+let arr = [1,2,3,4,5,6,7];
+let arr1 = rotateRight(arr,3);
+console.log(arr1); //[5,6,7,1,2,3,4]
+
+// * Algorithum
+//  - Rotating right by K means the last K elements move to the front.
+//  - Steps:
+//     1. Reverse the first (n - K) elements.
+//     2. Reverse the last K elements.
+//     3. Reverse the entire array.
+//  - Time: O(n) → each reverse is linear.
+//  - Space: O(1) → in-place, no extra array.
+
+
+
+//Q9. (left) Rotate the array by k position
+function reverse(arr, start, end){
+    while(start < end){
+        let temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+    return arr;
+}
+function rotateLeft(arr, k){
+    let n = arr.length;
+    if(k === n){return arr;}
+    else{
+    k = k % n;
+    reverse(arr, 0, k-1);
+    reverse(arr, k, n-1);
+    reverse(arr, 0, n-1);
+    }
+    return arr;
+}
+let arr = [1,2,3,4,5,6,7];
+let arr1 = rotateLeft(arr,3);
+console.log(arr1); //[4,5,6,7,1,2,3]
+
+// * Algorithum
+// - Rotating left by K means the first K elements move to the end.
+// - Steps:
+//     1. Reverse the first K elements.
+//     2. Reverse the remaining (n - K) elements.
+//     3. Reverse the entire array.
+// - Time: O(n) → each reverse is linear.
+// - Space: O(1) → in-place, no extra array.
+
+
+
+//Q10. Find missing number (1 to n)
+function findNumber(arr,n){
+    let xor1 = 0;
+    let xor2 = 0;
+    for(let i = 0; i < arr.length; i++){
+        xor1 = xor1 ^ arr[i];
+    }
+    for(let i = 0; i <= n; i++){
+        xor2 = xor2 ^ i;
+    }
+    console.log(xor1 ^ xor2);
+}
+findNumber([1,2,3,5],5); //4
+
+ // * Explanation:
+ // * - XOR has useful properties:
+ // *   1. a ^ a = 0  (same numbers cancel out)
+ // *   2. a ^ 0 = a  (XOR with zero leaves the number unchanged)
+ // * - If you XOR all numbers from 1 to n, and also XOR all numbers in the array,
+ // *   the common numbers cancel out. The only number left is the missing one.
+ // * - Time: O(n) → two linear passes.
+ // * - Space: O(1) → constant extra space.
+ 
