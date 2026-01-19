@@ -276,3 +276,34 @@ findNumber([1,2,3,5],5); //4
  // * - Time: O(n) → two linear passes.
  // * - Space: O(1) → constant extra space.
  
+
+
+// Find intersection of two arrays
+function intersection(arr1, arr2){
+    let set1 = new Set(arr1);
+    let result = new Set();
+    for(let item of arr2){
+        if(set1.has(item)){
+            result.add(item);
+        }
+    }
+    console.log([...result]);
+}
+intersection([1,2,2,3], [2,2,4]);
+
+
+
+// Maximum subarray sum
+function maxSubArray(arr) {
+    let max = arr[0];  
+    let current = arr[0];  
+
+    for (let j = 1; j < arr.length; j++) {
+        let value = current + arr[j]; 
+        current = Math.max(arr[j], value);
+        max = Math.max(max, current);
+    }
+
+    console.log(max);
+}
+maxSubArray([1,-2,3,4,-1,2,1,-5,4]);
