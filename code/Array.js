@@ -289,8 +289,16 @@ function intersection(arr1, arr2){
     }
     console.log([...result]);
 }
-intersection([1,2,2,3], [2,2,4]);
+intersection([1,2,2,3], [2,2,4]); //[2]
 
+// * Approach:
+//  * - Convert the first array into a Set for O(1) lookups.
+//  * - Iterate through the second array and check if each element exists in the Set.
+//  * - Store common elements in a result Set to avoid duplicates.
+//  * - Output the result as an array.
+//  * Complexity:
+//  * - Time: O(n + m), where n and m are lengths of the arrays.
+//  * - Space: O(n) for the Set.
 
 
 // Maximum subarray sum
@@ -306,4 +314,40 @@ function maxSubArray(arr) {
 
     console.log(max);
 }
-maxSubArray([1,-2,3,4,-1,2,1,-5,4]);
+maxSubArray([1,-2,3,4,-1,2,1,-5,4]); //9
+
+// * Approach:
+//  * - Use Kadane’s Algorithm:
+//  *   1. Track current subarray sum (`current`).
+//  *   2. At each step, decide whether to start a new subarray
+//  *      or extend the previous one.
+//  *   3. Track the global maximum (`max`).
+//  * - Time: O(n)
+//  * - Space: O(1)
+
+
+
+// Two Sum problem
+function sumProblem(arr,k){
+    let map = {};
+    for(let i = 0; i < arr.length; i++){
+        let value = k - arr[i];
+        if(map[value] !== undefined){
+            console.log([map[value], i]);
+        }
+        map[arr[i]] = i;
+    }
+    console.log([]);
+}
+sumProblem([2,7,11,15], 9); //[0,1]
+sumProblem([3,3], 6); //[0,1]
+sumProblem([1,2,3], 10); //[]
+
+// * Approach:
+//  * - Use a hash map to store numbers and their indices.
+//  * - For each element, compute its complement = k - arr[i].
+//  * - If the complement exists in the map, return the pair of indices.
+//  * - Otherwise, store the current element in the map.
+//  * - If no pair is found, return []
+//  * - Time: O(n)
+//  * - Space: O(n)
