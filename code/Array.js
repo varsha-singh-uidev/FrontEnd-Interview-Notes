@@ -278,7 +278,7 @@ findNumber([1,2,3,5],5); //4
  
 
 
-// Find intersection of two arrays
+//Q11. Find intersection of two arrays
 function intersection(arr1, arr2){
     let set1 = new Set(arr1);
     let result = new Set();
@@ -301,7 +301,7 @@ intersection([1,2,2,3], [2,2,4]); //[2]
 //  * - Space: O(n) for the Set.
 
 
-// Maximum subarray sum
+//Q12. Maximum subarray sum
 function maxSubArray(arr) {
     let max = arr[0];  
     let current = arr[0];  
@@ -327,7 +327,7 @@ maxSubArray([1,-2,3,4,-1,2,1,-5,4]); //9
 
 
 
-// Two Sum problem
+//Q13. Two Sum problem
 function sumProblem(arr,k){
     let map = {};
     for(let i = 0; i < arr.length; i++){
@@ -351,3 +351,170 @@ sumProblem([1,2,3], 10); //[]
 //  * - If no pair is found, return []
 //  * - Time: O(n)
 //  * - Space: O(n)
+
+
+
+//Q14. Find longest consecutive sequence
+function longestConsecutive(arr){
+    if(arr.length === 0){
+        console.log(0);
+        return;
+    }
+    let max = 1;
+    let count = 1;
+    arr.sort((a,b) => a-b);
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] === arr[i+1]){
+            continue;
+        }
+        if(arr[i]+1 === arr[i+1]){
+            count++;
+            max = Math.max(max, count);
+        }else{
+            count = 1;
+        }
+    }
+    console.log(max);
+}
+longestConsecutive([100,4,200,1,3,2]);//4
+longestConsecutive([0,3,7,2,5,8,4,6,1]); //9
+longestConsecutive([9,1,4,7,3,-1,0,5,8,-1,6]);//7
+longestConsecutive([]); //0
+
+// * Approach:
+//  * Sort the array in ascending order.
+//  * Iterate through the array:
+//  *  1. Skip duplicates (since they don’t extend the sequence).
+//  *  2. If the next number is exactly current + 1, extend the streak (`count++`).
+//  *  3. Otherwise, reset the streak (`count = 1`).
+//  *  Track the maximum streak length (`max`) during iteration.
+//  * Handle edgeCase: if the array is empty, return[].
+// * - Time: O(n log n)
+// * - Space: O(1)
+
+
+
+//Q15. Sum of all elements
+function sumAllElement(arr){
+    let count = 0;
+    if(arr.length === 0){
+        console.log(0);
+        return;
+    }
+    for(let i = 0; i < arr.length; i++){
+        count += arr[i];
+    }
+    console.log(count);
+}
+sumAllElement([1, 2, 3, 4, 5]); //15
+sumAllElement([10,-2,7]); //15
+
+//  * Approach:
+//  * - Initialize a counter variable (`count = 0`).
+//  * - Iterate through the array using a loop.
+//  * - Add each element to the counter.
+//  * - Print the final sum.
+//  * - Handle edge case: if the array is empty, return 0 immediately.
+//  * - Time: O(n), where n is the length of the array.
+//  * - Space: O(1), only a single counter variable is used.
+
+
+
+//Q16. Count frequency of elements
+function countFrequency(arr){
+    let obj = {};
+    for(let value of arr){
+        obj[value] = (obj[value] ||  0) + 1;
+    }
+    console.log(obj);
+}
+countFrequency([1,2,1,4,5,3,1,2]);
+
+// * Approach:
+//  * - Initialize an empty object `obj`.
+//  * - Iterate through the array using a `for...of` loop.
+//  * - For each element:
+//  *   1. If it already exists in the object, increment its count.
+//  *   2. If not, initialize it with count = 1.
+//  * - Print the final object containing frequencies.
+//  - Time: O(n), where n is the length of the array (single pass).
+//  - Space: O(n), for storing counts in the object.
+
+
+
+//Q17. Check if two arrays are equal
+function checkArrayEqual(arr1, arr2){
+    if(arr1.length !== arr2.length){
+        console.log("Not equal");
+        return;
+    }
+    for(let i = 0; i < arr1.length; i++){
+        if(arr1[i] !== arr2[i]){
+            console.log("Not equal");
+            return;
+        }
+    }
+    console.log("Equal");
+}
+checkArrayEqual([1,2,3],[1,2,3]); //Equal
+checkArrayEqual([1,2,3],[3,2,1]); //not equal
+checkArrayEqual([1,2,3],[1,2,3,4]); //not equal
+
+// * Two arrays are considered equal if:
+//    1. They have the same length.
+//    2. Each element at the same index is identical.
+//  *
+// * Approach:
+//    * - First, compare lengths. If different, arrays are not equal.
+//    * - If lengths match, iterate through both arrays:
+//    *   - Compare elements at each index.
+//    *   - If any mismatch is found, return "Not equal".
+//    * - If all elements match, return "Equal".
+//  * - Time: O(n), where n is the length of the arrays.
+//  * - Space: O(1), no extra storage used.
+
+
+
+//Q18. Merge two arrays
+function mergeArray(arr1, arr2){
+    let newArr = [];
+    let ptr1 = 0;
+    let ptr2 = 0;
+    while(ptr1 < arr1.length && ptr2 < arr2.length){
+        if(arr1[ptr1] < arr2[ptr2]){
+            newArr.push(arr1[ptr1]);
+            ptr1++;
+        }else if(arr1[ptr1] > arr2[ptr2]){
+            newArr.push(arr2[ptr2]);
+            ptr2++;
+        }else if(arr1[ptr1] === arr2[ptr2]){
+            newArr.push(arr1[ptr1]);
+            ptr1++;
+            ptr2++;
+        }
+    }
+    if(ptr1 < arr1.length){
+        while(ptr1 < arr1.length){
+            newArr.push(arr1[ptr1]);
+            ptr1++;
+        }
+    }else if(ptr2 < arr2.length){
+        while(ptr2 < arr2.length){
+            newArr.push(arr2[ptr2]);
+            ptr2++;
+        }
+    }
+    console.log(newArr);
+}
+mergeArray([1,2,3,5,7,9,10],[2,4,6,8]); //[1,2,3,4,5,6,7,8,9,10]
+
+// * Approach:
+//  * - Use two pointers (`ptr1` for arr1, `ptr2` for arr2).
+//  * - Compare elements at both pointers:
+//  *   1. Push the smaller element into the result array.
+//  *   2. Advance the pointer of the array from which the element was taken.
+//  *   3. If elements are equal, push once and advance both pointers.
+//  * - Continue until one array is exhausted.
+//  * - Append remaining elements from the other array.
+// * - Time: O(n + m), where n and m are lengths of the arrays.
+// * - Space: O(n + m), for the merged result.
