@@ -19,8 +19,8 @@ Interviewer: Then why does console.log(5 - "2") give 3?
 You: Unlike +, the - operator only works with numbers. So JavaScript tries to convert both values into numbers. "2" becomes 2, and 5 - 2 gives 3.
 
 Interviewer: How do you check if a value is NaN in JavaScript? You: There are two main ways:
-1.	Using isNaN(value) → This checks if the value is Not a Number.
-          isNaN("hello"); // true             isNaN(123);  // false
+1.	Using isNaN(value) → Converts the value to a number first, then checks if it’s NaN.
+              isNaN("hello"); // true             isNaN(123);  // false
 2.	Using Number.isNaN(value) → This is stricter. It only returns true if the value is exactly NaN.
      Number.isNaN(NaN); // true    Number.isNaN("hello"); //false
 
