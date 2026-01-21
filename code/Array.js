@@ -518,3 +518,116 @@ mergeArray([1,2,3,5,7,9,10],[2,4,6,8]); //[1,2,3,4,5,6,7,8,9,10]
 //  * - Append remaining elements from the other array.
 // * - Time: O(n + m), where n and m are lengths of the arrays.
 // * - Space: O(n + m), for the merged result.
+
+
+
+//Q19. Remove element at given index
+function removeAtIndex(arr, index) {
+    if(index < 0 || index >= arr.length){
+      console.log("Invalid Index");
+      return;
+    }  
+  arr.splice(index, 1);
+  console.log(arr);
+}
+removeAtIndex([10, 20, 30, 40, 50], 2); //[10, 20, 40, 50]
+
+// * Approach:
+//  * - Validate the index:
+//  *  - Must be within bounds (0 ≤ index < arr.length).
+//  *  - If invalid, print "Invalid Index".
+//  * - Use `splice`:
+//  *   - `arr.splice(index, 1)` removes exactly one element at the given index.
+//  *   - This mutates the original array.
+//  * - Print the updated array.
+// * - Time: O(n), because elements after the removed index are shifted.
+// * - Space: O(1), since the operation is in place.
+
+
+
+//20. Find all pairs with given sum
+function pairSum(arr, target){
+    let map = [];
+    let obj = {};
+    for(let i = 0; i < arr.length; i++){
+        let value = target - arr[i];
+        
+        if(obj[value] !== undefined){
+            let map1 = [];
+            map1.push(arr[i], value);
+            map.push(map1);
+        }
+        obj[arr[i]] = i;
+    }
+    console.log(map);
+}
+pairSum([1,2,3,4,5,6], 7); //[[4,3], [5,2], [6,1]]
+
+// * Approach:
+//  * - Use a hash map (`obj`) to store elements as you iterate.
+//  * - For each element `arr[i]`, compute `value = target - arr[i]`.
+//  * - If `value` is already in the map, push the pair `[arr[i], value]` into `map`.
+//  * - Store the current element in the map for future checks.
+//  * - Finally, print the list of pairs.
+// * - Time: O(n), since each element is processed once and hash lookups are O(1).
+// * - Space: O(n), for storing elements in the hash map and pairs in the result.
+
+
+
+//21. Separate even and odd numbers
+function evenOdd(arr){
+    let even = [];
+    let odd = [];
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i] % 2 === 0){
+            even.push(arr[i]);
+        }else{
+            odd.push(arr[i]);
+        }
+    }
+    console.log("Even = ", even, "and Odd = ", odd);
+}
+evenOdd([1,2,3,4,5,6]); //Even = [2,4,6] and Odd = [1,3,5]
+
+// * Approach:
+//  * - Initialize two arrays: `even` and `odd`.
+//  * - Iterate through the input array once.
+//  * - For each element:
+//  *   - If divisible by 2 (`num % 2 === 0`), push into `even`.
+//  *   - Otherwise, push into `odd`.
+//  * - Print the results.
+//  * - Time: O(n), since each element is checked once.
+//  * - Space: O(n), for storing elements into two arrays.
+
+
+
+//Q22. Flatten a nested array
+function flattern(stack){
+    let newArr = [];
+    for(let i = stack.length-1; i >= 0; i--){
+        if(typeof stack[i] === "number"){
+            newArr.push(stack[i]);
+        }else if(Array.isArray(stack[i])){
+            //the code where the [] is removed from the stack.
+            let nested = stack[i];
+            stack.splice(i,1);
+            stack.splice(i,0,...nested);
+            i = stack.length;
+        }
+    }
+    console.log(newArr.reverse());
+}
+flattern([1, [2, [3, 4]]]); //[1,2,3,4]
+
+// * Approach:
+//  * - Initialize an empty result array `newArr`.
+//  * - Iterate backwards through the input `stack`.
+//  * - For each element:
+//  *   - If it's a number, push it into `newArr`.
+//  *   - If it's an array:
+//  *     - Remove the array using `splice(i,1)`.
+//  *     - Insert its contents back into the stack using `splice(i,0,...nested)`.
+//  *     - Reset `i = stack.length` to reprocess newly inserted elements.
+//  * - Reverse `newArr` at the end to restore correct order.
+//  * - Time: O(n), each element is processed once.
+//  * - Space: O(n), for storing flattened result.
