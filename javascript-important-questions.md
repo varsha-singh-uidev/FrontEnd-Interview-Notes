@@ -60,6 +60,9 @@ parseInt("123"); // 123
 
 ## DOM Related Question ##
 
+Q: What is DOM?
+A: DOM(Document Object Model) It is a programming interface for web documents. The DOM represent the HTML page as a tree structure where each element is a node. JavaScript can use the DOM to read, modify, add or delete elements dynamically.
+
 Q: What is querySelector()?
 A:  querySelector() is a DOM method in JavaScript that returns the first element within the document that matches      a given CSS selector. If no matching element is found, it returns null.
 
@@ -95,8 +98,7 @@ Q: What is event.currentTarget?
 A: event.currentTarget refers to the element the event listener is attached to (the one currently handling the event).
 
 Q: What is once option in event listener? Explain that with the help of example.
-A: What is the once option in Event Listener?
-•	When you attach an event listener using addEventListener(), you can pass an options object.
+A: When you attach an event listener using .addEventListener(), you can pass an options object.
 •	One of those options is once: true.
 •	Meaning: The event listener will run only once — after it executes the first time, it is automatically removed.
 •	This is useful when you want an action to happen a single time (e.g., onboarding popup, one time animation         trigger, or logging a unique event).
@@ -110,7 +112,7 @@ A: The input and change events are both used to detect user interactions with fo
 •	change event: Fires only after the element loses focus (blur) and the value has been modified. For dropdowns or checkboxes, it fires as soon as the selection or state changes.
 
 Q: Can events be triggered manually?
-A: Yes. In JavaScript, events can be triggered manually using methods like element.click() or by creating and         dispatching custom events with dispatchEvent(). 
+A: Yes. In JavaScript, events can be triggered manually using methods like element.click() or by creating and dispatching custom events with dispatchEvent(). 
 
    Example 1: Trigger a Built‑in Event
    <button id="btn">Click Me</button>
