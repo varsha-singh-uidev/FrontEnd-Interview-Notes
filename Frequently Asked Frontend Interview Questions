@@ -823,9 +823,8 @@ Ans = Difference Between useMemo and useCallback:
       useCallback: Saves memory/re‑renders by keeping function identity stable.
 
 7. What are React keys and why are they important?
-Ans = In react key are used when rendering lists. Keys give each element a stable identity So, React can match 
-      old and new elements during the reconciliation process. Without keys, React may reuse DOM nodes incorrectly.
-      Keys help React know which items stayed the same, which changed, and which were removed.
+Ans = In react key are used when rendering lists. Keys give each element a stable identity So, React can match old and new elements during the reconciliation process. 
+      Without keys, React may reuse DOM nodes incorrectly. Keys help React know which items stayed the same, which changed, and which were removed.
       Important: Avoid using array indices as keys unless the list is static and never reordered.
       Keys must be stable — they should not change between renders.
 
