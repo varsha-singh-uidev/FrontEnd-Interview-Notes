@@ -212,10 +212,17 @@ h.greet();
 
 Q: Can you define a method outside the class?
 A: Yes. In JavaScript, you can define a method outside the class and then attach it to the class’s prototype. This way, all instances of the class can use it, even though it wasn’t written inside the class body.
+Exmaple: function greet(){return  `Hello, my name is ${this.name}`;}
+class Person{
+  constructor(name){this.name = name;}
+}
+Person.prototype.greet = greet;
+let p1 = new Person("bob");
+console.log(p1.greet());
 
 Q: What are getters and setters?
-A: Getter (get) → A special method in a class/object that lets you access a property’s value.
-Setter (set) → A special method that lets you update or modify a property’s value safely.
+A: Getter (get) → A special method in a class/object that lets you access a property’s value. Called without paranthesis (like a property.)
+Setter (set) → A special method that lets you update or modify a property’s value safely. Called automatically when you use assignment syntax.
 Example:
 class Person{
     constructor(name, age){
