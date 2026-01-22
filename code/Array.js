@@ -631,3 +631,34 @@ flattern([1, [2, [3, 4]]]); //[1,2,3,4]
 //  * - Reverse `newArr` at the end to restore correct order.
 //  * - Time: O(n), each element is processed once.
 //  * - Space: O(n), for storing flattened result.
+
+
+
+// Find common elements in 3 arrays
+function common(a,b,c){
+    let set1 = new Set(a);
+    let set2 = new Set(b);
+    let set3 = new Set(c);
+    let result = new Set();
+  for(let item of set1){
+      if(set2.has(item) && set3.has(item)){
+          result.add(item);
+      } 
+  }
+  console.log([...result]);
+}
+common(
+    [1,5,10,20,40,80], 
+    [6,7,20,80,100], 
+    [3,4,15,20,30]
+); //[20]
+
+//  * Approach:
+//  * - Convert each array into a Set for O(1) lookups.
+//  * - Initialize an empty result Set.
+//  * - Iterate through the first set:
+//  *   - If the element exists in both the second and third sets, add it to result.
+//  * - Convert result back into an array and return/print.
+//  * - Time: O(n + m + k), optimal for large arrays.
+//  * - Space: O(n + m + k), for storing sets.
+
