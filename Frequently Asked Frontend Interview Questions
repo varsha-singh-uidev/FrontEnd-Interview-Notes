@@ -973,4 +973,7 @@ Ans = Differences Between React Router v5 and v6
 
       Upgrade Path
       v5 → Widely used but now legacy.
-      v6 → Actively maintained, recommended for new projects, with a compatibility package for gradual upgrades
+      v6 → Actively maintained, recommended for new projects, with a compatibility package for gradual upgrades.
+
+13. Difference between useState and useReducer?
+Ans = 
