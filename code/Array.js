@@ -634,7 +634,7 @@ flattern([1, [2, [3, 4]]]); //[1,2,3,4]
 
 
 
-// Find common elements in 3 arrays
+//Q23. Find common elements in 3 arrays
 function common(a,b,c){
     let set1 = new Set(a);
     let set2 = new Set(b);
@@ -662,3 +662,34 @@ common(
 //  * - Time: O(n + m + k), optimal for large arrays.
 //  * - Space: O(n + m + k), for storing sets.
 
+
+//Q24. Product of array except self
+function productExceptSelf(arr){
+    let n = arr.length;
+    let newArr = new Array(n).fill(1);
+    prefix = 1;
+    for(let i = 0; i < n; i++){
+        newArr[i] = prefix;
+        prefix *= arr[i];
+    }
+    
+    suffix = 1;
+    for(let i = n-1; i >= 0; i--){
+        newArr[i] *= suffix;
+        suffix *= arr[i];
+    }
+    console.log(newArr);
+}
+productExceptSelf([1,2,3,4]); //[24, 12, 8, 6]
+
+//  * Approach:
+//  * - Initialize result array `newArr` with 1s.
+//  * - Prefix pass:
+//  *   - Traverse from left to right.
+//  *   - At each index i, store product of all elements before i.
+//  * - Suffix pass:
+//  *   - Traverse from right to left.
+//  *   - Multiply each index i with product of all elements after i.
+//  * - Result[i] = prefix[i] × suffix[i] (done in-place).
+// - Time: O(n), two passes only.
+// - Space: O(1) extra (prefix/suffix stored in variables).
