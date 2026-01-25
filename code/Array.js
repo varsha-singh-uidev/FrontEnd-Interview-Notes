@@ -738,3 +738,42 @@ majority([3,3,4,2,3,3,5]); //Element 3 occur 4 times in the array
 //  *   - Else, no majority element exists.
 // - Time: O(n), two passes.
 // - Space: O(1), constant extra space.
+
+
+
+//Q26. Sort array of 0s, 1s, and 2s (Dutch flag)
+function sort012(arr){
+    let low = 0;
+    let mid = 0;
+    let high = arr.length-1;
+    while(mid <= high){
+        if(arr[mid] === 0){
+            [arr[mid], arr[low]] = [arr[low], arr[mid]];
+            mid++;
+            low++;
+        }else if(arr[mid] === 1){
+            mid++;
+        }else{
+            [arr[mid], arr[high]] = [arr[high], arr[mid]];
+            high--;
+        }
+    }
+    console.log(arr);
+}
+sort012([0, 2, 1, 2, 0, 1, 0]);
+
+// * Approach (Dutch National Flag):
+//  * - Maintain three pointers:
+//  *   - `low` → boundary for 0s
+//  *   - `mid` → current element under consideration
+//  *   - `high` → boundary for 2s
+//  * - Traverse the array:
+//  *   - If arr[mid] == 0:
+//  *       Swap arr[mid] with arr[low], increment both low and mid.
+//  *   - If arr[mid] == 1:
+//  *       Just increment mid.
+//  *   - If arr[mid] == 2:
+//  *       Swap arr[mid] with arr[high], decrement high.
+//  * - Continue until mid > high.
+// - Time: O(n), single pass through array.
+// - Space: O(1), in-place sorting.
