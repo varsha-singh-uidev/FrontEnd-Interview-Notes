@@ -693,3 +693,48 @@ productExceptSelf([1,2,3,4]); //[24, 12, 8, 6]
 //  * - Result[i] = prefix[i] × suffix[i] (done in-place).
 // - Time: O(n), two passes only.
 // - Space: O(1) extra (prefix/suffix stored in variables).
+
+
+
+//Q25. Find majority element (> n/2 times)
+function majority(arr){
+    let n = arr.length;
+    let candidate = null;
+    let count = 0;
+    for(let i = 0; i < n; i++){
+        if(count === 0){
+            candidate = arr[i];
+        }
+        if(arr[i] === candidate){
+            count++;
+        }else{
+            count--;
+        }
+    }
+    let count1 = 0;
+    for(let i = 0; i < n; i++){
+        if(candidate === arr[i]){
+            count1++;
+        }
+    }
+    if(count1 > n/2){
+        console.log(`Element ${candidate} occur ${count1} times in the array`);
+    }else{
+        console.log(`There is no majority element in the array`);
+    }
+}
+majority([3,3,4,2,3,3,5]); //Element 3 occur 4 times in the array
+
+// * Approach:
+//  * - Phase 1 (Voting):
+//  *   - Maintain a candidate and a count.
+//  *   - Traverse the array:
+//  *     - If count == 0, set candidate = current element.
+//  *     - If current element == candidate, increment count.
+//  *     - Else, decrement count.
+//  * - Phase 2 (Verification):
+//  *   - Count occurrences of candidate.
+//  *   - If count > n/2, candidate is majority element.
+//  *   - Else, no majority element exists.
+// - Time: O(n), two passes.
+// - Space: O(1), constant extra space.
