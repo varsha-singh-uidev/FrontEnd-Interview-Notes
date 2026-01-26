@@ -976,4 +976,50 @@ Ans = Differences Between React Router v5 and v6
       v6 → Actively maintained, recommended for new projects, with a compatibility package for gradual upgrades.
 
 13. Difference between useState and useReducer?
-Ans = 
+Ans = useState:
+      Simple hook for managing local state.
+      Returns [state, setState].
+      Best for small state objects.
+      State update are directly (you call setState(newValue)).
+      Easy to read, write and minimall boilerplate.
+      Great for form input, toggles and counters.
+
+      useReducer:
+      Hooks for managing state with a reducer function. 
+      Returns [state, dispatch].
+      Best for complex state logic with multiple sub-values.
+      State update are action basced (dispatch({type: "increment"})).
+      More structured, predictable and scalable.
+      Great for apps with complex transitions.
+
+14. What is the difference between SSR(Server Side Rendering) and CSR(Client Side Rendering) in React?
+Ans = Server-Side Rendering(SSR):
+      Rendering happen on the server before sending HTML to the browser.
+      Faster initial load - user sees content immediately.
+      Better SEO - search engines can crawl full html.
+      Requires hydration (React attaches event listeners after HTML loads). 
+      More complex setup (needs frameworks like Next.js, server infrastructure).
+      Best for content‑heavy apps (blogs, e‑commerce, news sites).
+
+      Client-Side Rendering(CSR):
+      Rendering happens entirely in the browser using JavaScript.
+      Slower initial loads - blank page untill the JavaScript loads.      
+      Weaker SEO - crawlers may struggle.
+      Navigation between pages is faster and smoother (no full reloads).
+      Simpler setup (just React + bundler, no server rendering).
+      Best for highly interactive apps (dashboards, SPAs).
+
+15. Difference between hydration and rendering in React?
+Ans = Rendering:
+      Reacts builds the DOM tree from your components.
+      Happen in the Client Side Rendering or during updates when state/props changes.
+      Produces the UI from scratch in the browser.
+      User sees content only after JavaScript runs.
+      Common in single-page application 
+
+      Hydration:
+      React attaches its event listeners and internal logics to already existing HTML.
+      Happen in the Server Side Rendering after the server send the pre-built HTML.
+      Makes the static html page interactive.
+      User sees content immediately then react "hydrates" it.
+      Common in SSR frameworks like Next.js.
