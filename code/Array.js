@@ -777,3 +777,41 @@ sort012([0, 2, 1, 2, 0, 1, 0]);
 //  * - Continue until mid > high.
 // - Time: O(n), single pass through array.
 // - Space: O(1), in-place sorting.
+
+
+
+//Q27. Longest subarray with sum = K
+function longestSubArray(arr,k){
+    let map = {};
+    let sum = 0;
+    let maxLen = 0;
+    for(let i = 0; i < arr.length; i++){
+        sum += arr[i];
+        if(sum === k){
+            maxLen = Math.max(maxLen, i+1);
+        }
+        if(map[sum-k] !== undefined){
+            maxLen = Math.max(maxLen, i-map[sum-k]);
+        }
+        if(map[sum] === undefined){
+            map[sum] = i;
+        }
+    }
+    console.log(maxLen);
+}
+longestSubArray([1, 2, 3, 1, 1, 1, 1, 4, 2], 5); //3
+longestSubArray([10, 5, 2, 7, 1, 9], 15); //4
+longestSubArray([10, -5, 5, -2, 7, 1], 10); //3
+longestSubArray([2, -1, 2, -1, 2], 3); //3
+
+// * Approach: 
+// * - Maintain a running prefix sum while traversing the array. 
+// * - Use a hash map to store the earliest index of each prefix sum. 
+// * - For each element:
+//   * - Update the running sum. 
+//   * - If sum == k, then subarray from start to current index has sum k → update maxLen. 
+//   * - If (sum - k) exists in map, then subarray from map[sum - k] + 1 to current index has sum k → update maxLen. 
+//   * - Store sum in map if it’s not already present (to preserve earliest index). 
+// * - Return maxLen as the length of the longest subarray with sum k. 
+// - Time: O(n), single pass. 
+// - Space: O(n), hash map for prefix sums.
