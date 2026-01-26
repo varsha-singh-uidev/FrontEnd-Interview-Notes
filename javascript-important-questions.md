@@ -58,6 +58,182 @@ parseInt("123"); // 123
 •	Or with the unary + operator:
 +"123"; // 123
 
+Interview: What is short-circuit evaluation? 
+You: Logical operations stop once the result is known: 
+true || anything → true 
+false && anything → false
+
+Interviewer: What is an expression in JavaScript?
+You: An expression is any piece of code that produces a value. It can be as simple as a number or a string, or more complex like a function call.
+Examples:
+5 + 3        // produces 8
+"Hello"      // produces "Hello"
+greet("Varsha") // produces whatever the function returns
+
+Interviewer: And what is a statement in JavaScript?
+You: A statement is a complete instruction that tells the program to do something. It may contain expressions, but its purpose is to perform an action.
+Examples:
+let x = 5; // variable declaration statement
+if (x > 3) {// if statement
+  console.log("Hi"); // statement inside block
+}
+
+Interviewer: What is eval() used for in JavaScript? 
+You: The eval() function is used to execute a string of JavaScript code. If you pass a string into eval(), JavaScript treats it like actual code and runs it.
+Math.floor() → always rounds down to the nearest integer.
+Math.ceil() → always rounds up to the nearest integer.
+Math.round() → rounds to the nearest integer (≥ .5 goes up, < .5 goes down)
+
+Q: What is string interpolation?
+A: Embedding variables inside strings using template literals.
+Interviewer: What is Symbol used for in JavaScript? 
+You: Symbol is a primitive data type introduced in ES6. It’s used to create unique identifiers for object properties.
+•	Key points:
+1.	Every Symbol value is guaranteed to be unique, even if they have the same description.
+const s1 = Symbol("id");    const s2 = Symbol("id");
+console.log(s1 === s2); // false
+2.	Symbols are often used as object keys to avoid property name conflicts.
+3.	They are not enumerable in for...in loops, which makes them useful for hidden or internal properties.
+
+Interviewer: What is the Temporal Dead Zone (TDZ) in JavaScript? 
+You: The Temporal Dead Zone (TDZ) is the period between when a variable is hoisted into scope and when it is initialized. During this time, the variable exists but cannot be accessed — trying to use it will throw a ReferenceError.
+
+Interviewer: What is the result of 0 / 0 in JavaScript? 
+You: The result is NaN (Not a Number).
+•	Division by zero is undefined.
+•	Since 0 / 0 doesn’t make mathematical sense, JavaScript returns NaN.
+
+Interviewer: What is the result of 10 / 0 in JavaScript? 
+You: The result is Infinity.
+•	JavaScript follows IEEE 754 floating point rules.
+•	Dividing a positive number by zero gives positive infinity.
+console.log(10 / 0); // Infinity
+console.log(-10 / 0); // -Infinity
+
+Interviewer: What is a literal in JavaScript? 
+You: A literal is a fixed value written directly into the source code. It represents data exactly as it is, without needing variables or expressions ex 10, “hello” or true.
+
+Q: What is operator precedence? 
+A: The order in which operators are evaluated.
+
+Interviewer: What is the comma operator in JavaScript? 
+You: The comma operator (,) allows you to evaluate multiple expressions in a single statement, and it returns the value of the last expression.
+•	Used to separate expressions where only one is expected.
+•	All expressions are evaluated from left to right, but only the result of the last one is returned.
+Example:- let x = (1, 2, 3);  console.log(x);
+
+Interviewer: What is the nullish coalescing operator (??) in JavaScript? 
+You: It only checks for null or undefined (not falsy values like 0, "", or false). If the left hand side is null or undefined, it returns the right hand side. Otherwise, it returns the left hand side.
+Example:-  let name = null;        let defaultName = "Guest"; console.log(name ?? defaultName); 
+Difference from || (OR operator)
+•	|| returns the right hand side if the left is falsy (0, "", false, null, undefined).
+Example:-  console.log(0 || 10); // 10
+
+Interviewer: What is a compound expression in JavaScript? 
+You: A compound expression is an expression that combines multiple simple expressions into one, usually using operators like arithmetic, logical, or the comma operator. The whole expression evaluates to a single value.
+// Arithmetic compound expression     let result = (2 + 3) * 4;  
+// Logical compound expression
+let isValid = (age > 18) && (status === "active");  
+// Comma operator compound expression
+let x = (1, 2, 3);  
+console.log(x); // 3 (evaluates all, returns last)
+
+Interviewer: Can operators be overloaded in JavaScript? 
+You: No, JavaScript does not support operator overloading.
+
+Interviewer: What happens if you use const in a loop in JavaScript? 
+You: const means the variable binding cannot be reassigned.
+•	A loop like for..loop tries to reassign the loop variable each iteration.
+•	That clashes with const →  TypeError.
+const i = 0;
+for (i = 0; i < 3; i++) {//  Error: Assignment to const variable
+  console.log(i);
+}
+So: you cannot reuse a const variable across loop iterations.
+Second case: const declared inside the loop block
+•	Each iteration creates a new block scope.
+•	That means a fresh const variable is declared every time.
+for (let j = 0; j < 3; j++) {
+  const x = j;   // new const each iteration
+  console.log(x);  }   // Output: 0, 1, 2
+
+Interviewer: Can while be used to wait in JavaScript?
+You: Technically yes, but it’s not recommended.
+•	A while loop can be written to “wait” until a condition becomes true.
+•	But JavaScript is single threaded (it runs on one main thread).
+•	If you use while to wait, it blocks the entire thread, freezing the page or application until the loop ends.
+•	This means no other code, events, or UI updates can run during that time.
+Example = console.log("start");
+let i = 0;  while (i < 300000) { i++; }
+console.log("End");
+Correct Way to Wait
+Instead of blocking with while, use asynchronous methods like setTimeout, setInterval, or Promises/async-await.
+
+Interviewer: Can you break from a nested forEach() loop using break in JavaScript? 
+You: No, you cannot use break (or continue) inside a forEach() loop.
+•	forEach() is a higher order function that takes a callback and executes it for each array element.
+•	The callback is not a traditional loop structure, so break and continue don’t work inside it.
+•	If you try, you’ll get a SyntaxError.
+[1, 2, 3].forEach(num =>
+ { if (num === 2) {
+ break; //  SyntaxError: Illegal break statement } console.log(num); } );
+
+Interviewer: Can a switch case check for ranges in JavaScript? 
+You: No, a switch case cannot directly check for ranges. It only matches exact values.
+•	switch compares the given expression against case labels using strict equality (===).
+•	That means you can only check for specific values, not ranges like x > 10 && x < 20.
+•	If you want ranges, you must use if...else statements or add logic inside each case.
+let num = 15;
+switch (num) {
+  case (num > 10 && num < 20): // ❌ This won’t work
+    console.log("Between 10 and 20");
+    break;  }
+
+Q: What is ES6?
+A: ES6 (ECMAScript6) is the 6th version of JavaScript that introduced modern features like let and const, arrow functions, classes, modules, promises, and template literals — making JavaScript easier to write, more powerful, and more organized.
+
+Q: What is Map in JS? 
+A: A collection of key-value pairs with any type of keys. 
+
+Q: What is Set in JS?
+A: A collection of unique values. 
+
+Q: How to loop through a Map? 
+A: for (let [key, value] of map)
+
+Q: What is prompt()?
+A: A built in js method that display dialog box asking the user for input. It pauses the code execution untill the user enter a value or cancels it. It return the string value entered by the user or null if canceled.
+Exmaple: let name = prompt("Enter your name");
+         console.log(name);
+
+Q: What is confirm()?
+A: A built in js method that display a dialog box with the cancel and ok button. It is used to ask the user for a yes/no decision. Return true if user click on ok and false if user click on the cancel button.
+Example:  let result = confirm("Do you want to continue the process");
+          if(result){console.log("User want to proceede furthur");}
+          else{console.log("User dont want to continue");}
+
+Q: What is a module?
+A: A module in JS is a reusable file that contains functions, variables, or classes. Instead of writing everything in one big script, modules let you split code into smaller, organized pieces and share them across files.
+
+Q: How to export in a module?
+A: You can export code in two ways:
+1.	Default Export → only one per file
+Example: export default function(a, b){ return a + b;}
+Mention the above code in math.js file
+2.	Named Export → multiple exports per file
+Example: export function add(a, b){ a +b; }
+Mention the above code in math1.js file
+
+Q: How to import from a module?
+A: Default Import – 
+     Example: import add from “./math.js”;
+     Named Import – 
+     Example: import {add as addFun} from “./math1.js”; 
+
+Q: What is scope in JavaScript? 
+A: Scope defines the visibility of variables.
+
+
 ## DOM Related Question ##
 
 Q: What is DOM?
