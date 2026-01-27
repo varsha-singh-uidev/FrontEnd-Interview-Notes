@@ -815,3 +815,38 @@ longestSubArray([2, -1, 2, -1, 2], 3); //3
 // * - Return maxLen as the length of the longest subarray with sum k. 
 // - Time: O(n), single pass. 
 // - Space: O(n), hash map for prefix sums.
+
+
+
+//Q28. Find subarray with max product
+function maxProduct(arr){
+    let prefix = 1;
+    let suffix = 1;
+    let max = -Infinity;
+    for(let i = 0; i < arr.length; i++){
+        if(prefix === 0){
+            prefix = 1;
+        }
+        if(suffix === 0){
+            suffix = 1;
+        }
+        prefix *= arr[i];
+        suffix *= arr[arr.length-1-i];
+        max = Math.max(max, Math.max(prefix, suffix));
+    }
+    console.log(max);
+}
+maxProduct([2,3,-2,4]);//6
+maxProduct([-1,-2,-3,-4]);//24
+maxProduct([0,-2,-3,0,4]);//6
+
+// * Approach: 
+// * - The goal is to find the maximum product of any contiguous subarray. 
+// * - Idea: use prefix and suffix products to cover cases where negatives or zeros appear. 
+// * - Traverse the array once from the left (prefix) and once from the right (suffix): 
+//     - Maintain running products for both directions.
+//     - If product becomes 0, reset it to 1 (since subarray can restart after zero). 
+//     - At each step, update the maximum with the larger of prefix or suffix. 
+// * - This ensures we capture maximum product even when negatives flip signs or zeros split the array.
+// - Time: O(n), single pass. 
+// - Space: O(1), constant extra space.
