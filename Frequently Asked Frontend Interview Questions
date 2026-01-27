@@ -1023,3 +1023,40 @@ Ans = Rendering:
       Makes the static html page interactive.
       User sees content immediately then react "hydrates" it.
       Common in SSR frameworks like Next.js.
+
+
+## Performance, Security & Best Practices ##
+
+1. How do you optimize frontend performance?
+Ans = 1. Minimize file size: Compress images, CSS and JS so pages load faster.
+      2. Use Caching: Store data in the browser so it does not reload everything each time.
+      3. Lazy Loading: Load heavy things(like images or videos) only when the user scroll to them.
+      4. Code Splitting: Break big javascript bundles into smaller parts so only what's needed loads first.
+      5. Reduce unnecessary re-renders: In React use memo, useCallback and useMemo wisely.
+      6. Efficient DOM updates: Avoid heavy operations and keep the DOM tree light.
+      7. Preload important resources: Load critical CSS/JS early so the page feels faster.
+
+2. Difference between lazy loading and preloading?
+Ans = Lazy loading:
+      Loads resources later(on demand).
+      Save bandwidth and speed up inital page load.
+      User may see a delay when resources first appears.
+      Best for heavy images, videos or components.
+
+      Preloading:
+      Loads resources earlier(in advance).
+      Reduce wait time when the resource is needed.     
+      User sees instant response because resource is already loaded.
+      Best for critical assets like fonts, CSS or scripts needed soon.
+
+3. What is critical CSS and why is it important?
+Ans = Critical Css is the small part of css needed to style the first visible part of a webpage. Instead of loading the entire css file first, we put important
+      css directly inside the html so the page looks styled immediately. The rest of the css loads later in the background.
+      Importance: 
+      1. User see a styled page immediately.
+      2. Better User experience.
+      3. Improves SEO: search engines prefer fast website.
+      4. Large css files can block rendering, critical css avoid this by prioritizing only what is needed.
+
+4. Difference between HTTP/1.1, HTTP/2, and HTTP/3?
+Ans = 
