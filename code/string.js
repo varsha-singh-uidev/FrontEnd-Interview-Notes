@@ -398,7 +398,7 @@ checkRotation("hello", "lehlo"); //no
 
 
 
-// Find longest substring without repeating characters.
+//Q18. Find longest substring without repeating characters.
 function longestSubString(str){
     let windowSize = 0;
     let left = 0;
@@ -443,3 +443,54 @@ longestSubString("bbbbb"); //1
 //  * Space Complexity: O(n) → Set stores unique characters in the current window.
 
 
+
+//Q19. Reverse words in a sentence
+function reverseWord(str){
+    let a = str.split(" ");
+    let b = [];
+    for(let i = a.length-1; i >= 0; i--){
+        b.push(a[i]);
+    }
+    console.log(b.join(" "));
+}
+reverseWord("I Love Coding"); //Coding Love I
+reverseWord("a b c d");// d c b a
+
+// * Approach: 
+// 1. Split the sentence into an array of words using space as delimiter. 
+// 2. Traverse the array backwards and push each word into a new array. 
+// 3. Join the reversed array back into a string with spaces in between. 
+// 4. Print or return the result.
+// * Time Complexity: O(n) - Splitting, reversing, and joining each take linear time. 
+// * Space Complexity: O(n) - Extra array used to store reversed words.
+
+
+
+//Q20. Find the most frequent character in a string
+function mostFrequentChar(str){
+    let obj = {};
+    let max = 0;
+    let freqChar = "";
+    for(let i = 0; i < str.length; i++){
+        let char = str[i];
+        obj[char] = (obj[char] || 0) + 1;
+    }
+    for(let char in obj){
+        if(obj[char] > max){
+            max = obj[char];
+            freqChar = char;
+        }
+    }
+    console.log(freqChar);
+}
+mostFrequentChar("javascript");//a
+mostFrequentChar("aabbccc");//c
+
+// * Approach: 
+// 1. Create a frequency map (object) to count occurrences of each character. 
+// 2. Traverse the string once, updating counts in the map. 
+// 3. Traverse the map to find the character with the highest count. 
+// 4. Print or return that character.
+// * Time Complexity: O(n) - One pass to count characters, one pass to find the maximum. 
+// * Space Complexity: O(k) - k = number of unique characters in the string. 
+// - Frequency map stores counts for each unique character.
