@@ -1078,4 +1078,50 @@ Ans = HTTP/1.1:
       Growing adoption(Google, Facebook and Cloudfare already used it).
 
 5. How to prevent XSS attacks in frontend?
-Ans = 
+Ans = Steps to prevent the XSS attack are:
+      1. Escape user input → Treat everything users type as text, not code.
+         Example: Show <script> as plain text instead of running it.
+
+      2. Sanitize input → Clean user data before showing it (remove dangerous tags/scripts).
+
+      3. Use safe methods in React → React automatically escapes values, so don’t bypass it with dangerouslySetInnerHTML.
+
+      4. Avoid unsafe DOM updates → Don’t use innerHTML or document.write with user data. Use textContent instead.
+
+      5. Content Security Policy (CSP) → Add browser rules that block unknown scripts. 
+
+6. What is CORS and how does it work?
+Ans = CORS is security feature built in browser. It controls how a website can request resources from another domain. Without CORS a site could secertly fetcht data from 
+      another site and misuse it.
+
+Working of the CORS:
+      1. Browser sends a request → When your frontend tries to fetch data from another domain, the browser checks if it’s allowed.
+
+      2. Server responds with headers → The other domain’s server must include special headers like: 
+         (Access-Control-Allow-Origin: https://example.com)
+         This tells the browser: “Yes, I allow this site to access my data.”
+
+      3. Browser enforces rules → If the headers are missing or don’t match, the browser blocks the request.
+
+      4. Preflight requests (OPTIONS) → For sensitive requests (like POST with custom headers), the browser first sends a small “preflight” 
+         check to ask the server if it’s safe.
+
+Importance of CORS are:
+      1. Protects users from malicious sites stealing data.
+      2. Lets developers safely share APIs between trusted websites.
+      3. Keeps the web secure while still allowing controlled data sharing.
+
+7. Difference between cache-control and expires header?
+Ans = Expires:
+      Tells the browser a "fixed date/time" when the resource (like CSS, JS, image) should be considered “stale.”
+      Example: Expires: Wed, 10 Feb 2026 19:00:00 GMT
+      After this date/time, the browser must re-fetch the resource from the server.
+      Limitation: Works with absolute time → if server/client clocks are wrong, caching may break.
+      Older, less used today.
+
+      Cache-Control:
+      Gives flexible rules for caching using "relative time or policies".
+      Example: Cache-Control: max-age=3600
+      More powerful: supports options like no-cache, no-store, public, private.
+      Preferred over Expires because it’s more reliable and modern.
+      Modern, widely used, overrides "Expires" if both are present.
