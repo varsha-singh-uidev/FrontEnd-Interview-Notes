@@ -1059,4 +1059,23 @@ Ans = Critical Css is the small part of css needed to style the first visible pa
       4. Large css files can block rendering, critical css avoid this by prioritizing only what is needed.
 
 4. Difference between HTTP/1.1, HTTP/2, and HTTP/3?
+Ans = HTTP/1.1:
+      One request at a time.
+      Data is sent as plain text over TCP.
+      Slow, blocking issues.
+      Old, still used in some places.
+
+      HTTP/2:
+      Multiple requests at once.
+      Data is sent in binary format over TCP.
+      Faster, no blocking, compressed headers.
+      Commonly used now.
+
+      HTTP/3:
+      Multiple requests + faster setup.
+      Data is also sent in binary form over QUIC(UDP).
+      Fastest, works better on poor networks.
+      Growing adoption(Google, Facebook and Cloudfare already used it).
+
+5. How to prevent XSS attacks in frontend?
 Ans = 
