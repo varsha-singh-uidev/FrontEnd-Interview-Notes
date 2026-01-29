@@ -1146,4 +1146,37 @@ Ans = A Progressive Web App(PWA) is basically a website that feels and works lik
       It can also send you a push notification like “Your order is shipped!” even when the app isn’t open.
 
 9. What do you mean by SSG?
-Ans = Static Site Generation: 
+Ans = SSR (Server‑Side Rendering):
+      In SSR, the server builds the HTML page fresh for every request.
+      The server sends the complete HTML to the browser, and then also sends the JavaScript bundle so the page becomes interactive.
+      This gives fast first load and good SEO, but the server has to do more work each time a user visits, which can be heavy under high traffic.
+
+      SSG(Static Site Generation): 
+      To reduce the server’s workload, SSG was introduced.
+      In SSG, the pages are pre‑built into static HTML files at build time (before deployment).
+      When a user visits, the server simply serves the ready‑made HTML — no need to generate it again.
+      Along with the HTML, the JavaScript bundle is also pre‑built and sent to the browser.
+      The browser first shows the static HTML instantly (fast load), then runs the JavaScript to make the page interactive (buttons, forms, animations, etc.).
+      This makes SSG super fast, scalable, and efficient, especially for sites where content doesn’t change often (blogs, docs, portfolios).
+
+10. Difference between CSR, SSR, and SSG in frontend?
+Ans = CSR(Client Side Rendering):
+      First load is slow because the browser gets blank HTML and must run JavaScript to build the page.
+      SEO is weak because search engines may not see content until JavaScript runs.
+      Server does less work (just sends blank HTML + JS).
+      Best for interactive apps (dashboards, SPAs).
+
+      SSR(Server Side Rendering):
+      First load is fast because the server sends complete HTML, so the browser shows content immediately.
+      SEO is strong because HTML is ready when the page loads.
+      Server does more work (builds HTML fresh for every request).
+      Best for dynamic sites (e‑commerce, news).
+
+      SSG(Static Site Generation):
+      First load is the fastest because the server serves prebuilt HTML instantly.
+      SEO is also strong because prebuilt HTML is complete and easy for crawlers.
+      Server does minimal work (just serves prebuilt files).
+      Best for static content (blog, docs).
+
+11. What are web components and why use them?
+Ans = 
