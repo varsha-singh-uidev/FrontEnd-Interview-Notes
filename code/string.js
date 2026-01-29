@@ -494,3 +494,42 @@ mostFrequentChar("aabbccc");//c
 // * Time Complexity: O(n) - One pass to count characters, one pass to find the maximum. 
 // * Space Complexity: O(k) - k = number of unique characters in the string. 
 // - Frequency map stores counts for each unique character.
+
+
+
+//Q21. Check if a string is a subsequence of another
+function subSequence(main, sub){
+    let main1 = 0;
+    let sub1 = 0;
+    let count = 0;
+    while(main1 < main.length && sub1 < sub.length){
+        if(main[main1] === sub[sub1]){
+            main1++;
+            sub1++;
+            count++;
+        }else{
+            main1++;
+        }
+    }
+    if(count === sub.length){
+        console.log("Yes");
+    }else{
+        console.log("No");
+    }
+}
+subSequence("abcde", "ace"); //yes
+subSequence("abcde", "aec"); //no
+subSequence("something interesting going on", "sing"); //yes
+subSequence("helicopter", "hello"); //no
+
+// * Approach: 
+// 1. Use two pointers: one for `main` and one for `sub`. 
+// 2. Traverse both strings: 
+//    - If characters match, move both pointers forward and increment `count`. 
+//    - If not, move only the `main` pointer forward. 
+// 3. At the end, if `count` equals the length of `sub`,then all characters of `sub` were matched in order → subsequence exists. 
+// * Time Complexity: O(n) 
+//   - n = length of `main` 
+//   - Each character in `main` is checked at most once
+// * Space Complexity: O(1) 
+//   - Only pointers and a counter are used. 
