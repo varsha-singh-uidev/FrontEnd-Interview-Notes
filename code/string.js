@@ -533,3 +533,32 @@ subSequence("helicopter", "hello"); //no
 //   - Each character in `main` is checked at most once
 // * Space Complexity: O(1) 
 //   - Only pointers and a counter are used. 
+
+
+
+//Q22. Remove extra spaces from a string
+function removeSpace(str){
+    let newStr = "";
+    let str1 = str.split(" ");
+    for(let i = 0; i < str1.length; i++){
+        if(str1[i] !== ""){
+            if(newStr !== ""){
+                newStr += " ";
+            }
+            newStr += str1[i];
+        }
+    }
+    console.log(newStr);
+}
+removeSpace(" I Love   Codeing ");//I Love Codeing
+
+// * Approach: 
+// 1. Split the string by spaces using `split(" ")`. 
+// 2. Iterate through the resulting array. 
+// 3. Skip empty strings (caused by consecutive spaces). 
+// 4. Append words to a new string, adding a single space only between words. 
+// 5. Print the cleaned string. 
+// * Time Complexity: O(n) 
+// - Each character is processed once during split and loop traversal. 
+// * Space Complexity: O(n) 
+// - Extra array created by split plus the new cleaned string.
