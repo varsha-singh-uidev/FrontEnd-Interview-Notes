@@ -1125,3 +1125,25 @@ Ans = Expires:
       More powerful: supports options like no-cache, no-store, public, private.
       Preferred over Expires because it’s more reliable and modern.
       Modern, widely used, overrides "Expires" if both are present.
+
+8. What is a Progressive Web App (PWA), what is a Service Worker, and how do they work together to improve the user experience?
+Ans = A Progressive Web App(PWA) is basically a website that feels and works like a mobile app.
+      1. You can install it on your phone or desktop.
+      2. It loads fast, work offline, and can send push notification.
+      3. PWAs combine the reach of websites with the experience of apps.
+
+      Service Worker: A Service Worker is a background script that power many of the  special features of a PWA.
+      1. It runs separately form the webpage.
+      2. It can cache files, control network requests and send push notification.
+      3. It is the engine that make the PWAs feel app like.
+
+      Here is how they work together:
+      Service worker is the key technology behind PWA.
+      Exmaple:
+      You open a shopping PWA → the service worker saves product pages, images, and scripts in cache.
+      Next time you open it → it loads instantly from cache (fast).
+      If you lose internet → it still shows cached products (offline support).
+      It can also send you a push notification like “Your order is shipped!” even when the app isn’t open.
+
+9. What do you mean by SSG?
+Ans = Static Site Generation: 
