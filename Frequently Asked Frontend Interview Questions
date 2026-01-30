@@ -1179,4 +1179,49 @@ Ans = CSR(Client Side Rendering):
       Best for static content (blog, docs).
 
 11. What are web components and why use them?
-Ans = 
+Ans = Normally the website is built with HTML tag like <div>, <button> etc. But sometimes you want your own special tag that does something unique.
+      Web Component let you create custom HTML elements (like <user-card> or <app-button>). These custom element behave like normall tag but with your own
+      design and logic. 
+      They are built using three main parts:
+      Custom Elements → define your own HTML tags.
+      Shadow DOM → encapsulates styles and markup so they don’t leak or get affected by outside CSS.      
+      HTML Templates → reusable chunks of HTML that can be cloned and used inside components
+
+      Example:
+      //html code
+      <user-card></user-card>
+      //js code
+      class UserCard extends HTMLElement {
+        constructor() {
+          super();
+          // Attach shadow DOM
+          const shadow = this.attachShadow({ mode: 'open' });
+          shadow.innerHTML = `
+            <style>
+              .card { border: 1px solid #ccc; padding: 10px; }
+              button { background: blue; color: white; }
+            </style>
+            <div class="card">
+              <p>Name: Varsha</p>
+              <button>Follow</button>
+            </div>
+          `;
+        }
+      }
+      // Register the custom element
+      customElements.define('user-card', UserCard);
+
+Why Use Web Component:
+      1. Reusability: Build once use everywher. Example: A <user-card> component showing a profile can be reused across page.
+      2. Isolation: Style and code inside the component don't mess with the rest of your site(thanks to shadow dom).
+      3. Consistency: Same look and behavior wherever you use it.
+      4. Works Everywhere: They are browser standards, so they work with plain HTML, or framework like React, Angular, Vue.
+
+
+## General Frontend & Tools ##
+
+1. 
+
+
+
+
