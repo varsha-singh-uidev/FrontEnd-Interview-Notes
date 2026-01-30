@@ -1220,8 +1220,19 @@ Why Use Web Component:
 
 ## General Frontend & Tools ##
 
-1. 
+1. What is the difference between Git merge and Git rebase?
+Ans = Git Merge: 
+      Combine two branches by creating a new merge commit.
+      Preserves full branch history (non-linear).
+      Create an extra merge commit.
+      Safe for shared/public branches.
+      Easy to see when branches were merged.
 
-
+      Git Rebase: 
+      Moves your commits to start on top of another branch, like they were made after the latest changes.
+      Creates a clean, linear history.
+      No merge commit, rewrites commits. 
+      Dangerous on shared branches.
+      Harder to see original branching.
 
 
