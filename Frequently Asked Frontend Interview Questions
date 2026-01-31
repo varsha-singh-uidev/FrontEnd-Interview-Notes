@@ -1,6 +1,36 @@
 ## Most Frequently Asked Frontend Interview Question ##
 
 ## HTML ##
+
+1. What is HTML?
+Ans = HTML stand for HyperText Markup Language. Its purpose is to describe the structure of web pages using elements(tags) 
+      like heading, paragraphs, links and button etc. Every website you see today is built on HTML as its foundation. 
+      HTML was developed by Tim Berners-Lee in 1990 at CERN as the standard language to structure web pages. 
+
+2. What does DOCTYPE mean in HTML?
+Ans = DOCTYPE stands for Document Type Declaration. It tells the browser which version of HTML the page is written in so the browser knows
+      how to interpret and render the page correctly. It is not an Html tag it is just an instruction at the very top of the HTML  file.
+      Without DOCTYPE, browsers may switch to “quirks mode”, where they try to guess how to display the page (often incorrectly).
+      With DOCTYPE, browsers use “standards mode”, following proper HTML rules.
+      This ensures your webpage looks consistent across different browsers.
+
+3. How do you create a hyperlink in HTML?
+Ans = A hyperlink is a clickable link that takes you to the another webpage, section or resource. 
+      In HTML, hyperlinks are created using the <a> tag (which stands for anchor).
+      Example: <a href="#about">Go to About Section</a>
+      href defines where the link goes, and the text inside <a> is what users click.
+      The target attribute in the <a> tag defines where the linked page will open when the user clicks the hyperlink.
+      By default, links open in the same tab/window, but with target you can control the behavior.
+      Different value of target attribut are:
+      1. _self = same tab.
+      2. _blank = new tab.
+      3. _parent = parent frame.
+      4. _top = full window.
+
+4. What is the purpose of the <head> tag in HTML?
+Ans = The <head> tag tells the browser and search engines important information about the page, it contains: Page Title, Character Encoding, 
+      link external or internal stylesheets for design, link to javaScript, also contain Meta information about the page inside <meta> tag.
+
 1. What are semantic HTML elements? Give examples.
 Ans = Semantic elements clearly describe their meaning and purpose to both the browser and developers(<header>, <footer> etc).
       They improve: Accessibility, SEO, Code readability.
