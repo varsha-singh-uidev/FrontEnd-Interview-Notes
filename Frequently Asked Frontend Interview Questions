@@ -31,6 +31,39 @@ Ans = A hyperlink is a clickable link that takes you to the another webpage, sec
 Ans = The <head> tag tells the browser and search engines important information about the page, it contains: Page Title, Character Encoding, 
       link external or internal stylesheets for design, link to javaScript, also contain Meta information about the page inside <meta> tag.
 
+5. Explain the difference between <ol> and <ul> elements.
+Ans = <ol>:
+      Ordered list.
+      Used when sequence matter.
+      Default numbering style(can be changed).
+
+      <ul>:
+      Unordered list.
+      Used when sequence doesn't matter.
+      Default bullet style(can be changed).
+
+6. What is the significance of the lang attribute in HTML?
+Ans = The lang attribute in HTML specifies the language of the content inside an element(usually the whole page). It is written inside the <html> tag.
+      Exmaple: <html lang="en"> Here "en" means English.
+      Importance of lang attribute are:
+      1. Accessiblity: Screen reader rely on the lang attribute to read the text correctly with the right pronunciation.
+      2. Search Engine Optimization: Search engine use the lang attribute to understand the page language, which help in indexing and showing results.
+      3. Transalation Tools: Browser and translation services like google translater detect the language more accurately when lang is set.
+
+7. What is the purpose of the <form> element in HTML?
+Ans = The <form> element in HTML is used to collect user input.
+      It acts like a container that holds input fields (like text boxes, checkboxes, radio buttons, dropdowns, and buttons).
+      When the user submits the form, the data is sent to a server or handled by a script for processing.
+      Purpose of <form> are:
+      1. Collect data from users.
+      2. Group input elements together. 
+      3. Enable submission = Works with the <button> or <input type="submit"> to send data.
+      4. Define how data is sent = Uses the attribute like action, method.
+
+8. How does the target attribute work in HTML forms?
+Ans = The target attribute in a <form> element specifies where to display the response after the form is submitted.
+      Just like in hyperlinks, it controls whether the result opens in the same tab, a new tab, or a specific frame/iframe.
+
 1. What are semantic HTML elements? Give examples.
 Ans = Semantic elements clearly describe their meaning and purpose to both the browser and developers(<header>, <footer> etc).
       They improve: Accessibility, SEO, Code readability.
