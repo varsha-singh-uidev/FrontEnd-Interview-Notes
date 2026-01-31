@@ -64,20 +64,20 @@ Ans = The <form> element in HTML is used to collect user input.
 Ans = The target attribute in a <form> element specifies where to display the response after the form is submitted.
       Just like in hyperlinks, it controls whether the result opens in the same tab, a new tab, or a specific frame/iframe.
 
-1. What are semantic HTML elements? Give examples.
+9. What are semantic HTML elements? Give examples.
 Ans = Semantic elements clearly describe their meaning and purpose to both the browser and developers(<header>, <footer> etc).
       They improve: Accessibility, SEO, Code readability.
 
-2. Difference between block, inline, and inline-block elements?
+10. Difference between block, inline, and inline-block elements?
 Ans = Block: Takes full width, starts on a new line. Example: <div>, <p>.
       Inline: Take as much as width needed for their content, doesn’t start from a new line. Example: <span>, <a>.
       Inline-block: Behaves like inline but allows setting width/height. Example: <img>.
 
-3. What is the difference between <div> and <span>?
+11. What is the difference between <div> and <span>?
 Ans = <div>: Block-level, starts from the new line, used to group larger sections of content.
       <span>: Inline-level, doesn't start from the new line, used to style or mark small parts of text.
 
-4. What are HTML5 new features?
+12. What are HTML5 new features?
 Ans = Key additions:
       Semantic elements: <header>, <footer>, <article>
       Multimedia: <audio>, <video>
@@ -85,7 +85,7 @@ Ans = Key additions:
       APIs: Geolocation, Drag & Drop, Web Storage
       Form enhancements: email, date, required, placeholder.
 
-5. Difference between HTML and XHTML?
+13. Difference between HTML and XHTML?
 Ans = HTML (HyperText Markup Language)
       Introduced: 1991 by Tim Berners‑Lee.
       Flexible rules: Browsers forgive small mistakes (like unclosed tags).
@@ -109,7 +109,7 @@ Ans = HTML (HyperText Markup Language)
 <p>Hello World</p>
 <br />
 
-6. Difference between id and class?
+14. Difference between id and class?
 Ans = (id)
       Unique identifier for a single element.
       Can’t be reused on multiple elements in the same page.
@@ -124,7 +124,7 @@ Ans = (id)
       Lower CSS priority.
       Example: <p class="highlight">First paragraph</p>
 
-7. Difference between relative, absolute, and fixed URLs?
+15. Difference between relative, absolute, and fixed URLs?
 Ans = Relative URL
       Definition: Points to a file relative to the current page’s location.
       Use: Shorter, depends on where the file is stored.
@@ -140,7 +140,7 @@ Ans = Relative URL
       Use: Tied to a specific location, less flexible.
       Example: Starts from the root (home) of the website. <img src="/images/logo.png">
 
-8. What are data-* attributes used for?
+16. What are data-* attributes used for?
 Ans = Definition: data-* attributes are custom attributes in HTML used to store extra information about an element without
       affecting the layout and behavior.
       Purpose: They let developers add small bits of data to HTML elements, which can later be accessed with JavaScript.
@@ -149,7 +149,7 @@ Ans = Definition: data-* attributes are custom attributes in HTML used to store 
                const btn = document.querySelector("button");
                console.log(btn.dataset.userId);
 
-9. Difference between <script>, <script async>, and <script defer>?
+17. Difference between <script>, <script async>, and <script defer>?
 Ans = <script>
       Default behavior: Browser stops loading the page, runs the script immediately, then continues.
       Effect: Can block page rendering if the script is large.
@@ -162,7 +162,7 @@ Ans = <script>
       Behavior: Scripts load in the background but waits untill the Html is fully parsed.
       Effect: Script runs after the page is ready.
 
-10. Difference between <link> and @import for CSS?
+18. Difference between <link> and @import for CSS?
 Ans = (Link)
       where is used: It is used inside the Html.
       Deffination: It is an Html tag that is used to include the external CSS file.
@@ -177,12 +177,12 @@ Ans = (Link)
       Support: It is less Supported.
       Best for: Rarely used today.
 
-11. What are meta tags in HTML?
+19. What are meta tags in HTML?
 Ans = Meta tag in the html gave the metadata about the page. They describe the character encoding, 
       viewport setting, page description and author of the page. Always placed in the <head> element.
       Not visible to user, but important for the SEO, accessiblity, and browser behaviour.
 
-12. Difference between <canvas> and <svg>?
+20. Difference between <canvas> and <svg>?
 Ans = (Canvas):
       i) Canvas is pixels based. zooming can make it blurry.
       ii) Shapes are not stored as an element.
@@ -195,7 +195,7 @@ Ans = (Canvas):
       iii)Better for the static graphics like icons, diagram etc.
       iv) Scalable - Show good at any size.
 
-13. Difference between localStorage, sessionStorage, and cookies?
+21. Difference between localStorage, sessionStorage, and cookies?
 Ans = localStorage
       Definition: Stores data in the browser permanently (until manually cleared).
       Lifetime: Data stays even after closing the browser or restarting the computer.
@@ -214,13 +214,13 @@ Ans = localStorage
       Size limit: Much smaller (~4 KB).
       Use case: Authentication, tracking, server communication.
 
-14. What are accessibility (ARIA) attributes? Why important?
+22. What are accessibility (ARIA) attributes? Why important?
 Ans = ARIA(Accessible Rich Internet Application) attribute are the extra html attribute that make the   
       website usable for the peaple with disablity. They provide the information to the technologies 
       like (screen readers) about the roles, states and relationships of elements.
       Example = <button aria-label="Button">Click</button>
 
-15. Difference between <section>, <article>, <aside>, and <main>?
+23. Difference between <section>, <article>, <aside>, and <main>?
 Ans = <main>: The main content of the page, Only one <main> per page. 
       <section>: A part of the page that groups the related content.
       <article>: A block of content that can stand alone.
@@ -228,13 +228,25 @@ Ans = <main>: The main content of the page, Only one <main> per page.
 
 ## CSS ##
 
-1. Difference between relative, absolute, fixed, and sticky positioning with example?
+1. What is CSS and what does it stand for?
+Ans = CSS stands for Cascading Style Sheets. It is a style sheet language used to describe how HTML elements should look on a webpage.
+      While HTML gives the structure, CSS adds the design - colors, font, layout, spacing, animation and more.
+
+2. Describe the box model in CSS.
+Ans = The CSS box model describes how every html element is treated as a rectangular box.
+      Component of the box model are:
+      1. Content: The actual text, image or other data inside the element.
+      2. Padding: The space between the content and border.
+      3. Border: The line surrounding padding and content.
+      4. Margin: The space outside the border, seperating the element from other elements.
+
+3. Difference between relative, absolute, fixed, and sticky positioning with example?
 Ans = Relative: The element stays in the normal document flow, but you can shift it using(top, left, right or bottom).
       Absolute: It removes from the normal flow, and positioned relative to nearest position ancestor.
       Fixed: Position relative to the viewport, Stays fixed on the screen even when scrolling.
       Sticky: Acts relative untill a scroll threshold, then behave like fixed.
 
-2. What is the difference between inline, internal, and external CSS?
+4. What is the difference between inline, internal, and external CSS?
 Ans = Inline CSS: Written directly inside the html element using the style attribute, affects only that single element,
       It is hard to maintain in large projects Example = <p style="color:red;">Hello</p>
 
@@ -246,7 +258,7 @@ Ans = Inline CSS: Written directly inside the html element using the style attri
       pages at once, Best for performance and maintainablity. 
       Example = <link rel="stylesheet" href="style.css">
 
-3. Difference between relative units and absolute units (%, em, rem, vw, vh, px)?
+5. Difference between relative units and absolute units (%, em, rem, vw, vh, px)?
 Ans = Relative Units: It is responsive units means, they scale with the context(like parent size, root fontsize or viewport).
       Example of units are:
    a) %(percentage): Relative to parent element.
@@ -265,14 +277,40 @@ Ans = Relative Units: It is responsive units means, they scale with the context(
    a) px(pixels): Smallest unit of measurement on a digital screen they do not scale with the context.
       Example = p { font-size: 16px; } /* Always 16 pixels */
 
-4. What is the difference between Flexbox and CSS Grid? When to use which?
+6. What is the difference between Flexbox and CSS Grid? When to use which?
 Ans = Flexbox: A one dimensional layout system(works in a row OR column). It was best for aligning the item along a single axis.
       It was used in the Navigation bars, Centering the elements, distributing the even space between the items.
 
       Grid: A two dimensional layout system(works in rows AND columns). It was best for the complex page layout.
       It was used in the Dashboard, Full web page structure.
 
-5. Difference between inline vs block elements in terms of CSS?
+7. How can you center an element horizontally and vertically using CSS?
+Ans = There are several ways to do it depending on the situation.
+
+1. Flexbox: easiest and modern way
+      Example: .container {
+        display: flex;
+        justify-content: center; /* centers horizontally */
+        align-items: center;     /* centers vertically */
+        height: 100vh;           /* full viewport height */
+      }
+
+2. Grid : easiest and modest way
+      Example: .container {
+        display: grid;
+        place-items: center; /* shorthand for justify-content + align-items */
+        height: 100vh;
+      }
+
+3. Using Absolute Position + Transform: classic method
+      Example: .element {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+8. Difference between inline vs block elements in terms of CSS?
 Ans = Inline Elements: Does not start from the new line. Take as much width that are needed for there content. we can not set
       width/height directly. we can set the padding/margin in inline element but only in the left and right side not in the top/bottom.
       Multiple iinline element can sit together side by side. Example are <span>, <a>, <strong>.
@@ -280,26 +318,26 @@ Ans = Inline Elements: Does not start from the new line. Take as much width that
       Block Element: Starts fromt the new line. Takes the full width available. we can set the width, height, padding and margin.
       Each bloack element stacks vertically. Example are <div>, <p>, <section>.
 
-6. What is z-index and how does it work?
+9. What is z-index and how does it work?
 Ans = z-index: It controls the stacking order of element on a webpage. It only works with the element that have a 
       position(relative, absolute, fixed or sticky). The element that has the higher z-index appears on the top of the element has lower z-index.
 
-7. Explain the concept of CSS Specificity.
+10. Explain the concept of CSS Specificity.
 Ans = CSS specificity is the set of rules that determines which CSS rule takes priority when multiple style target the same element.
       Specificity is calculated basced on the type of selector:
       Inline > ID > Class, pseudo-classes > Elements and pseduo-elements.
 
-8. Difference between visibility: hidden and display: none?
+11. Difference between visibility: hidden and display: none?
 Ans = (visibility: hidden): Hides the element but still keeps its space in the layout.
       (display: none): Completely removes the element from the layout, and also its space is gone other element is shift to fill the gap.
 
-9. What is the difference between transform, transition, and animation in CSS?
+12. What is the difference between transform, transition, and animation in CSS?
 Ans = Transform: It is used to change the shape, size, or position of an element. It show the changes instantly no smooth effect by itself.
       Transition: Create the smooth effect when a property changes from one value to another. It show the changes when the element triggered 
       (like hover, focus or state change).
       Animation: Allows continuous, complex or repeat the effect using the keyframes. Effects can run automatically or in loop.
 
-10. What are pseudo-classes and pseudo-elements? Examples?
+13. What are pseudo-classes and pseudo-elements? Examples?
 Ans = Pseudo-classes: define the state of an element(like hover, focus etc). They let you style the element basced on the user interaction or 
       document structure without adding the extra classes.
       Example: a:hover{color: red} //change the link when hover.
@@ -308,17 +346,17 @@ Ans = Pseudo-classes: define the state of an element(like hover, focus etc). The
       they use the (::) double colon in modern css.
       Example: p::first-line{ color: green; }//style the first line of a paragraph.
 
-11. What are media queries and how do they work?
+14. What are media queries and how do they work?
 Ans = Media queries are a css feature that allow the developer to apply the style based on the specific conditions
       (like viewport width, height, orientation or device type). They are the backbone of responsive design, ensuring the website adapt to 
       desktop, tablets and mobile devices seamlessly.
       Syntax Exmaple: @media(condition) { /* CSS rules here */ }
 
-12. Difference between min-width and max-width in responsive design?
+15. Difference between min-width and max-width in responsive design?
 Ans = min-width: Styles apply when the screen width is greater than or equal to the specified value. Often used in (Mobile-first design).
       max-width: Styles apply when the screen width is less than or equal to the specified value. Often used in (Desktop-first design).
 
-13. Difference between CSS BEM methodology and normal CSS? 
+16. Difference between CSS BEM methodology and normal CSS? 
 Ans = Normal CSS
       Definition: Traditional CSS where you write selectors freely (.header, .nav ul li a, etc.).
       Issues:
@@ -336,6 +374,47 @@ Ans = Normal CSS
       No naming collisions.
       Easier to scale and maintain.
       Clear relationship between components.
+
+17. Explain the purpose of the float property in CSS.
+Ans = The float property is used to position an element to the left or right of its container, allowing other content(like text or inline elements) to wrap
+      around it. Orignally designed for wrapping text around images but later used for layout before Flexbox and Grid became popular.
+      Purpose of float are:
+      1. Warpping the text around the image.
+      2. Basic layouts before the modern css(grid/ flexbox) were introduced.
+      Values of the float are:
+      1. left: element float to the left, content wrap to right.
+      2. right: element float to the right, content wrap to left.
+      3. none: default, element stay in normall flow.
+      4. inherit: inherits the float value from its parent.
+
+18. Describe the difference between padding and margin.
+Ans = Padding:
+      Inside the border.
+      Space between the content & border.
+      Show element background color
+      
+      Margin:
+      Outside the border.
+      Space between the element and other elements.
+      Background is always transparent.
+
+19. What is a CSS preprocessor, and why might you use one?
+Ans = A CSS preprocessor is a tool that extend the basic feature of CSS by allowing you to write code in a more powerfull, structured and reusable way.
+      Popular preprocessor include SAAS, LESS and Stylus. You write style in the preprocessor syntax and then it compiles into standard CSS that browsers can understand.
+      Features of the preprocessor are: 
+      1. Variable: Store values like color, font or size in one place inside the variable.
+      2. Nesting: Write CSS in a hierarchical way that mirrors HTML structure.
+      3. Mixins: Reusable blocks of CSS code(like function).
+      4. Mathematical Operation: Perform calculation directly in CSS exmaple: .box{width : (100% /3); }.
+
+20. What is the "box-sizing" property in CSS?
+Ans = The box-sizing property determines how the browser calculates the width and height of an element.
+      It decides whether padding and border are included in the element’s total size or added on top of it.
+      Values of box-sizing:
+      1. content-box(default): Padding and border are added outside the specified width/height.
+      2. border-box: Width/height include content + padding + border.
+      3. inherit: The element inherits the box-sizing value from its parent.
+
 
 ## JavaScript ##
 
