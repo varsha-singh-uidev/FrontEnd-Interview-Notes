@@ -589,3 +589,90 @@ capital("i Love coding");
 // - Append all characters to a new string.
 // * Time Complexity: O(n) 
 // * Space Complexity: O(n)
+
+
+//Q24. Check if string has balanced parentheses
+function checkBalanced(string){
+    if(string.length === 0){
+        console.log("Balanced Paranthesis");
+        return;
+    }
+    let countParantheses = 0;
+    for(let index = 0; index < string.length; index++){
+        if(string[index] === "("){
+            countParantheses++;
+        }else if(string[index] === ")"){
+            countParantheses--;
+            if(countParantheses < 0){
+                console.log("Not Balanced Paranthesis");
+                return;
+            }
+        }
+    }
+    if(countParantheses === 0){
+        console.log("Balanced Paranthesis");
+    }else{
+        console.log("Not Balanced Paranthesis");
+    }
+}
+checkBalanced("((a+b) + (c+d)");//Not Balanced Paranthesis
+checkBalanced(")(");//Not Balanced Paranthesis
+checkBalanced("()");//Balanced Paranthesis
+
+// * Approach:
+//  *   - Use a counter to track balance:
+//       * Increment when encountering '('.
+//       * Decrement when encountering ')'.
+//       * If the counter ever goes negative, it means a closing parenthesis appeared before a matching opening → Not Balanced.
+//  *   - At the end:
+//       * If counter == 0 → Balanced.
+//       * Otherwise → Not Balanced.
+// 
+//  *   - Time Complexity: O(n) (single pass through the string).
+//  *   - Space Complexity: O(1) (only a counter variable).
+
+
+
+//Q25. check if the string has a balanced brackets 
+function checkBalancedBrackets(string){
+    let pair = {
+        "(" : ")",
+        "{" : "}",
+        "[" : "]"
+    }
+    let stack = [];
+    for(let index = 0; index < string.length; index++)
+    {   let bracket = string[index];
+        if(bracket === "{" || bracket === "(" || bracket === "[" )
+        {
+            stack.push(bracket);
+        }
+        else if(pair[stack[stack.length-1]] === bracket)
+        {
+            stack.pop();
+        }
+    }
+    if(stack.length === 0){
+        console.log("Balanced Paranthesis");
+    }else{
+        console.log("Not Balanced Paranthesis");
+    }
+}
+
+checkBalancedBrackets("{[()]}");//Balanced Paranthesis
+checkBalancedBrackets("{[(])}");//Not Balanced Paranthesis
+checkBalancedBrackets("{{[[(())]]}}");//Balanced Paranthesis
+checkBalancedBrackets("([)]");//Not Balanced Paranthesis
+
+// * Approach:
+//  *   - Use a stack to track opening brackets.
+//  *   - Push opening brackets onto the stack.
+//  *   - For each closing bracket, check if it matches the top of the stack:
+//        * If yes → pop the stack.
+//        * If no → immediately invalid.
+//  *   - At the end, if the stack is empty → Balanced; otherwise → Not Balanced.
+// 
+//  *   - Time Complexity: O(n) (single pass through the string).
+//  *   - Space Complexity: O(n) (stack may hold all opening brackets in worst case).
+
+
