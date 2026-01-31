@@ -562,3 +562,30 @@ removeSpace(" I Love   Codeing ");//I Love Codeing
 // - Each character is processed once during split and loop traversal. 
 // * Space Complexity: O(n) 
 // - Extra array created by split plus the new cleaned string.
+
+
+
+//Q23. Capitalize the first letter of each word without the built in methods.
+function capital(str){
+    let newString = "";
+    for(let index = 0; index < str.length; index++){
+        let charCode = str.charCodeAt(index);
+        if(index === 0 || str[index-1] === " "){
+            if(charCode >= 97 && charCode <= 122){
+                charCode = charCode - 32;
+            }
+        }
+        newString += String.fromCharCode(charCode);
+    }
+    console.log(newString);
+}
+capital("hello world");
+capital("i Love coding");
+
+// Approach:-
+// - Traverse the string character by character. 
+// - If the character is at the start or follows a space, check if it's lowercase. 
+// - Convert lowercase to uppercase using ASCII math (subtract 32). 
+// - Append all characters to a new string.
+// * Time Complexity: O(n) 
+// * Space Complexity: O(n)
