@@ -418,6 +418,17 @@ Ans = The box-sizing property determines how the browser calculates the width an
 
 ## JavaScript ##
 
+
+1. What is JavaScript?
+Ans = JavaScript is a high‑level, dynamic programming language primarily used to make web pages interactive and responsive.
+      
+      Key Characteristics of JavaScript
+      1. Client-side scripting language: Runs directly in the browser, enabling interactive features without reloading the page.
+      2. Versatile: Can update HTML structure, modify CSS styles, and respond to user actions (like clicks, typing, or scrolling).
+      3. Cross-platform: Works across all major browsers and operating systems.
+      4. Server-side capability: With tools like Node.js, JavaScript can also build backend applications.
+      5. Event-driven: Reacts to user input and system events in real time.
+
 1. Difference between var, let, and const?
 Ans = var: Function‑scoped (available throughout the function where declared).
       Hoisting: Hoisted to the top of its scope and initialized as undefined.
@@ -840,6 +851,23 @@ Ans = REST API:
       GraphQL caching is more complex.
       GraphQL returning only the requested fields.
       GraphQL is newer and popular in modern frontend frameworks like React.
+
+29. What is the purpose of the this keyword in JavaScript?
+Ans = The this keyword refers to the "object" that is currently executing the function.
+      Its value depends on how and where the function is called, not where it is defined.
+      Purpose of this are:
+      1. Object Context: Inside an object method, this refers to the object itself.
+      2. Global Context: In the global scope, this refer to the global object(window in browser.)
+      3. Constructor function/ Classes: in a constructor, this refer to the newly created object.
+      4. Event Handlers: In DOM event handlers, this usually refers to the element that received the event.
+      5. Arrow Function: Arrow function do not have their own this. They inherit this from the surrounding(lexical) scope.
+
+30. Explain the concept of prototypal inheritance in JavaScript.
+Ans = Prototypal inheritance is the mechanism in JavaScript by which objects can inherit properties and methods from other objects.
+      Every object in JavaScript has an internal link to another object called its prototype.
+      If you try to access a property or method that doesn’t exist on the object, JavaScript looks up the chain (the prototype chain) 
+      until it finds it or reaches null.
+
 
 ## React ##
 
