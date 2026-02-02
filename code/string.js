@@ -714,3 +714,25 @@ longestPrefix(["throne", "throne", "throne"]); // "throne"
 
 
 //Q27. Generate all substrings of a given string 
+function generateAllSubstrings(str) {
+    let substrings = [];
+
+    for (let i = 0; i < str.length; i++) {
+        for (let j = i; j < str.length; j++) {
+            substrings.push(str.slice(i, j + 1));
+        }
+    }
+
+    return substrings;
+}
+console.log(generateAllSubstrings("ABC")); // ["A", "AB", "ABC", "B", "BC", "C"]
+console.log(generateAllSubstrings("ADOBECODEBANC")); // "A", "AD", "ADO", ..., "BANC", etc.
+
+// * Approach:
+//   - Use two nested loops:
+//       * Outer loop chooses the start index (i).
+//       * Inner loop chooses the end index (j).
+//    - Slice the string from i to j+1 to get each substring.
+//    - Collect them in an array.
+//  - Time: O(n^2) substrings for a string of length n.
+//  - Space: O(n^2) to store all substrings.
