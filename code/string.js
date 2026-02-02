@@ -676,3 +676,41 @@ checkBalancedBrackets("([)]");//Not Balanced Paranthesis
 //  *   - Space Complexity: O(n) (stack may hold all opening brackets in worst case).
 
 
+
+//Q26. Find the longest common prefix among an array of strings.
+function longestPrefix(array){
+    if(array.length <= 1){
+        console.log(`Longest common prefix: "${array}"`);
+        return;
+    }
+    let prefix = array[0].split("");
+    for(let j = 1; j < array.length; j++){
+        let b = array[j].split("");
+        for(let i = 0; i < b.length; i++){
+            if(prefix[i] !== b[i]){
+                prefix = prefix.slice(0, i);
+                break;
+            }
+        }
+    }
+    console.log(`Longest common prefix: "${prefix.join("")}"`);
+}
+
+longestPrefix(["flower", "flow", "flight"]); // "fl"
+longestPrefix(["dog", "racecar", "car"]);    // ""
+longestPrefix(["alone"]);                    // "alone"
+longestPrefix(["throne", "throne", "throne"]); // "throne"
+
+ // * Approach (Horizontal Scanning):
+ //    - Start with the first string as the initial prefix.
+ //    - Compare this prefix with each subsequent string character by character.
+ //    - Shrink the prefix whenever a mismatch is found.
+ //    - Continue until all strings are processed.
+ // *  Time Complexity: O(n · m)
+ //      * n = number of strings
+ //      * m = length of the shortest string
+ // *  Space Complexity: O(m) (storing the prefix).
+
+
+
+//Q27. Generate all substrings of a given string 
