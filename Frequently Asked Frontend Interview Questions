@@ -466,18 +466,23 @@ Ans = Hoisting is JavaScript default behavior of moving declarations(not initial
       Function Declaration: Fully hoisted we can call them before they are defined.
       Function Expression / Arrow Function: Not hoisted.
 
-3. Difference between null and undefined?
-Ans = undefined
+3. Difference between null, undefined and undeclared?
+Ans = undefined:
       Definition: A variable that has been declared but not assigned a value is undefined.
       Default behavior: JavaScript automatically assigns undefined to uninitialized variables.
       Example: let a;
                console.log(a); //undefined
 
-      null
+      null:
       Definition: An intentional assignment of “no value.”
       Behavior: You explicitly set a variable to null to indicate it should be empty. 
       Example: let a = null;
                console.log(a); //null
+
+      undeclared:
+      Defination: A variable that has never been declared in the curent scope.
+      Behavior: You trying to access the variable that never deen declared will throws a "ReferenceError".
+      Example: console.log(x); //RefernceError: x is not defined
 
 4. What is closure in JavaScript?
 Ans = Deffination: A closure is formed when an inner function captures variables from its outer (lexical) scope.
@@ -603,6 +608,15 @@ Ans = A Promise in JavaScript is an Object that represent the eventual completio
       .finally() → run code regardless of success or failure.
       Promise.all() → run multiple promises in parallel, wait for all to finish.
       Promise.race() → returns the result of the first promise that settles.
+
+10. What is the purpose of the async keyword in JavaScript?
+Ans = The async keyword is used to declare a asynchronous function. An async function always returns a Promise, even if you return a simple value.
+      Inside an async function, you can use the 'await' keyword to pause execution until a Promise resolves.
+      Purpose of async are:
+      1. Simplifies Asynchronous Code: Instead of chaining .then() with Promises, you can write code that looks synchronous but runs asynchronously.
+      2. Automatic Promise Wrapping: Any value returned from an async function is automatically wrapped in a Promise.
+      3. Works with await: Lets you pause execution until a Promise resolves, making code easier to read.
+      4. Error Handling: You can use try...catch inside async functions to handle errors cleanly.
 
 10. Difference between promise chaining and async/await?
 Ans = Promise Chaining: It uses the .then() and .catch() to handle multiple asynchronous operation sequentially. Can became hard to read and manage when 
@@ -866,8 +880,60 @@ Ans = The this keyword refers to the "object" that is currently executing the fu
 Ans = Prototypal inheritance is the mechanism in JavaScript by which objects can inherit properties and methods from other objects.
       Every object in JavaScript has an internal link to another object called its prototype.
       If you try to access a property or method that doesn’t exist on the object, JavaScript looks up the chain (the prototype chain) 
-      until it finds it or reaches null.
+      until it finds it or reaches null. Many built-in methods(like toString(), hasOwnProperty()) come from Object.prototype.
+      Benefits are:
+      1. Code Reuse: Methods defined once can be shared across many objects.
+      2. Efficieny: Saves memory since methods are not duplicated for each object.
+      3. Flexiblity: Object can be extended dynamically.
 
+31. How do you handle errors in JavaScript?
+Ans = Ways to handle the Error in JavaScript are:
+      1. Using try...catch: Wrap the code that might throw an error inside a try block. If an error occurs, the catch block runs.
+      2. Using finally: The finally block runs always, whether an error occurs or not.
+      3. Error Objects: JavaScript errors are represented by the Error object.
+      Example:      
+      function divideNumbers(a, b){
+          try{
+              if(b === 0){
+                  throw new Error("Division by 0 is not allowed");
+              }
+              let result = a / b;
+              console.log(result);
+          }catch(error){
+              console.log("Error message", error);
+          }finally{
+              console.log("Division attempt finished");
+          }
+      }
+      divideNumbers(10, 0);
+
+32. Explain the concept of callback functions?
+Ans = A callback function is a function that is passed as an argument to another function, and is executed later. 
+      It’s called “callback” because the parent function calls-back the function you provided.
+      Example:
+      function greet(name, callback) {
+        console.log("Hello, " + name);
+        callback(); // call the function passed in
+      }
+
+      function sayGoodbye() { console.log("Goodbye!"); }
+
+      greet("bob", sayGoodbye); // Hello, bob // Goodbye!
+
+33. What is the event loop in JavaScript?
+Ans = The event loop is a mechanism in JavaScript that allows it to perform non-blocking operations despite being single-threaded.
+      It continuously checks the call stack and the message queue (or task queue), deciding what code to execute next.
+      This is how JavaScript manages asynchronous tasks like timers, promises, and I/O without freezing the page.
+      How it works:
+      1. Call Stack: Where JavaScript keeps track of function calls. Functions are pushed onto the stack when called, and popped off when they finish.
+      2. Web APIs/ Background Tasks: Asynchronous operations (like setTimeout, fetch, DOM events) are handled outside the stack by the browser’s Web APIs.
+      3. Callback/Task Queue: Once an async task finishes, its callback is placed in the queue.
+      4. Event Loop: The event loop constantly checks:
+       - If the call stack is empty → it takes the next callback from the queue and pushes it onto the stack.
+       - This ensures async tasks run only after synchronous code finishes.
+
+34. How do you create an object in JavaScript
+Ans = 
 
 ## React ##
 
