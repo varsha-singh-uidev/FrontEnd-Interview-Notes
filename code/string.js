@@ -292,18 +292,18 @@ checkDigit("1234");
 
 
 //Q14. Find number of occurrences of a substring
-function findCount(str, sub){
+function findSubString(string, subString){
     let count = 0;
-    let windowSize = sub.length;
-    for(let i = 0; i <= str.length - windowSize; i++){
-        let size = str.slice(i, i+windowSize);
-        if(sub === size){
+    let windowSize = subString.length;
+    for(let index = 0; index <= string.length-windowSize; index++){
+        let check = string.slice(index, windowSize+index);
+        if(check === subString){
             count++;
         }
     }
-    console.log(`Occurence of "${sub}" is ${count}`);
+    console.log(`Occurence of  SubString = ${subString} in String = ${string} is ${count} times`);
 }
-findCount("hellohello", "lo");
+findSubString("hellohello", "hello"); //Occurence of  SubString = hello in String = hellohello is 2 times
 
 // * Algorithm:
 //  - Determine the window size equal to the substring length.
