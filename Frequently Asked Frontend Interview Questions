@@ -429,7 +429,7 @@ Ans = JavaScript is a high‑level, dynamic programming language primarily used 
       4. Server-side capability: With tools like Node.js, JavaScript can also build backend applications.
       5. Event-driven: Reacts to user input and system events in real time.
 
-1. Difference between var, let, and const?
+2. Difference between var, let, and const?
 Ans = var: Function‑scoped (available throughout the function where declared).
       Hoisting: Hoisted to the top of its scope and initialized as undefined.
       Re‑declaration: Allowed (you can declare the same variable multiple times).
@@ -445,7 +445,7 @@ Ans = var: Function‑scoped (available throughout the function where declared).
       Re‑declaration: Not allowed.
       Re‑assignment: Not allowed (value is constant).
 
-2. What is the difference between == and ===?
+3. What is the difference between == and ===?
 Ans:  == (Loosly Equality Operator)
       Definition: Compares two values for equality after type conversion (type coercion).
       Behavior: If the types are different, JavaScript tries to convert them to the same type before comparing.
@@ -454,7 +454,7 @@ Ans:  == (Loosly Equality Operator)
       Definition: Compares two values for equality without type conversion.
       Behavior: Both value and type must match exactly.
 
-3. What is hoisting in JavaScript?
+4. What is hoisting in JavaScript?
 Ans = Hoisting is JavaScript default behavior of moving declarations(not initializations) to the top of their scope(function or global).
       Only the decleration is hoisted, not the assignment.
 
@@ -466,7 +466,7 @@ Ans = Hoisting is JavaScript default behavior of moving declarations(not initial
       Function Declaration: Fully hoisted we can call them before they are defined.
       Function Expression / Arrow Function: Not hoisted.
 
-3. Difference between null, undefined and undeclared?
+5. Difference between null, undefined and undeclared?
 Ans = undefined:
       Definition: A variable that has been declared but not assigned a value is undefined.
       Default behavior: JavaScript automatically assigns undefined to uninitialized variables.
@@ -484,7 +484,7 @@ Ans = undefined:
       Behavior: You trying to access the variable that never deen declared will throws a "ReferenceError".
       Example: console.log(x); //RefernceError: x is not defined
 
-4. What is closure in JavaScript?
+6. What is closure in JavaScript?
 Ans = Deffination: A closure is formed when an inner function captures variables from its outer (lexical) scope.
       Even after the outer function returns, the inner function retains access to those variables.
       This happens because JavaScript uses lexical scoping and keeps references to the environment where the function was created
@@ -498,7 +498,7 @@ Ans = Deffination: A closure is formed when an inner function captures variables
       const closure = outer(5);
       console.log(closure());
 
-5. Difference between synchronous and asynchronous JavaScript?
+7. Difference between synchronous and asynchronous JavaScript?
 Ans = Synchronous JavaScript
       Definition: Code is executed line by line, in order.
       Behavior: Each statement must finish before the next one starts.
@@ -509,7 +509,7 @@ Ans = Synchronous JavaScript
       Behavior: Long‑running tasks (like API calls, timers, file reads) run in the background, and results are handled later.
       Non‑Blocking: Other code executes while waiting.
 
-6. Difference between event bubbling and event capturing?
+8. Difference between event bubbling and event capturing?
 Ans = Event Bubbling:
       Definition: When an event occurs on an element, it first runs the handler on that target element, then on its parent, and continues up the DOM tree.
       Default behavior: Most events in JavaScript use bubbling by default.
@@ -525,7 +525,7 @@ Ans = Event Bubbling:
       div.addEventListener("click", () => alert("DIV clicked"), true);
       button.addEventListener("click", () => alert("Button clicked"), true);     
 
-7. What is the difference between call, apply, and bind methods?
+9. What is the difference between call, apply, and bind methods?
 Ans = call(): Invoked the function immediately, with a specified (this) value and arguments provide individually.
       Example: const user = {
                  name : "bob",
@@ -549,7 +549,7 @@ Ans = call(): Invoked the function immediately, with a specified (this) value an
       const bound = greet.bind(user, "america");
       bound();
 
-8. Difference between shallow copy and deep copy in JS?
+10. Difference between shallow copy and deep copy in JS?
 Ans = Shallow Copy
       Definition: A shallow copy duplicates only the top‑level properties of an object.
       Nested objects/arrays: They are not cloned — instead, the copy still points to the same reference in memory.
@@ -594,7 +594,7 @@ Ans = Shallow Copy
       const obj2 = deepCopy(obj1);
       console.log(obj2);
 
-9. What are promises in JavaScript?
+11. What are promises in JavaScript?
 Ans = A Promise in JavaScript is an Object that represent the eventual completion and failure of an asynchronous operation
       
       States of a Promise:
@@ -609,7 +609,7 @@ Ans = A Promise in JavaScript is an Object that represent the eventual completio
       Promise.all() → run multiple promises in parallel, wait for all to finish.
       Promise.race() → returns the result of the first promise that settles.
 
-10. What is the purpose of the async keyword in JavaScript?
+12. What is the purpose of the async keyword in JavaScript?
 Ans = The async keyword is used to declare a asynchronous function. An async function always returns a Promise, even if you return a simple value.
       Inside an async function, you can use the 'await' keyword to pause execution until a Promise resolves.
       Purpose of async are:
@@ -618,14 +618,14 @@ Ans = The async keyword is used to declare a asynchronous function. An async fun
       3. Works with await: Lets you pause execution until a Promise resolves, making code easier to read.
       4. Error Handling: You can use try...catch inside async functions to handle errors cleanly.
 
-10. Difference between promise chaining and async/await?
+13. Difference between promise chaining and async/await?
 Ans = Promise Chaining: It uses the .then() and .catch() to handle multiple asynchronous operation sequentially. Can became hard to read and manage when 
       many .then() blocks are chained. A single .catch() at the end to handle the error.
 
       async/await = It is syntactic sugar built on the top of promise that make the asynchronous code look synchronous. Uses the try...catch for error
       handling. Easier to read, write and debug compared to long chain of .then(). 
 
-11.What is the difference between localStorage and sessionStorage?
+14.What is the difference between localStorage and sessionStorage?
 Ans = LocalStorage vs SessionStorage in JavaScript
       1. Definition
       localStorage: Stores data in the browser with no expiration date. Data persists across tabs, and browser restarts until explicitly cleared.
@@ -644,11 +644,11 @@ Ans = LocalStorage vs SessionStorage in JavaScript
       Persisting login tokens (though not recommended for sensitive data).
       sessionStorage: Temporary form data, Shopping cart data for a single session and State that should reset when the tab closes.
 
-12. Difference between setTimeout and setInterval?
+15. Difference between setTimeout and setInterval?
 Ans = setTimeout = Runs once after a specified delay, We can clear the timeout using the clearTimeout(id) method.
       setInterval = Runs a function repeatedly at a specified interval, we can clear the interval using the clearInteval(id) method.
 
-13. What is the difference between arrow functions and normal functions?
+16. What is the difference between arrow functions and normal functions?
 Ans = Arrow Function: It was introduced in ES6. It was the shorter syntax to write the function. 
       Arrow function do not have their own this. They inherit the this from the lexical scope.
       Cannot be used as a constructor(new keyword won't work).
@@ -658,7 +658,7 @@ Ans = Arrow Function: It was introduced in ES6. It was the shorter syntax to wri
       Can be used as a constructor with new.
       Have their own argument object.
 
-14.Difference between for...in and for...of loops?
+17.Difference between for...in and for...of loops?
 Ans = for...in: Iterates over the keys (property names) of an object.
       Works on: Objects (and arrays, but not recommended).
 
@@ -673,7 +673,7 @@ Ans = for...in: Iterates over the keys (property names) of an object.
       const arr = ["a", "b", "c"];
       for(let value of arr){console.log(value);}
 
-15. What is the difference between DOM and BOM?
+18. What is the difference between DOM and BOM?
 Ans = DOM (Document Object Model): A programming interface for HTML documents.
       Purpose: Represents the structure and content of a webpage as a tree of nodes.
       Focus: Deals with document elements (tags, attributes, text).
@@ -682,11 +682,11 @@ Ans = DOM (Document Object Model): A programming interface for HTML documents.
       Purpose: Represents the browser environment outside the page content.
       Focus: Deals with browser features (window, history, location, navigator, screen).
 
-16. Difference between innerHTML and innerText?
+19. Difference between innerHTML and innerText?
 Ans = innerHTML: Retrun or set the HTML content inside an element — including the tags and the text between them.
       innerText: Return or set the visible text inside an element, ignoring the html tag.
 
-17. What is the difference between event delegation and event handling?
+20. What is the difference between event delegation and event handling?
 Ans = Event Handling: Attaching an event listener directly to the element you want to respond to.
       How it works: The listener is bound to that specific element.
       Use case: When you only need to handle events on a few known elements.
@@ -695,7 +695,7 @@ Ans = Event Handling: Attaching an event listener directly to the element you wa
       How it works: Instead of adding listeners to every <li>, you add one listener to the <ul> and use "event.target" to figure out which child triggered it.
       Use case: Efficient when handling events on many dynamic child elements (like items in a list).
 
-18. Difference between ES5 and ES6 features?
+21. Difference between ES5 and ES6 features?
 Ans = ES5:
       var only
       Normal function
@@ -710,14 +710,14 @@ Ans = ES5:
       Async handling are done by the "Promises"
       Introduce template literal
 
-19. What are higher-order functions in JavaScript?
+22. What are higher-order functions in JavaScript?
 Ans = A function is considered higher‑order if it does one (or both) of the following:
        i  Takes another function as input (argument).
        ii Returns a new function as output.
       This is possible because in JavaScript, functions are first‑class citizens — meaning they can be stored in variables, passed around, 
       and returned just like numbers or strings.
 
-20. What is the difference between JSON and JavaScript objects?
+23. What is the difference between JSON and JavaScript objects?
 Ans = JSON(JavaScript Object Notation): A text-based data format Mostly used when sending/receiving the data between server and browser.
       Keys and value must be in double quotes.
       Cannot store function and methods.      
@@ -734,7 +734,7 @@ Ans = JSON(JavaScript Object Notation): A text-based data format Mostly used whe
         greet: function() { console.log("Hello!"); }
       };
 
-21. Difference between mutable and immutable data in JS?
+24. Difference between mutable and immutable data in JS?
 Ans = Mutable Data: Data that can be changed/modified after it is created.
       Examples in JS: Objects, Arrays
       Behavior: If you change a property or element, the original data structure is updated.
@@ -743,7 +743,7 @@ Ans = Mutable Data: Data that can be changed/modified after it is created.
       Examples: Primitive types → string, number, boolean, null, undefined, symbol, bigint
       Behavior: If you try to change them, a new value is created instead of modifying the original.
 
-22. Difference between map(), forEach(), filter(), and reduce()?
+25. Difference between map(), forEach(), filter(), and reduce()?
 Ans = forEach(): Loops through each element of array and execute the callback.
       Return: Nothing(undefined)
       Example: const arr = [1, 2, 3];
@@ -767,7 +767,7 @@ Ans = forEach(): Loops through each element of array and execute the callback.
       const sum = arr.reduce((acc, num) => acc + num, 0);
       console.log(sum); // 10
 
-23. What is the difference between functional programming and OOP in JS?
+26. What is the difference between functional programming and OOP in JS?
 Ans = Object‑Oriented Programming (OOP)
       Organizes code around objects and classes (data + behavior together).
       Uses classes and instances.
@@ -784,7 +784,7 @@ Ans = Object‑Oriented Programming (OOP)
       Reusability comes from higher‑order functions and composition.
       Best for data processing pipelines (map, filter, reduce).
 
-24. Difference between prototype and __proto__?
+27. Difference between prototype and __proto__?
 Ans = prototype:
       exists on constructor function.
       Used to defines what property/method that should be inherited by all instances created with new.
@@ -798,7 +798,7 @@ Ans = prototype:
       a reference (pointer) to another object.
       used internally to connect objects in the prototype chain.
 
-25. What is the difference between class and constructor function in JS?
+28. What is the difference between class and constructor function in JS?
 Ans = class: 
       Classes are syntactic sugar over constructor functions.
       More readable and structured.
@@ -817,7 +817,7 @@ Ans = class:
       Introducing inheritance is error-prone.
       Not strict by default.
 
-26. Difference between import and require?
+29. Difference between import and require?
 Ans = require: 
       It is a older way of importing the modules in JavaScript.
       It loads the modules synchronously(one after another, bloacking).
@@ -832,7 +832,7 @@ Ans = require:
       must be at the top, but support dynamic import() too.
       hoisted to the top automatically.
 
-27. Difference between debouncing and throttling in JavaScript?
+30. Difference between debouncing and throttling in JavaScript?
 Ans = Debouncing:
       Run after user stop triggering the event.
       Debouncing is useful when you only want the action to happen once after a pause, like waiting until typing stops in a search box.
@@ -845,7 +845,7 @@ Ans = Debouncing:
       Throttling ignores extra events during the delay period and only allows the function to run once per set interval.
       Best for Scroll, mouse move, or repeated clicks.
 
-28. What is the difference between REST API and GraphQL in frontend usage?
+31. What is the difference between REST API and GraphQL in frontend usage?
 Ans = REST API:
       It stands for Representation State Transfer. It is a way for frontend and backend to talk to each other using HTTP requests.
       REST API uses many endpoints for different resources.
@@ -866,7 +866,7 @@ Ans = REST API:
       GraphQL returning only the requested fields.
       GraphQL is newer and popular in modern frontend frameworks like React.
 
-29. What is the purpose of the this keyword in JavaScript?
+32. What is the purpose of the this keyword in JavaScript?
 Ans = The this keyword refers to the "object" that is currently executing the function.
       Its value depends on how and where the function is called, not where it is defined.
       Purpose of this are:
@@ -876,7 +876,7 @@ Ans = The this keyword refers to the "object" that is currently executing the fu
       4. Event Handlers: In DOM event handlers, this usually refers to the element that received the event.
       5. Arrow Function: Arrow function do not have their own this. They inherit this from the surrounding(lexical) scope.
 
-30. Explain the concept of prototypal inheritance in JavaScript.
+33. Explain the concept of prototypal inheritance in JavaScript.
 Ans = Prototypal inheritance is the mechanism in JavaScript by which objects can inherit properties and methods from other objects.
       Every object in JavaScript has an internal link to another object called its prototype.
       If you try to access a property or method that doesn’t exist on the object, JavaScript looks up the chain (the prototype chain) 
@@ -886,7 +886,7 @@ Ans = Prototypal inheritance is the mechanism in JavaScript by which objects can
       2. Efficieny: Saves memory since methods are not duplicated for each object.
       3. Flexiblity: Object can be extended dynamically.
 
-31. How do you handle errors in JavaScript?
+34. How do you handle errors in JavaScript?
 Ans = Ways to handle the Error in JavaScript are:
       1. Using try...catch: Wrap the code that might throw an error inside a try block. If an error occurs, the catch block runs.
       2. Using finally: The finally block runs always, whether an error occurs or not.
@@ -907,7 +907,7 @@ Ans = Ways to handle the Error in JavaScript are:
       }
       divideNumbers(10, 0);
 
-32. Explain the concept of callback functions?
+35. Explain the concept of callback functions?
 Ans = A callback function is a function that is passed as an argument to another function, and is executed later. 
       It’s called “callback” because the parent function calls-back the function you provided.
       Example:
@@ -920,7 +920,7 @@ Ans = A callback function is a function that is passed as an argument to another
 
       greet("bob", sayGoodbye); // Hello, bob // Goodbye!
 
-33. What is the event loop in JavaScript?
+36. What is the event loop in JavaScript?
 Ans = The event loop is a mechanism in JavaScript that allows it to perform non-blocking operations despite being single-threaded.
       It continuously checks the call stack and the message queue (or task queue), deciding what code to execute next.
       This is how JavaScript manages asynchronous tasks like timers, promises, and I/O without freezing the page.
@@ -932,10 +932,20 @@ Ans = The event loop is a mechanism in JavaScript that allows it to perform non-
        - If the call stack is empty → it takes the next callback from the queue and pushes it onto the stack.
        - This ensures async tasks run only after synchronous code finishes.
 
-34. How do you create an object in JavaScript
-Ans = 
+37. How do you create an object in JavaScript
+Ans = There is multiple ways to create object:
+      1. Object Literal: It is a quick and simple way to create an object. Best for small, straight forward objects.
+      2. Using new Object(): Creates an empty object, then you add properties in it. Less common, but still valid.
+      3. Constructor Function: Define a function that acts like a blueprint. Useful when creating multiple similar objects.
+      4. Object.create(): Creates a new object with a specified prototype. Useful for prototype inheritance.
+
+38.  How does the typeof operator work in JavaScript?
+Ans = The typeof operator returns a string indicating the data type of the operand. It is useful for debugging, type checking and writing flexible code.
+      Example: console.log(typeof "Hello"); //"string"
+
 
 ## React ##
+
 
 1. What is the difference between functional and class components?
 Ans = Functional Component:
