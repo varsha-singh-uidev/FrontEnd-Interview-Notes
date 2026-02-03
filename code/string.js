@@ -804,3 +804,36 @@ minWindowSubString("ADOBECODEBANC", "ABC"); //BANC
 //  *
 //  - Time: O(n) — each character is visited at most twice (expand + shrink).
 //  - Space: O(n + m) for maps (n = length of s, m = length of t).
+
+
+
+// Given an array of strings, group the strings that are anagrams of each other.
+function groupAnagram(array){
+    let map = new Map();
+    for(let index = 0; index < array.length; index++){
+        let key  = array[index].split("").sort().join();
+        if(!map.has(key)){
+            map.set(key, []);
+        }
+        map.get(key).push(array[index]);
+    }
+    console.log(Array.from(map.values()));
+}
+groupAnagram(["eat", "tea", "tan", "ate", "nat", "bat"]);//[['eat','tea','ate'], ['tan','nat'], ['bat']]
+groupAnagram(["b"]);//[['b']]
+
+// * Approach (Hash Map + Sorted Signature):
+//  * 1. For each word in the array, compute a "signature" by sorting its characters.
+//  *     Example: "eat" → "aet", "tea" → "aet".
+//  * 2. Use a hash map (JavaScript Map) where:
+//  *     - Key = sorted signature string
+//  *     - Value = array of words that share this signature
+//  * 3. Insert each word into the map under its signature key.
+//  * 4. At the end, return all the grouped arrays (map values).
+//  * 
+ // * - Time: O(n · k log k)
+ // *     n = number of words
+ // *     k = average length of each word
+ // *     (sorting each word dominates the cost)
+ // * - Space: O(n · k)
+ // *     storing all words in the map grouped by signature
