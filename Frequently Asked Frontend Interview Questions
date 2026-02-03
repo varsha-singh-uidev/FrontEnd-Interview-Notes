@@ -226,6 +226,23 @@ Ans = <main>: The main content of the page, Only one <main> per page.
       <article>: A block of content that can stand alone.
       <aside>: Extra content on the side.
 
+24.  What is the importance of the viewport meta tag in responsive design?
+Ans = The viewport meta tag tells the browser how to control the page’s dimensions and scaling on different devices.
+      It’s written in HTML like this: <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+      Importance in Responsive Design
+      1. Controls Page Width: Without it, mobile browsers assume a default width (usually ~980px) and shrink the page, making text tiny.
+         With it, the page width matches the device’s screen width.
+
+      2. Enables Proper Scaling: initial-scale=1.0 ensures the page is displayed at a 1:1 scale (no zoom-out effect).
+
+      3. Supports Media Queries: CSS media queries rely on the viewport size.
+         Without the tag, breakpoints may not trigger correctly on mobile devices.
+
+      4. Improves User Experience: Text is readable without zooming.
+         Layout adapts naturally to different screen sizes (phones, tablets, desktops).
+
+
 ## CSS ##
 
 1. What is CSS and what does it stand for?
@@ -414,6 +431,77 @@ Ans = The box-sizing property determines how the browser calculates the width an
       1. content-box(default): Padding and border are added outside the specified width/height.
       2. border-box: Width/height include content + padding + border.
       3. inherit: The element inherits the box-sizing value from its parent.
+
+21. How can you optimize website performance using CSS?
+Ans = CSS Optimization Techniques are:
+
+      1. Minify CSS: Remove spaces, comments, and unnecessary characters. Example: Use tools like cssnano or CleanCSS.
+      2. Use External Stylesheets: Keep CSS in separate files so browsers can cache them.
+      3. Reduce Unused CSS: Remove unused selectors (tools like PurgeCSS help).
+      4. Use Shorthand Properties: Example: margin: 10px 20px; instead of writing four separate lines.
+      5. Optimize Animations: Use transform and opacity for smoother animations. Avoid costly properties like top, left.
+      6. Media Queries Efficiently: Apply responsive styles only when needed, reducing unnecessary rules.
+
+22.  How do you handle browser compatibility issues in CSS?
+Ans = Browser compatibility issues happen when different browsers display your CSS differently.
+      A property works in Chrome but not in Firefox.
+      Layout looks fine on desktop but breaks on mobile Safari.
+      Some modern CSS features (like Grid or Flexbox) aren’t supported in older browsers.
+
+      Ways to resolve them are: 
+      1. Vendor Prefixes: Some browsers need special prefixes for newer CSS features.
+      Example {
+        -webkit-transform: rotate(45deg); /* Chrome, Safari */
+      }
+
+      2. CSS Reset or Normalize: Browsers have their own default styles. A reset or normalize file makes them consistent.
+      Example: * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      3. Feature Detection: Instead of guessing which browser supports what, check directly.
+      Example: @supports (display: grid) {
+        .container {
+          display: grid;
+        }
+      }
+
+      4. Progressive Enhancement: Start with simple CSS that works everywhere, then add advanced features for modern browsers.
+      5. Tools and Testing: Test your site on multiple browsers (Chrome, Firefox, Safari, Edge, mobile).
+
+23. Explain the difference between adaptive and responsive design.
+Ans = Responsive Design:
+      Fluid and flexible: The layout stretches or shrinks smoothly depending on the screen size.
+      One design fits all: You build one layout that adapts continuously.
+      Uses relative units like %, em, rem, and media queries.
+      Behavior: Content flows and rearranges itself as the screen changes.
+      Example: A 3‑column layout on desktop → 2 columns on tablet → 1 column on mobile, all from the same design.
+
+      Adaptive Design:
+      Fixed layouts: You create multiple versions of the site for specific screen sizes (like 320px, 768px, 1024px).
+      Device detection: The browser chooses the right layout depending on the device.
+      Multiple designs: You prepare separate layouts for mobile, tablet, and desktop.
+      Behavior: The design doesn’t “stretch”; it switches between versions.
+      Example: A mobile site loads one layout, a desktop site loads another.
+
+      Key Differences are:
+      1. Flexibility:
+      Responsive: One flexible design that adjusts continuously.
+      Adaptive: Multiple fixed designs chosen based on device.
+
+      2. Development Effort:
+      Responsive: Build once, maintain one design.
+      Adaptive: Build and maintain several designs.
+
+      3. User Experience:
+      Responsive: Smooth resizing when you change window size.
+      Adaptive: Layout “jumps” when switching between breakpoints.
+
+      4. Best Use Case:
+      Responsive: Modern sites that need to work on a wide range of devices.
+      Adaptive: Sites targeting specific devices or needing very tailored layouts.
 
 
 ## JavaScript ##
@@ -942,6 +1030,29 @@ Ans = There is multiple ways to create object:
 38.  How does the typeof operator work in JavaScript?
 Ans = The typeof operator returns a string indicating the data type of the operand. It is useful for debugging, type checking and writing flexible code.
       Example: console.log(typeof "Hello"); //"string"
+
+39. How can you optimize website performance using JavaScript?
+Ans = JavaScript Optimization Techniques are:
+
+      1. Minify and Bundle JS: Compress code and combine files to reduce HTTP requests.
+      2. Defer or Async Loading: Use defer or async in <script> tags so JS doesn’t block HTML rendering. 
+      3. Lazy Loading: Load images, videos, or components only when needed.
+      4. Reduce DOM Manipulations: Batch updates instead of making multiple changes one by one.
+      5. Use Efficient Loops and Algorithms: Optimize logic to avoid unnecessary computations.
+      6. Cache Data: Store results locally (e.g., in localStorage or memory) to avoid repeated API calls.
+      7. Avoid Memory Leaks: Remove unused event listeners and references.
+
+40.  How do you handle browser compatibility issues in JavaScript?
+Ans = Browser compatibility issues happen when JavaScript code works in one browser but not in another.
+      Some features (like fetch, Promise, async/await) may not be supported in older browsers.
+      Different browsers may handle DOM methods or events differently.
+      ES6+ features (like arrow functions, classes, modules) might break in Internet Explorer.
+
+      Ways to resolve those issues:
+      1. Feature Detection: Instead of checking which browser is being used, check if the feature exists before using it.
+      2. Transpilers (like Babel): Write modern JavaScript (ES6+), and use Babel to convert it into older JavaScript that all browsers understand.
+      3. Graceful Fallbacks: If a feature isn’t supported, provide an alternative.
+      4. Testing Across Browsers: Always test your site on multiple browsers (Chrome, Firefox, Safari, Edge, mobile).
 
 
 ## React ##
