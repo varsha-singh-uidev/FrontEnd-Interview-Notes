@@ -179,8 +179,8 @@ function checkAnagram(word1, word2){
         console.log("Not a Anagram");
     }
 }
-checkAnagram("hello", "world");
-checkAnagram("silent", "listen");
+checkAnagram("hello", "world"); //Not a Anagram
+checkAnagram("silent", "listen"); //Anagram
 
 // * Algorithm:
 //  - Split both strings into characters.
@@ -196,7 +196,7 @@ function countWord(str){
     let newStr = str.trim().split(" ").length;
     console.log(newStr);
 }
-countWord("Hello everyone how are you?");
+countWord("Hello everyone how are you?");//5
 
 // * Algorithm:
 //  - Trim leading/trailing spaces.
@@ -213,7 +213,7 @@ function capitalize(str){
     console.log(newStr);
     
 }
-capitalize("Hello everyone how are you?");
+capitalize("Hello everyone how are you?"); //Hello Everyone How Are You?
 
 // * Algorithm:
 //  - Trim spaces.
@@ -238,7 +238,7 @@ function findDuplicate(str){
     }
     console.log(arr);
 }
-findDuplicate("DDuplliccateea");
+findDuplicate("DDuplliccateea");//[]D','l','c','a','e']
 
 // * Algorithm:
 //  - Create a frequency map of characters.
@@ -260,7 +260,7 @@ function removeDuplicate(str){
     }
     console.log(arr.join(""));
 }
-removeDuplicate("Voowwel");
+removeDuplicate("Voowwel"); 
 
 // * Algorithm:
 // * - Iterate through characters.
@@ -280,7 +280,7 @@ console.log("String only contain the digit.");
 console.log("String contain extra character apart from the digit.");
     }
 }
-checkDigit("1234");
+checkDigit("1234");//"String only contain the digit."
 
 //  * Algorithm:
 //  - Use regex pattern /^[0-9]+$/ to match entire string.
@@ -736,3 +736,71 @@ console.log(generateAllSubstrings("ADOBECODEBANC")); // "A", "AD", "ADO", ..., "
 //    - Collect them in an array.
 //  - Time: O(n^2) substrings for a string of length n.
 //  - Space: O(n^2) to store all substrings.
+
+
+
+// Minimum window substring
+function minWindowSubString(string, subString){
+    // create the frequency map of the subString
+    let need = {};
+    for(let char of subString){
+        need[char] = (need[char] || 0) +1;
+    }
+    let required = Object.keys(need).length;
+    
+    // set the sliding window
+    let left = 0;
+    let right = 0;
+    let slidWindow = {};
+    let formed = 0;
+    let minLen = Infinity;
+    let minWindow = "";
+    
+    // iterate over the string
+    while(right < string.length){
+        let char = string[right];
+        // adding the string element into the sliding window
+        slidWindow[char] = (slidWindow[char] || 0)+1;
+        // check if the char is present in the substring or not if yes increment the count
+        if(need[char] && slidWindow[char] === need[char]){
+            formed++;
+        }
+        // loop until the  formed is equal to the required
+        while(formed === required){
+            // check the minLen and upadate it also the minWindow
+            if(right-left+1 < minLen){
+                minLen = right-left+1;
+                minWindow = string.slice(left, right+1);
+            }
+            // shrink the slidWindow by removing the leftmost element
+            let leftChar = string[left];
+            slidWindow[leftChar]--;
+            // sub the formed by 1 
+            if(need[leftChar] && slidWindow[leftChar] < need[leftChar]){
+                formed--;
+            }
+            left++;
+        }
+        right++;
+    }
+    console.log(minWindow);
+}
+minWindowSubString("ADOBECODEBANC", "ABC"); //BANC
+
+// * Approach (Sliding Window + Frequency Map):
+//  *   1. Build a frequency map for t (need).
+//  *   2. Use two pointers (left, right) to expand and contract a window over s.
+//  *   3. Expand right until the window contains all required characters.
+//  *   4. Shrink left while the window is still valid, updating the minimum length.
+//  *   5. Continue until right reaches the end of s.
+//  *
+//  * Key Variables:
+//  *   - need: frequency map of characters in t
+//  *   - required: number of unique characters in t
+//  *   - slidWindow: frequency map of current window in s
+//  *   - formed: number of unique characters in window that meet required frequency
+//  *   - minLen: length of smallest valid window found
+//  *   - minWindow: substring corresponding to minLen
+//  *
+//  - Time: O(n) — each character is visited at most twice (expand + shrink).
+//  - Space: O(n + m) for maps (n = length of s, m = length of t).
