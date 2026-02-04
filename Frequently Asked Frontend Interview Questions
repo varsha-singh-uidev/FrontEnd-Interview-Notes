@@ -242,6 +242,22 @@ Ans = The viewport meta tag tells the browser how to control the page’s dimens
       4. Improves User Experience: Text is readable without zooming.
          Layout adapts naturally to different screen sizes (phones, tablets, desktops).
 
+25. How can you make a website accessible to users with disabilities?
+Ans = Not all users can interact with websites in the same way.
+      1. Some may have visual disabilities (blindness, low vision, color blindness).
+      2. Some may have hearing disabilities (cannot hear audio content).
+      3. Some may have motor disabilities (difficulty using a mouse or keyboard).
+      4. Some may have cognitive disabilities (need clear, simple layouts and content).
+
+      Ways to resolve those issues are:
+      1. Use semantic HTML: Proper tags (<header>, <nav>, <main>, <footer>) help screen readers understand the structure.
+      2. Provide alternative Text: Add alternative value for the image. Also provide captions or transcripts for videos and audio.
+      Example: <img src="chart.png" alt="Sales chart showing growth in 2025">
+      3. Keyboard Accessibility: Ensure all interactive elements (like: links, buttons, forms etc) can be used with the keyboard (Tab, Enter). 
+      Avoid designs that require only mouse actions.
+      4. Color and Contrast: Use high contrast between text and background. Don’t rely only on color to convey meaning (e.g., use icons or labels too).
+      5. ARIA (Accessible Rich Internet Applications) Attributes: Add ARIA roles and labels to improve screen reader support.
+      6. Responsive and Clear Layout: Make sure content is readable on all devices.
 
 ## CSS ##
 
@@ -1054,6 +1070,58 @@ Ans = Browser compatibility issues happen when JavaScript code works in one brow
       3. Graceful Fallbacks: If a feature isn’t supported, provide an alternative.
       4. Testing Across Browsers: Always test your site on multiple browsers (Chrome, Firefox, Safari, Edge, mobile).
 
+41. Explain the difference between adaptive and responsive design.
+Ans = Responsive Design:
+      You create one flexible layout that stretches or shrinks smoothly depending on the screen size.
+      Build and maintain ine design.
+      Content flows and rearrange itself as the screen size changes.
+      Best used for: Modern sites that need to work on a wide range of devices.
+      
+      Adaptive Design:
+      You create multiple version of the site for specific screen size(like 320px, 768x, 1024x).
+      Build and maintain several designs.
+      The design does not strech it switches between versions.
+      Best used for: Sites targeting specific devices or needing very tailored layouts.
+
+42. What is a CSS Framework, and why might you use one?
+Ans = A CSS Framework is a collection of pre-written CSS rules, styles, and sometimes JavaScript components that help you build websites faster and more 
+      consistently. Instead of writing all the CSS from scratch, you use the framework's ready-made classes and layouts. Ex: Bootstrap, Tailwind CSS etc.
+      
+      Key pointst that explain why use one:
+      1. Faster Development: You don’t need to design every button, form, or grid system yourself. It saves times especially in large projects.
+      2. Consistency: Frameworks ensure a uniform look of your site. 
+      3. Cross-Browser Compatibility: Frameworks handle quirks between browsers, so your site looks correct everywhere.
+      4. Community and Documentation: Popular frameworks have string communities, tutorial, and support. That made them easier to learn and troubleshoot.
+
+43. Explain the concept of a mobile-first approach in web development.
+Ans = The mobile‑first approach means you start designing and coding your website for mobile devices first, and then add styles for larger screens 
+      (like tablets and desktops). Write the default CSS for the mobile and then add media queries for larger screens.
+      Why use Mobile-First:
+      1. Most users browse on mobile: so it make sense to priotize mobile experience.
+      2. Better performance: mobile sites are lighter, faster and easier to load.
+      3. Progressive enhancement: you start with the basics and add more features for bigger devices.
+
+44. How do you prevent the default behavior of an event in JavaScript?
+Ans = In JavaScript, some events have default behaviors.
+      Examples:Clicking a link (<a>) → browser navigates to another page.
+      Submitting a form → page reloads.
+      Right‑clicking → context menu opens.
+      Sometimes you don’t want these default actions to happen. For example, you might want to handle the form submission with JavaScript instead of 
+      letting the browser reload. So in that case You use the (event.preventDefault()) method inside your event handler.
+      This tells the browser: “Don’t do the default action, I’ll handle it myself.
+
+45. Explain the purpose of the event.stopPropagation() method.
+Ans = In JavaScript, events can bubble up through the DOM.
+      Example: If you click a button inside a <div>, the click event first runs on the button, then “bubbles” up to the <div>, then to <body>, and so on.
+      Sometimes you don’t want the event to "trigger handlers on parent elements" — you only want it to run on the element itself.
+      That’s where (event.stopPropagation() comes in.)
+      
+      Example: <div id="parent" style="padding:20px; background:lightblue;"> <button id="child">Click Me</button> </div>
+      <script>
+      document.getElementById("child").addEventListener("click", function(event) { 
+      event.stopPropagation(); // stops bubbling 
+      alert("Button clicked only!"); });
+      </script>
 
 ## React ##
 
