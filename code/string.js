@@ -837,3 +837,46 @@ groupAnagram(["b"]);//[['b']]
  // *     (sorting each word dominates the cost)
  // * - Space: O(n · k)
  // *     storing all words in the map grouped by signature
+
+
+
+//  Implement a method to perform basic string compression using the counts of consecutive characters.
+function stringCompression(string){
+    if(string.length === 0){
+        return string;
+    }
+    let compressedString = "";
+    let count = 1;
+    for(let index = 1; index < string.length; index++){
+        if(string[index] === string[index - 1]){
+            count++;
+        }
+        else{
+            compressedString += string[index-1];
+            compressedString += count;
+            count = 1;
+        }
+    }
+    compressedString += string[string.length-1];
+    compressedString += count;
+    
+    return compressedString.length < string.length? compressedString : string;
+    
+}
+console.log(stringCompression("abc"));//abc
+console.log(stringCompression("aaabbccccd"));//a3b2c4d1
+console.log(stringCompression("aaa"));//a3
+
+// * Approach:
+//  *   1. Traverse the string from left to right.
+//  *   2. Track the count of consecutive repeating characters.
+//  *   3. When the current character differs from the previous one:
+//  *      - Append the previous character and its count to the compressed string.
+//  *      - Reset the count to 1.
+//  *   4. After the loop, append the last character and its count.
+//  *   5. Compare the length of the compressed string with the original string.
+//  *      - If compressed is shorter, return it.
+//  *      - Otherwise, return the original string.
+//  *   - Time: O(n), where n = length of the string (single pass).
+//  *   - Space: O(n), for building the compressed string.
+ 
