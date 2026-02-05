@@ -258,6 +258,17 @@ Ans = Not all users can interact with websites in the same way.
       5. ARIA (Accessible Rich Internet Applications) Attributes: Add ARIA roles and labels to improve screen reader support.
       6. Responsive and Clear Layout: Make sure content is readable on all devices.
 
+26.  Describe the significance of using the rel="preload" attribute.
+Ans = The rel="preload" attribute in HTML is used to tell the browser to load important resources early.
+
+      Significance of rel="preload" attribut are:
+      1. Faster Page Rendering: Preload ensures critical resources (like fonts, CSS, or scripts) are fetched as soon as possible.
+      2. Optimized Resource Loading: Normally, the browser discovers resources while parsing HTML.
+         With preload, you explicitly tell the browser: “This file is important, get it now.”
+      3. Improves User Experience: Fonts, styles, and scripts load earlier, preventing issues like “flash of unstyled text” (FOUT) or delayed interactivity.
+      4. Better Control for Developers: You can prioritize resources that matter most (e.g., hero image, main CSS, key fonts).
+         Avoids situations where less important files block important ones.
+
 
 ## CSS ##
 
@@ -758,10 +769,13 @@ Ans = Arrow Function: It was introduced in ES6. It was the shorter syntax to wri
       Arrow function do not have their own this. They inherit the this from the lexical scope.
       Cannot be used as a constructor(new keyword won't work).
       Do not have their own arguments object.
+      If the function body is a single expression, you don't need to return or {}.
+      Example: const add = (a, b) => a + b;
 
       Normal Function: Have their own this(depend how the function is called).
       Can be used as a constructor with new.
       Have their own argument object.
+      Example: function add(a,b){ return a+b; }
 
 17.Difference between for...in and for...of loops?
 Ans = for...in: Iterates over the keys (property names) of an object.
@@ -971,8 +985,8 @@ Ans = REST API:
       GraphQL returning only the requested fields.
       GraphQL is newer and popular in modern frontend frameworks like React.
 
-32. What is the purpose of the this keyword in JavaScript?
-Ans = The this keyword refers to the "object" that is currently executing the function.
+32. What is the purpose of the "this" keyword in JavaScript?
+Ans = The "this" keyword refers to the "object" that is currently executing the function.
       Its value depends on how and where the function is called, not where it is defined.
       Purpose of this are:
       1. Object Context: Inside an object method, this refers to the object itself.
@@ -1123,6 +1137,20 @@ Ans = In JavaScript, events can bubble up through the DOM.
       event.stopPropagation(); // stops bubbling 
       alert("Button clicked only!"); });
       </script>
+
+46. What is destructuring assignment in JavaScript?
+Ans = Destructuring Assignment is JavaScript is a way to unpack values from arrays or properties from objects into seperate variable in a clean and concise way.
+      Example: const number = [10, 20, 30];
+      const a = number[0];
+      console.log(a); //10
+
+    - Object Destructing Rule: Whne you destructure an object, the variable name must match the property name in the object unless you rename it
+      Example: const person = { name: "Varsha", age: 25 }; 
+               // Correct: variable names match property names 
+               const { name, age } = person; 
+              // Rename while destructuring 
+              const { name: userName, age: userAge } = person;
+
 
 ## React ##
 
@@ -1643,8 +1671,73 @@ Why Use Web Component:
       3. Consistency: Same look and behavior wherever you use it.
       4. Works Everywhere: They are browser standards, so they work with plain HTML, or framework like React, Angular, Vue.
 
+12. How do you optimize the loading time of a web page?
+Ans = Ways to Optimize Web Page Loading Time are:
+      1. Minimize HTTP Requests: Combine CSS/JS files where possible.
+      2. Compress Files: Compress and minify CSS, JavaScript and HTML files so the browser downloads the files faster.
+      3. Load script smartly: Use async or defer so JavaScript does not block the page from showing.
+      4. Cache Content: Let the browser save files so returning visitors dont re-download everything.
+      5. Use a CDN (Content Delivery Network): Deliver files from servers closer to the user for faster access.
+      6. Optimize fonts: Use fewer font styles and weights, and apply font-display: swap; so text shows quickly.
+      7. Efficient code and DOM updates: Avoid unnecessary re-renders, heavy loops, or too many DOM manipulations.
+
+      Importance of Optimize Loading time are:
+      1. Faster website = Better user experience.
+      2. Improves SEO.
+      3. Reduce bounce rate.
+      4. Saves bandwidth and server costs.
+
+13. What is the purpose of bundling and minification in web development?
+Ans = Bundling: Combine multiple files (like many CSS or JavaScript files) into one single file. Example: Instead of loading style1.css, style2.css you 
+      bundle them into style.css/
+      Importance: 
+      1. Fewer HTTP requests: browser does not need to fetch dozens of small files.
+      2. Easier to manage and deliver resources.
+
+      Minification: Remove unnecessary characters (spaces, comments, line breaks) from code without changing how it works.
+      Importance:
+      1. Smaller file size: Faster download.
+      2. Improves performance.
+
+14. How can you reduce the number of HTTP requests on a web page?
+Ans = Ways to Reduce HTTP Requests are:
+      1. Combine Files: Merge multiple CSS, JavaScript files into one. So, instead of loading 10 small files, load 1 bigger file.
+      2. Inline Critical CSS: Put the most important CSS directly in the HTML <head> so the browser doesn’t fetch another file for above‑the‑fold content.
+      3. Cache Resources: Let the browser reuse files instead of requesting them again.
+      4. Use a Content Delivery Network (CDN): Serve files from servers closer to the user, reducing repeated requests.
+      5. Remove Unused Resources: Delete unused CSS, JS, or fonts. Avoid loading libraries if you only use a small part of them.
+
+15. Describe the importance of using a content delivery network (CDN).
+Ans = A Content Delivery Network (CDN) is very important in modern web development because it helps websites load faster, stay reliable and handle more users smoothly.
+      Importance of Using a CDN are:
+      1. Faster Loading Times: CDNs store copies of your website’s static files (images, CSS, JS) on servers around the world.
+         When a user visits your site, files are delivered from the server closest to them → reduces latency.
+      2. Better Reliability & Availability: If one server goes down, another server in the CDN can serve the content.
+         This prevents downtime and keeps your site accessible.
+      3. Reduced Bandwidth Costs: Since CDNs cache content, fewer requests hit your origin server.
+         This saves bandwidth and reduces hosting costs.
+      4. SEO & User Experience: Faster sites rank better on search engines.
+         Users are more likely to stay on a site that loads quickly.
+      5. Scalability: CDNs can handle sudden traffic spikes (like during sales or viral events) without crashing your main server.
+
+16. What is tree shaking in the context of JavaScript and bundling?
+Ans = Tree shaking in JavaScript is a technique used during bundling (with tools like Webpack, Rollup, Parcel) to remove unused code from your final bundle.
+      It analyzes your code and “shakes off” parts (functions, variables, modules) that are imported but never actually used.
+      The result: smaller, faster bundles because unnecessary code doesn’t get shipped to the browser.
+
+17. How can you optimize images for a web page?
+Ans = Ways to Optimize Images for a Web Page are:
+      1. Choose the Right Format: Use modern formats like WebP or AVIF (smaller and faster than JPEG/PNG).
+         Use SVG for icons and simple graphics (scales perfectly, very lightweight).
+      2. Resize Images Properly: Don’t upload a 2000px image if you only need 400px. Match the image size to how it’s displayed on the page.
+      3. Compress Images: Use tools like TinyPNG, ImageOptim, or Squoosh to reduce file size without losing quality.
+      4. Use Lazy Loading: Load images only when they’re needed (e.g., when the user scrolls to them).
+      5. Use Caching & CDN: Store images on a Content Delivery Network (CDN) so they load faster from servers closer to the user.
+         Set proper cache headers so browsers don’t re-download unchanged images.
+
 
 ## General Frontend & Tools ##
+
 
 1. What is the difference between Git merge and Git rebase?
 Ans = Git Merge: 
