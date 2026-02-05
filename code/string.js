@@ -739,7 +739,7 @@ console.log(generateAllSubstrings("ADOBECODEBANC")); // "A", "AD", "ADO", ..., "
 
 
 
-// Minimum window substring
+//Q28 Minimum window substring
 function minWindowSubString(string, subString){
     // create the frequency map of the subString
     let need = {};
@@ -807,7 +807,7 @@ minWindowSubString("ADOBECODEBANC", "ABC"); //BANC
 
 
 
-// Given an array of strings, group the strings that are anagrams of each other.
+//Q29. Given an array of strings, group the strings that are anagrams of each other.
 function groupAnagram(array){
     let map = new Map();
     for(let index = 0; index < array.length; index++){
@@ -840,7 +840,7 @@ groupAnagram(["b"]);//[['b']]
 
 
 
-//  Implement a method to perform basic string compression using the counts of consecutive characters.
+//Q30. Implement a method to perform basic string compression using the counts of consecutive characters.
 function stringCompression(string){
     if(string.length === 0){
         return string;
@@ -880,3 +880,76 @@ console.log(stringCompression("aaa"));//a3
 //  *   - Time: O(n), where n = length of the string (single pass).
 //  *   - Space: O(n), for building the compressed string.
  
+
+
+//Q31. Check if two strings differ by exactly one character 
+// Problem:
+//  *   "Differ by one character" means:
+//  *     - One substitution (e.g., "cat" vs "bat")
+//  *     - One insertion (e.g., "cat" vs "cast")
+//  *     - One deletion (e.g., "cast" vs "cat")
+//  *   Identical strings or strings with more than one difference should return false.
+
+function differString(stringA, stringB){
+    // handle If strings are identical
+    if(stringA === stringB){
+        return false;
+    }
+    // If their length difference is greater than 1
+    if(Math.abs(stringA.length - stringB.length) > 1){
+        return false;
+    }
+
+    let ptr1 = 0;
+    let ptr2 = 0;
+    let mismatchCount = 0;
+    // Compare Character
+    while(ptr1 < stringA.length && ptr2 < stringB.length){
+        if(stringA[ptr1] === stringB[ptr2]){
+            ptr1++;
+            ptr2++;
+        }else{
+            mismatchCount++;
+            // early exist if the mismatchCount greater than 1
+            if(mismatchCount > 1) return false;
+
+            if(stringA.length === stringB.length){
+                ptr1++;
+                ptr2++;
+            }else if(stringA.length < stringB.length){
+                ptr2++;
+            }else{
+                ptr1++;
+            }
+        }
+    }
+
+    // handles extra character
+    if(ptr1 < stringA.length || ptr2 < stringB.length){
+        mismatchCount++;
+    }
+
+    return mismatchCount === 1;
+}
+
+console.log(differString("cat", "cast")); // true
+console.log(differString("cat", "dog")); // false
+console.log(differString("cat", "cat")); // false
+console.log(differString("cast", "cat")); // true
+
+// * Approach / Idea:
+//  *   1. If strings are identical → return false.
+//  *   2. If their length difference is greater than 1 → return false.
+//  *   3. Use two pointers (ptr1 for stringA, ptr2 for stringB) to traverse both strings.
+//  *   4. Compare characters:
+//  *      - If equal → move both pointers forward.
+//  *      - If different:
+//  *          - Increment mismatchCount.
+//  *          - If mismatchCount > 1 → return false immediately.
+//  *          - If lengths are equal → move both pointers (substitution case).
+//  *          - If one string is longer → move only that string’s pointer (insertion/deletion case).
+//  *   5. After the loop, if one string has a leftover trailing character,
+//  *      increment mismatchCount (this accounts for insertion/deletion at the end).
+//  *   6. Return true if mismatchCount === 1, otherwise false.
+//  *   - Time: O(n), where n = length of the shorter string (single pass).
+//  *   - Space: O(1), constant extra space for pointers and mismatch counter.
