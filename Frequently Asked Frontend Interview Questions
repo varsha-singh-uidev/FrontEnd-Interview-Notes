@@ -247,23 +247,24 @@ Ans = Not all users can interact with websites in the same way.
       1. Some may have visual disabilities (blindness, low vision, color blindness).
       2. Some may have hearing disabilities (cannot hear audio content).
       3. Some may have motor disabilities (difficulty using a mouse or keyboard).
-      4. Some may have cognitive disabilities (need clear, simple layouts and content).
 
       Ways to resolve those issues are:
       1. Use semantic HTML: Proper tags (<header>, <nav>, <main>, <footer>) help screen readers understand the structure.
       2. Provide alternative Text: Add alternative value for the image. Also provide captions or transcripts for videos and audio.
-      Example: <img src="chart.png" alt="Sales chart showing growth in 2025">
+         Example: <img src="chart.png" alt="Sales chart showing growth in 2025">
       3. Keyboard Accessibility: Ensure all interactive elements (like: links, buttons, forms etc) can be used with the keyboard (Tab, Enter). 
-      Avoid designs that require only mouse actions.
+         Avoid designs that require only mouse actions.
       4. Color and Contrast: Use high contrast between text and background. Don’t rely only on color to convey meaning (e.g., use icons or labels too).
       5. ARIA (Accessible Rich Internet Applications) Attributes: Add ARIA roles and labels to improve screen reader support.
       6. Responsive and Clear Layout: Make sure content is readable on all devices.
 
+
 ## CSS ##
 
+
 1. What is CSS and what does it stand for?
-Ans = CSS stands for Cascading Style Sheets. It is a style sheet language used to describe how HTML elements should look on a webpage.
-      While HTML gives the structure, CSS adds the design - colors, font, layout, spacing, animation and more.
+Ans = CSS stands for Cascading Style Sheets. It is a styling language used to describe how HTML elements should look on a webpage.
+      While HTML gives the structure, CSS adds the design - (colors, font, layout, spacing, animation and more).
 
 2. Describe the box model in CSS.
 Ans = The CSS box model describes how every html element is treated as a rectangular box.
@@ -274,7 +275,7 @@ Ans = The CSS box model describes how every html element is treated as a rectang
       4. Margin: The space outside the border, seperating the element from other elements.
 
 3. Difference between relative, absolute, fixed, and sticky positioning with example?
-Ans = Relative: The element stays in the normal document flow, but you can shift it using(top, left, right or bottom).
+Ans = Relative: The element stays in the normal document flow, but you can shift it using (top, left, right or bottom).
       Absolute: It removes from the normal flow, and positioned relative to nearest position ancestor.
       Fixed: Position relative to the viewport, Stays fixed on the screen even when scrolling.
       Sticky: Acts relative untill a scroll threshold, then behave like fixed.
@@ -345,8 +346,8 @@ Ans = There are several ways to do it depending on the situation.
 
 8. Difference between inline vs block elements in terms of CSS?
 Ans = Inline Elements: Does not start from the new line. Take as much width that are needed for there content. we can not set
-      width/height directly. we can set the padding/margin in inline element but only in the left and right side not in the top/bottom.
-      Multiple iinline element can sit together side by side. Example are <span>, <a>, <strong>.
+      width/height directly. We can set the padding/margin in inline element but only in the left and right side not in the top/bottom.
+      Multiple inline element can sit together side by side. Example are <span>, <a>, <strong>.
 
       Block Element: Starts fromt the new line. Takes the full width available. we can set the width, height, padding and margin.
       Each bloack element stacks vertically. Example are <div>, <p>, <section>.
@@ -367,11 +368,11 @@ Ans = (visibility: hidden): Hides the element but still keeps its space in the l
 12. What is the difference between transform, transition, and animation in CSS?
 Ans = Transform: It is used to change the shape, size, or position of an element. It show the changes instantly no smooth effect by itself.
       Transition: Create the smooth effect when a property changes from one value to another. It show the changes when the element triggered 
-      (like hover, focus or state change).
+                  (like hover, focus or state change).
       Animation: Allows continuous, complex or repeat the effect using the keyframes. Effects can run automatically or in loop.
 
 13. What are pseudo-classes and pseudo-elements? Examples?
-Ans = Pseudo-classes: define the state of an element(like hover, focus etc). They let you style the element basced on the user interaction or 
+Ans = Pseudo-classes: Define the state of an element(like hover, focus etc). They let you style the element basced on the user interaction or 
       document structure without adding the extra classes.
       Example: a:hover{color: red} //change the link when hover.
 
@@ -414,6 +415,7 @@ Ans = The float property is used to position an element to the left or right of 
       Purpose of float are:
       1. Warpping the text around the image.
       2. Basic layouts before the modern css(grid/ flexbox) were introduced.
+      
       Values of the float are:
       1. left: element float to the left, content wrap to right.
       2. right: element float to the right, content wrap to left.
@@ -450,7 +452,6 @@ Ans = The box-sizing property determines how the browser calculates the width an
 
 21. How can you optimize website performance using CSS?
 Ans = CSS Optimization Techniques are:
-
       1. Minify CSS: Remove spaces, comments, and unnecessary characters. Example: Use tools like cssnano or CleanCSS.
       2. Use External Stylesheets: Keep CSS in separate files so browsers can cache them.
       3. Reduce Unused CSS: Remove unused selectors (tools like PurgeCSS help).
