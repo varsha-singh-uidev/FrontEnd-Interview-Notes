@@ -537,7 +537,6 @@ Ans = Responsive Design:
 
 1. What is JavaScript?
 Ans = JavaScript is a high‑level, dynamic programming language primarily used to make web pages interactive and responsive.
-      
       Key Characteristics of JavaScript
       1. Client-side scripting language: Runs directly in the browser, enabling interactive features without reloading the page.
       2. Versatile: Can update HTML structure, modify CSS styles, and respond to user actions (like clicks, typing, or scrolling).
@@ -550,7 +549,7 @@ Ans = var: Function‑scoped (available throughout the function where declared).
       Hoisting: Hoisted to the top of its scope and initialized as undefined.
       Re‑declaration: Allowed (you can declare the same variable multiple times).
       Re‑assignment: Allowed.
-
+ 
       let: Block‑scoped (only available inside {} where declared).
       Hoisting: Hoisted but not initialized → Temporal Dead Zone until declared.
       Re‑declaration: Not allowed in the same scope.
@@ -584,7 +583,7 @@ Ans = Hoisting is JavaScript default behavior of moving declarations(not initial
 
 5. Difference between null, undefined and undeclared?
 Ans = undefined:
-      Definition: A variable that has been declared but not assigned a value is undefined.
+      Definition: A variable that has been declared but not assigned a value.
       Default behavior: JavaScript automatically assigns undefined to uninitialized variables.
       Example: let a;
                console.log(a); //undefined
@@ -603,7 +602,7 @@ Ans = undefined:
 6. What is closure in JavaScript?
 Ans = Deffination: A closure is formed when an inner function captures variables from its outer (lexical) scope.
       Even after the outer function returns, the inner function retains access to those variables.
-      This happens because JavaScript uses lexical scoping and keeps references to the environment where the function was created
+      This happens because JavaScript uses lexical scoping and keeps references to the environment where the function was created.
       Example: function outer(x){
                  let y = 10;
                  function inner(){
@@ -612,7 +611,7 @@ Ans = Deffination: A closure is formed when an inner function captures variables
                   return inner;
                  }
       const closure = outer(5);
-      console.log(closure());
+      console.log(closure()); //15
 
 7. Difference between synchronous and asynchronous JavaScript?
 Ans = Synchronous JavaScript
@@ -641,29 +640,29 @@ Ans = Event Bubbling:
       div.addEventListener("click", () => alert("DIV clicked"), true);
       button.addEventListener("click", () => alert("Button clicked"), true);     
 
-9. What is the difference between call, apply, and bind methods?
+9. What is the difference between call, apply, and bind methods?  
 Ans = call(): Invoked the function immediately, with a specified (this) value and arguments provide individually.
       Example: const user = {
                  name : "bob",
                  greet(){ console.log(`Hello ${this.name}`); }
                }
-      const sayhello = user.greet;
-      sayhello.call(user);
+               const sayhello = user.greet;
+               sayhello.call(user); Hello bob
 
       apply(): Similar to the (call()). Function invoked immediately but the argument are passed as an array.
       Exmaple: function greet(city1, city2){
                       console.log(`Hello, ${this.name} are you from ${city1} or ${city2}?`);
                 }
                const user = {name : "bob"}
-               greet.apply(user, ["america", "new york"]);
+               greet.apply(user, ["america", "new york"]); //Hello bob are you from america or new york?
 
       bind(): It is used when you want to fix the (this) context and want to reuse the function later this thing was commonly used in (event handlers).
       Exmaple: function greet(city1){
                   console.log(`Hello, ${this.name} are you from ${city1}?`);
                 }
-      const user = {name : "bob"};
-      const bound = greet.bind(user, "america");
-      bound();
+               const user = {name : "bob"};
+               const bound = greet.bind(user, "america");
+               bound(); //Hello bob are you from america?
 
 10. Difference between shallow copy and deep copy in JS?
 Ans = Shallow Copy
