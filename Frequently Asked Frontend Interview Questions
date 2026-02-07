@@ -1,6 +1,8 @@
 ## Most Frequently Asked Frontend Interview Question ##
 
+
 ## HTML ##
+
 
 1. What is HTML?
 Ans = HTML stand for HyperText Markup Language. Its purpose is to describe the structure of web pages using elements(tags) 
@@ -1790,3 +1792,39 @@ Ans = npm:
       Uses commands like yarn install, yarn run.
       Added workspace support earlier. 
       Popular in large projects, especially when npm had performance issues.
+
+4. What is the bundler?
+Ans = Deffination: They merge multiple modules and dependencies into fewer files (often just one or a few). Exa: Instead of loading 50 separate JS files, you get one bundle.js.      
+      Optimize Code: Remove Unused code(tree shaking). Minify and compress files to reduce size. Transpile modern JS code that older browser can understand.      
+      Handle Assets: Process CSS, images, font and other static files. Can inline small assets or optimize large ones.
+      Improve Performance: Fewer HTTP request → faster page loads. Smaller file sizes → better user experience.
+
+      Importance of Bundlers:
+      Modern apps use modules and external libraries. Browser don't natively understand all of them. Bundler act like a translator + optimizer, 
+      making sure everything works together and loads quickly.
+
+5. What is the difference between Webpack and Vite?
+Ans = Webpack:
+      Bundles everything upfront before serving.
+      Slower startup, esecially in large projects.
+      Highly configurable but complex.
+      Uses its own bundling system.
+      Mature, huge plugin ecosystem, widely adopted.
+      Best for large-scale apps needing deep customization.
+      
+      Vite:
+      Uses native ES modules in development, bundles inly for production.
+      Very fast startup and Hot Module Replacement(HMR).
+      Minimal configuration, simpler setup.
+      Uses rollup for optimized production builds.
+      Newer, growing ecosystem, focused on modern frameworks.
+      Best for modern apps where fast development experience is critical.
+
+6. Difference between Tailwind CSS and traditional CSS frameworks?
+Ans = Tailwind CSS:
+      Utility‑first, build custom designs using small classes.
+      Highly flexible, lets you create unique designs easily.  
+      
+      Traditional CSS framework:
+      Component‑based, use pre‑styled UI elements.
+      Less flexible, designs often look similar unless heavily customized.
