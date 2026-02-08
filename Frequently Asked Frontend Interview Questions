@@ -1824,7 +1824,55 @@ Ans = Webpack:
 Ans = Tailwind CSS:
       Utility‑first, build custom designs using small classes.
       Highly flexible, lets you create unique designs easily.  
+      Requires learning utility classes and thinking in terms of composition.
+      Minimizes writing custom CSS.
+      You control the design system (colors, spacing, typography).
       
       Traditional CSS framework:
       Component‑based, use pre‑styled UI elements.
       Less flexible, designs often look similar unless heavily customized.
+      Easier for beginners — just apply pre‑built classes.
+      Often requires extra CSS overrides for customization.
+      Consistency comes from the framework’s default theme.
+
+7. What are Lighthouse metrics for frontend performance?
+Ans = Lighthouse is a tool made by Google that checks how good your website is in terms of speed, accessibility, SEO, and user experience.
+      For frontend performance, it looks at how fast your page loads, how quickly it becomes usable, and how stable it feels while loading.
+      These checks are called metrics — they give scores that show whether your site feels smooth and fast to users.
+
+      Key Lighthouse Metrics for Frontend Performance are:
+      1. First Contentful Paint (FCP): Measures the time until the first text or image is painted on the screen.
+                                       Indicates how quickly users see something happening.
+      2. Largest Contentful Paint (LCP): When the main content is visible. Reflects how fast the main content loads. Target: ≤ 2.5 seconds.
+      3. Speed Index: Show how quickly content is visually displayed during the page is load. Lower is better.
+      4. Time to Interactive (TTI): Measures how long it takes for the page to become fully interactive. Important for user experience.
+      5. Total Blocking Time (TBT): Measures how much time the page is “stuck” before becoming interactive.
+      6. Cumulative Layout Shift (CLS): It measures how much the content on a webpage moves around unexpectedly while it’s loading.
+                                        Prevents annoying jumps in UI. Target: ≤ 0.1.
+      7. Performance Score: An overall score (0–100) based on the above metrics. Higher score = better frontend performance.
+
+8. What are Design Systems? Examples?
+Ans = A Design System is a structured collection of reusable components, styles, and guidelines that help teams build consistent user interfaces across products.
+      It’s more than just a UI library — it’s a single source of truth for design and development, combining visual standards (colors, typography, spacing) 
+      with coded components (buttons, forms, navigation) and documentation on how to use them.
+      
+      Importance of Design systems are:
+      1. Consistency → Ensures the same look and feel across apps and platforms.
+      2. Efficiency → Speeds up development by reusing components instead of reinventing them.
+      3. Collaboration → Aligns designers and developers with shared rules and assets.
+      4. Scalability → Makes it easier to maintain large projects or multiple products.
+
+9. Difference between monolith and microfrontend architecture?
+Ans = Monolith Architecture:
+      The entire frontend is built as one big application.
+      All features, pages, and components are tightly connected and deployed together.
+      One team works on the whole app.
+      Deploy everything together.
+      Harder to scale as app grows.
+
+      Microfrontend Archeitecture:
+      The frontend is split into smaller, independent applications (micro apps).
+      Each microfrontend handles a specific feature (like cart, search, profile).
+      Different teams works on different parts.
+      Deploy parts independently.
+      Easier to scale and manage.
