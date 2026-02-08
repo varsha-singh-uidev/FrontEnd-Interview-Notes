@@ -850,3 +850,31 @@ maxProduct([0,-2,-3,0,4]);//6
 // * - This ensures we capture maximum product even when negatives flip signs or zeros split the array.
 // - Time: O(n), single pass. 
 // - Space: O(1), constant extra space.
+
+
+
+//Q29. Implement a Custom Map Function
+Array.prototype.myMap = function(callback){
+    let output = [];
+    for(let index = 0; index < this.length; index++){
+        output.push(callback(this[index], index, this));
+    }
+    return output;
+}
+let arr = [1,2,3,4];
+let arr1 = arr.myMap(x => x * 2);
+console.log(arr1); //[2, 4, 6, 8]
+
+// * Approach / Idea:
+ // *   - Extend Array.prototype with a custom method `myMap`.
+ // *   - Accept a callback function as an argument.
+ // *   - Create an empty output array.
+ // *   - Iterate through the array using a `for` loop.
+ // *   - For each element:
+ // *       • Pass the element, its index, and the original array
+ // *         to the callback.
+ // *       • Push the callback’s return value into the output array.
+ // *   - Return the output array.
+// *   - Time: O(n), where n = length of the array.
+// *   - Space: O(n), for the new transformed array.
+ 
