@@ -906,24 +906,24 @@ Ans = Object‑Oriented Programming (OOP)
 
 27. Difference between prototype and __proto__?
 Ans = prototype:
-      exists on constructor function.
+      Exists on constructor function.
       Used to defines what property/method that should be inherited by all instances created with new.
-      used when creating reusable methods for all instances.
-      an object property of functions.
+      Used when creating reusable methods for all instances.
+      The prototype is a special property automatically attached to every function in JavaScript. (It’s an object that defines methods and 
+      properties shared by all instances created from that function.)
 
       __proto__:
-      exists on all objects.
+      Exists on all objects.
       It is a hidden property that points to the object's prototype.
-      used internally to connect objects in the prototype chain.
-      a reference (pointer) to another object.
-      used internally to connect objects in the prototype chain.
+      Used internally to connect objects in the prototype chain.
+      A reference (pointer) to another object.
 
 28. What is the difference between class and constructor function in JS?
 Ans = class: 
       Classes are syntactic sugar over constructor functions.
       More readable and structured.
       Not hoisted.
-      Both require new to create instances. but class throw error if new is missing.
+      Both require new to create instances. But class throw error if new is missing.
       Methods automatically go to prototype.
       Introduce inheritance using the extends and super.
       Always runs in strict mode. Safer by default.
@@ -940,17 +940,17 @@ Ans = class:
 29. Difference between import and require?
 Ans = require: 
       It is a older way of importing the modules in JavaScript.
-      It loads the modules synchronously(one after another, bloacking).
+      It loads the modules synchronously(one after another, blocking).
       Uses (module.exports).
-      can be called anywhere in the code.
+      Can be called anywhere in the code.
       Not hoisted, runs when called.
 
       import:
       It is a modern way.
-      It loads the modules asynchronously(non-bloacking).
+      It loads the modules asynchronously(non-blocking).
       Uses (export and export default).
-      must be at the top, but support dynamic import() too.
-      hoisted to the top automatically.
+      Must be at the top, but support dynamic import() too.
+      Hoisted to the top automatically.
 
 30. Difference between debouncing and throttling in JavaScript?
 Ans = Debouncing:
