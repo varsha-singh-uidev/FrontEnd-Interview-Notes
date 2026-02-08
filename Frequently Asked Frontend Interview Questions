@@ -834,11 +834,11 @@ Ans = ES5:
 Ans = A function is considered higher‑order if it does one (or both) of the following:
        i  Takes another function as input (argument).
        ii Returns a new function as output.
-      This is possible because in JavaScript, functions are first‑class citizens — meaning they can be stored in variables, passed around, 
+      This is possible because in JavaScript, functions are first—class citizens — meaning they can be stored in variables, passed around, 
       and returned just like numbers or strings.
 
 23. What is the difference between JSON and JavaScript objects?
-Ans = JSON(JavaScript Object Notation): A text-based data format Mostly used when sending/receiving the data between server and browser.
+Ans = JSON(JavaScript Object Notation): A text—based data format. Mostly used when sending/receiving the data between server and browser.
       Keys and value must be in double quotes.
       Cannot store function and methods.      
       Example {"name" : "bob", "role" : "developer"}
@@ -856,24 +856,24 @@ Ans = JSON(JavaScript Object Notation): A text-based data format Mostly used whe
 
 24. Difference between mutable and immutable data in JS?
 Ans = Mutable Data: Data that can be changed/modified after it is created.
-      Examples in JS: Objects, Arrays
       Behavior: If you change a property or element, the original data structure is updated.
+      Examples in JS: Objects, Arrays.
 
       Immutable Data: Data that cannot be changed once created. Any modification creates a new copy.
-      Examples: Primitive types → string, number, boolean, null, undefined, symbol, bigint
       Behavior: If you try to change them, a new value is created instead of modifying the original.
+      Examples: Primitive types → string, number, boolean, null, undefined, symbol, bigint.
 
 25. Difference between map(), forEach(), filter(), and reduce()?
-Ans = forEach(): Loops through each element of array and execute the callback.
-      Return: Nothing(undefined)
-      Example: const arr = [1, 2, 3];
-      arr.forEach(num => console.log(num * 2)); // Output: 2, 4, 6
-
-      map(): Creates a new array by transforming each element.
+Ans = map(): Creates a new array by transforming each element.
       Return: A new array of same length.
       Example: const arr = [1, 2, 3];
       const doubled = arr.map(num => num * 2);
       console.log(doubled); // [2, 4, 6]
+
+      forEach(): Loops through each element of array and execute the callback.
+      Return: Nothing(undefined)
+      Example: const arr = [1, 2, 3];
+      arr.forEach(num => console.log(num * 2)); // Output: 2, 4, 6
 
       filter(): Creates a new array with only elements that pass a condition.
       Return: A new array.
