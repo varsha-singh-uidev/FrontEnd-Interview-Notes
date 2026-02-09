@@ -1041,16 +1041,16 @@ Ans = A callback function is a function that is passed as an argument to another
       greet("bob", sayGoodbye); // Hello, bob // Goodbye!
 
 36. What is the event loop in JavaScript?
-Ans = The event loop is a mechanism in JavaScript that allows it to perform non-blocking operations despite being single-threaded.
-      It continuously checks the call stack and the message queue (or task queue), deciding what code to execute next.
+Ans = The event loop is a mechanism in JavaScript that allows it to handle asynchronous operations (like timers, promises, or I/O) without blocking the main thread.
+      It continuously checks the call stack and the message queue (or task queue), and moves tasks into the stack when it’s free.
       This is how JavaScript manages asynchronous tasks like timers, promises, and I/O without freezing the page.
       How it works:
       1. Call Stack: Where JavaScript keeps track of function calls. Functions are pushed onto the stack when called, and popped off when they finish.
       2. Web APIs/ Background Tasks: Asynchronous operations (like setTimeout, fetch, DOM events) are handled outside the stack by the browser’s Web APIs.
       3. Callback/Task Queue: Once an async task finishes, its callback is placed in the queue.
       4. Event Loop: The event loop constantly checks:
-       - If the call stack is empty → it takes the next callback from the queue and pushes it onto the stack.
-       - This ensures async tasks run only after synchronous code finishes.
+         - If the call stack is empty → it takes the next callback from the queue and pushes it onto the stack.
+         - This ensures async tasks run only after synchronous code finishes.
 
 37. How do you create an object in JavaScript
 Ans = There is multiple ways to create object:
@@ -1071,7 +1071,7 @@ Ans = JavaScript Optimization Techniques are:
       3. Lazy Loading: Load images, videos, or components only when needed.
       4. Reduce DOM Manipulations: Batch updates instead of making multiple changes one by one.
       5. Use Efficient Loops and Algorithms: Optimize logic to avoid unnecessary computations.
-      6. Cache Data: Store results locally (e.g., in localStorage or memory) to avoid repeated API calls.
+      6. Cache Data: Store results locally (e.g in localStorage or memory) to avoid repeated API calls.
       7. Avoid Memory Leaks: Remove unused event listeners and references.
 
 40.  How do you handle browser compatibility issues in JavaScript?
