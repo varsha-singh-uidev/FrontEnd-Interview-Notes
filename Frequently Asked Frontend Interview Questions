@@ -533,6 +533,24 @@ Ans = Responsive Design:
       Responsive: Modern sites that need to work on a wide range of devices.
       Adaptive: Sites targeting specific devices or needing very tailored layouts.
 
+24.  What is a CSS Framework, and why might you use one?
+Ans = A CSS Framework is a collection of pre-written CSS rules, styles, and sometimes JavaScript components that help you build websites faster and more 
+      consistently. Instead of writing all the CSS from scratch, you use the framework's ready-made classes and layouts. Ex: Bootstrap, Tailwind CSS etc.
+      
+      Key pointst that explain why use one:
+      1. Faster Development: You don’t need to design every button, form, or grid system yourself. It saves times especially in large projects.
+      2. Consistency: Frameworks ensure a uniform look of your site. 
+      3. Cross-Browser Compatibility: Frameworks handle quirks between browsers, so your site looks correct everywhere.
+      4. Community and Documentation: Popular frameworks have string communities, tutorial, and support. That made them easier to learn and troubleshoot.
+
+25. Explain the concept of a mobile-first approach in web development.
+Ans = The mobile‑first approach means you start designing and coding your website for mobile devices first, and then add styles for larger screens 
+      (like tablets and desktops). Write the default CSS for the mobile and then add media queries for larger screens.
+      Why use Mobile-First:
+      1. Most users browse on mobile: so it make sense to priotize mobile experience.
+      2. Better performance: mobile sites are lighter, faster and easier to load.
+      3. Progressive enhancement: you start with the basics and add more features for bigger devices.
+
 
 ## JavaScript ##
 
@@ -1099,25 +1117,7 @@ Ans = Responsive Design:
       The design does not strech it switches between versions.
       Best used for: Sites targeting specific devices or needing very tailored layouts.
 
-42. What is a CSS Framework, and why might you use one?
-Ans = A CSS Framework is a collection of pre-written CSS rules, styles, and sometimes JavaScript components that help you build websites faster and more 
-      consistently. Instead of writing all the CSS from scratch, you use the framework's ready-made classes and layouts. Ex: Bootstrap, Tailwind CSS etc.
-      
-      Key pointst that explain why use one:
-      1. Faster Development: You don’t need to design every button, form, or grid system yourself. It saves times especially in large projects.
-      2. Consistency: Frameworks ensure a uniform look of your site. 
-      3. Cross-Browser Compatibility: Frameworks handle quirks between browsers, so your site looks correct everywhere.
-      4. Community and Documentation: Popular frameworks have string communities, tutorial, and support. That made them easier to learn and troubleshoot.
-
-43. Explain the concept of a mobile-first approach in web development.
-Ans = The mobile‑first approach means you start designing and coding your website for mobile devices first, and then add styles for larger screens 
-      (like tablets and desktops). Write the default CSS for the mobile and then add media queries for larger screens.
-      Why use Mobile-First:
-      1. Most users browse on mobile: so it make sense to priotize mobile experience.
-      2. Better performance: mobile sites are lighter, faster and easier to load.
-      3. Progressive enhancement: you start with the basics and add more features for bigger devices.
-
-44. How do you prevent the default behavior of an event in JavaScript?
+42. How do you prevent the default behavior of an event in JavaScript?
 Ans = In JavaScript, some events have default behaviors.
       Examples:Clicking a link (<a>) → browser navigates to another page.
       Submitting a form → page reloads.
@@ -1126,7 +1126,7 @@ Ans = In JavaScript, some events have default behaviors.
       letting the browser reload. So in that case You use the (event.preventDefault()) method inside your event handler.
       This tells the browser: “Don’t do the default action, I’ll handle it myself.
 
-45. Explain the purpose of the event.stopPropagation() method.
+43. Explain the purpose of the event.stopPropagation() method.
 Ans = In JavaScript, events can bubble up through the DOM.
       Example: If you click a button inside a <div>, the click event first runs on the button, then “bubbles” up to the <div>, then to <body>, and so on.
       Sometimes you don’t want the event to "trigger handlers on parent elements" — you only want it to run on the element itself.
@@ -1139,7 +1139,7 @@ Ans = In JavaScript, events can bubble up through the DOM.
       alert("Button clicked only!"); });
       </script>
 
-46. What is destructuring assignment in JavaScript?
+44. What is destructuring assignment in JavaScript?
 Ans = Destructuring Assignment is JavaScript is a way to unpack values from arrays or properties from objects into seperate variable in a clean and concise way.
       Example: const number = [10, 20, 30];
       const a = number[0];
