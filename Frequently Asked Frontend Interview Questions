@@ -1119,7 +1119,7 @@ Ans = Responsive Design:
 
 42. How do you prevent the default behavior of an event in JavaScript?
 Ans = In JavaScript, some events have default behaviors.
-      Examples:Clicking a link (<a>) → browser navigates to another page.
+      Examples: Clicking a link (<a>) → browser navigates to another page.
       Submitting a form → page reloads.
       Right‑clicking → context menu opens.
       Sometimes you don’t want these default actions to happen. For example, you might want to handle the form submission with JavaScript instead of 
@@ -1145,7 +1145,7 @@ Ans = Destructuring Assignment is JavaScript is a way to unpack values from arra
       const a = number[0];
       console.log(a); //10
 
-    - Object Destructing Rule: Whne you destructure an object, the variable name must match the property name in the object unless you rename it
+    * Object Destructing Rule: When you destructure an object, the variable name must match the property name in the object unless you rename it.
       Example: const person = { name: "Varsha", age: 25 }; 
                // Correct: variable names match property names 
                const { name, age } = person; 
