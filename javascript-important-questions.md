@@ -1,4 +1,4 @@
-##### Interview Questions ##### 
+## Interview Questions ##
 
 Interviewer: What is a scripting language?
 You: A scripting language is a programming language that doesn’t need to be compiled into machine code first. Instead, it’s interpreted line by line when the program runs. This makes it easier to write small programs quickly, automate tasks, and add features to websites or applications. Examples include JavaScript, Python, and PHP.
