@@ -871,8 +871,7 @@ console.log(arr1); //[2, 4, 6, 8]
  // *   - Create an empty output array.
  // *   - Iterate through the array using a `for` loop.
  // *   - For each element:
- // *       • Pass the element, its index, and the original array
- // *         to the callback.
+ // *       • Pass the element, its index, and the original array to the callback.
  // *       • Push the callback’s return value into the output array.
  // *   - Return the output array.
 // *   - Time: O(n), where n = length of the array.
