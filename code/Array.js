@@ -877,3 +877,32 @@ console.log(arr1); //[2, 4, 6, 8]
 // *   - Time: O(n), where n = length of the array.
 // *   - Space: O(n), for the new transformed array.
  
+//Q30. Remove Duplicates from Sorted Array(in-place)
+function removeDuplicate(nums){
+    let i = 0;
+    for(let j = 1; j < nums.length; j++){
+        if(nums[j] !== nums[i]){
+            i++;
+            nums[i] = nums[j];
+        }
+    }
+    return i + 1;
+}
+
+let nums = [0,1,1,2,3,3,4,4];
+let k = removeDuplicate(nums);
+console.log(k);            // 5
+console.log(nums.slice(0,k)); // [0,1,2,3,4]
+
+// * Core Idea:
+//   - Use two pointers: `i` (tracks last unique element) and `j` (scans array).
+//   - If nums[j] is different from nums[i], increment i and copy the value of nums[j] to nums[i].
+//   - At the end, i+1 gives the count of unique elements.
+//   - Slice the array up to k to get the unique values.
+// * Why it works:
+//   - The array is sorted, so duplicates are always adjacent.
+//   - This allows us to overwrite duplicates in-place without extra memory.
+// * Time Complexity:  O(n) → single pass through the array.
+// * Space Complexity: O(1) → in-place modification, no extra storage.
+
+
